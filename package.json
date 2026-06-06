@@ -1,0 +1,13 @@
+{
+  "name": "site-psicologia-ester",
+  "version": "1.0.0",
+  "description": "Website para Ester Figueiredo - Psicologia Clínica",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0"
+  }
+}
