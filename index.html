@@ -345,7 +345,7 @@
             Agendar
         </a>
         <!-- Mobile Menu Button -->
-        <button class="md:hidden text-primary p-2">
+        <button id="mobile-menu-btn" class="md:hidden text-primary p-2">
             <span class="material-symbols-outlined">menu</span>
         </button>
     </div>
@@ -523,7 +523,7 @@
                     Reflexões, dicas e links úteis para pacientes, psicólogos e estudantes.
                 </p>
 </div>
-<a class="hidden md:flex items-center text-primary hover:text-primary-fixed-dim transition-colors font-label-md" href="#">
+<a class="hidden md:flex items-center text-primary hover:text-primary-fixed-dim transition-colors font-label-md blog-see-all" href="javascript:void(0)">
         Ver todos
         <span class="material-symbols-outlined ml-1 text-sm">arrow_forward</span>
 </a>
@@ -538,7 +538,7 @@
 <p class="font-body-md text-body-md text-on-surface-variant text-sm mb-4 flex-grow">
             Uma seleção especial de livros e itens de decoração para transformar seu ambiente de trabalho ou estudo.
         </p>
-<a class="inline-flex items-center text-primary font-typewriter text-sm hover:underline" href="#">
+<a class="inline-flex items-center text-primary font-typewriter text-sm hover:underline read-article-btn" data-id="1" href="javascript:void(0)">
             Ler artigo <span class="material-symbols-outlined ml-1 text-sm">arrow_forward</span>
 </a>
 </div>
@@ -552,7 +552,7 @@
 <p class="font-body-md text-body-md text-on-surface-variant text-sm mb-4 flex-grow">
             Estratégias práticas para reconhecer os sinais de exaustão e encontrar pausas significativas no seu dia.
         </p>
-<a class="inline-flex items-center text-primary font-typewriter text-sm hover:underline" href="#">
+<a class="inline-flex items-center text-primary font-typewriter text-sm hover:underline read-article-btn" data-id="2" href="javascript:void(0)">
             Ler artigo <span class="material-symbols-outlined ml-1 text-sm">arrow_forward</span>
 </a>
 </div>
@@ -566,14 +566,14 @@
 <p class="font-body-md text-body-md text-on-surface-variant text-sm mb-4 flex-grow">
             Como colocar seus pensamentos no papel pode ajudar na organização emocional e alívio da ansiedade.
         </p>
-<a class="inline-flex items-center text-primary font-typewriter text-sm hover:underline" href="#">
+<a class="inline-flex items-center text-primary font-typewriter text-sm hover:underline read-article-btn" data-id="3" href="javascript:void(0)">
             Ler artigo <span class="material-symbols-outlined ml-1 text-sm">arrow_forward</span>
 </a>
 </div>
 </article>
 </div>
 <div class="mt-md text-center md:hidden">
-<a class="inline-flex items-center text-primary hover:text-primary-fixed-dim transition-colors font-typewriter text-sm" href="#">
+<a class="inline-flex items-center text-primary hover:text-primary-fixed-dim transition-colors font-typewriter text-sm blog-see-all" href="javascript:void(0)">
         Ver todos
         <span class="material-symbols-outlined ml-1 text-sm">arrow_forward</span>
 </a>
@@ -627,7 +627,7 @@
 <input class="w-full bg-white/50 border-b-2 border-outline-variant px-4 py-3 text-body-md focus:border-primary focus:ring-0 transition-colors bg-transparent border-t-0 border-x-0" id="location" name="location" placeholder="Ex: Rio de Janeiro, RJ" type="text"/>
 </div>
 </div>
-<button class="w-full mt-8 bg-primary text-on-primary py-4 rounded-md font-typewriter text-lg hover:bg-primary/90 transition-colors hover-lift shadow-md" type="button">
+<button id="waitlist-submit" class="w-full mt-8 bg-primary text-on-primary py-4 rounded-md font-typewriter text-lg hover:bg-primary/90 transition-colors hover-lift shadow-md" type="button">
                 Entrar na Lista de Espera
             </button>
 </form>
@@ -695,9 +695,9 @@
     </a>
 </div>
 <div class="flex flex-wrap justify-center gap-md font-typewriter text-xs">
-<a class="text-on-surface-variant hover:text-secondary transition-colors" href="#">Termos de Uso</a>
-<a class="text-on-surface-variant hover:text-secondary transition-colors" href="#">Política de Privacidade</a>
-<a class="text-on-surface-variant hover:text-secondary transition-colors" href="#">Contato</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors" href="javascript:void(0)" id="terms-link">Termos de Uso</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors" href="javascript:void(0)" id="privacy-link">Política de Privacidade</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors" href="#lista-espera">Contato</a>
 </div>
 <div class="text-secondary dark:text-secondary-fixed font-typewriter text-xs text-center mt-md">
             © 2024 Ester Figueiredo - Psicóloga Clínica. Todos os direitos reservados.
@@ -705,7 +705,380 @@
 </footer>
 <!-- Emergency Exit FAB (Fixed) -->
 <a class="fixed bottom-6 right-6 bg-surface-container-highest text-on-surface-variant px-4 py-2 rounded-full font-typewriter text-xs ambient-shadow hover:bg-surface-variant transition-colors flex items-center gap-2 z-50 border border-outline-variant/30 opacity-80 hover:opacity-100" href="https://cvv.org.br/" rel="noopener noreferrer" target="_blank">
-<span class="material-symbols-outlined text-sm">emergency</span>
-        Precisa de ajuda agora?
-    </a>
+    <span class="material-symbols-outlined text-sm">emergency</span>
+    Precisa de ajuda agora?
+</a>
+
+<!-- Mobile Navigation Drawer -->
+<div id="mobile-menu" class="fixed inset-0 z-[100] bg-black/50 backdrop-blur-sm transition-opacity duration-300 opacity-0 pointer-events-none">
+    <div class="fixed top-0 right-0 h-full w-4/5 max-w-sm bg-surface p-6 shadow-2xl transition-transform duration-300 translate-x-full flex flex-col gap-6" id="mobile-menu-drawer">
+        <div class="flex justify-between items-center border-b border-surface-variant/50 pb-4">
+            <span class="font-typewriter text-xl text-primary font-bold">Navegação</span>
+            <button id="mobile-menu-close" class="text-primary p-2">
+                <span class="material-symbols-outlined text-2xl">close</span>
+            </button>
+        </div>
+        <div class="flex flex-col gap-4 font-typewriter text-lg">
+            <a class="text-on-surface hover:text-primary transition-colors py-2 border-b border-surface-variant/30" href="#sobre">Sobre</a>
+            <a class="text-on-surface hover:text-primary transition-colors py-2 border-b border-surface-variant/30" href="#comofunciona">Como Funciona</a>
+            <a class="text-on-surface hover:text-primary transition-colors py-2 border-b border-surface-variant/30" href="#diferenciais">Diferenciais</a>
+            <a class="text-on-surface hover:text-primary transition-colors py-2 border-b border-surface-variant/30" href="#valores">Valores</a>
+            <a class="text-on-surface hover:text-primary transition-colors py-2 border-b border-surface-variant/30" href="#blog">Blog</a>
+            <a class="text-on-surface hover:text-primary transition-colors py-2 border-b border-surface-variant/30" href="#faq">FAQ</a>
+            <a class="text-on-surface hover:text-primary transition-colors py-2 border-b border-surface-variant/30" href="#lista-espera">Lista de Espera</a>
+        </div>
+        <a class="mt-auto inline-flex items-center justify-center px-md py-sm bg-secondary text-on-secondary font-label-md text-label-md rounded-full hover:opacity-90 transition-opacity" href="https://wa.me/5521988489341" rel="noopener noreferrer" target="_blank">
+            Agendar Consulta
+        </a>
+    </div>
+</div>
+
+<!-- Generic Modal Overlay -->
+<div id="custom-modal" class="fixed inset-0 z-[110] bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 transition-opacity duration-300 opacity-0 pointer-events-none">
+    <div class="bg-surface rounded-lg max-w-2xl w-full max-h-[85vh] overflow-y-auto shadow-2xl transition-all duration-300 scale-95 flex flex-col relative notebook-paper" id="custom-modal-dialog">
+        <div class="tape top-0 z-10"></div>
+        <button id="modal-close-btn" class="absolute top-4 right-4 text-on-surface-variant hover:text-primary transition-colors z-20 p-2">
+            <span class="material-symbols-outlined text-2xl">close</span>
+        </button>
+        <div class="p-8 mt-4" id="modal-content-area">
+            <!-- Loaded dynamically -->
+        </div>
+    </div>
+</div>
+
+<!-- Success Modal Overlay for Waitlist -->
+<div id="success-modal" class="fixed inset-0 z-[120] bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 transition-opacity duration-300 opacity-0 pointer-events-none">
+    <div class="bg-surface rounded-lg max-w-md w-full shadow-2xl p-8 text-center relative notebook-paper transform transition-all duration-300 scale-95" id="success-modal-dialog">
+        <div class="tape top-0"></div>
+        <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 text-primary mb-4 border border-primary/20">
+            <span class="material-symbols-outlined text-4xl filled-icon">check_circle</span>
+        </div>
+        <h3 class="font-handwritten text-3xl text-on-surface mb-2">Inscrição Confirmada!</h3>
+        <p class="font-typewriter text-sm text-on-surface-variant mb-6 leading-relaxed">
+            Seus dados foram salvos na nossa lista de espera com sucesso. Ester entrará em contato via WhatsApp assim que houver horários disponíveis.
+        </p>
+        <button id="success-modal-close" class="w-full bg-primary text-on-primary py-3 rounded-md font-typewriter hover:bg-primary/90 transition-colors shadow-md">
+            Fechar
+        </button>
+    </div>
+</div>
+
+<!-- Toast Notification -->
+<div id="toast" class="fixed bottom-6 left-6 z-[130] max-w-sm bg-primary text-on-primary px-6 py-3 rounded-lg shadow-xl flex items-center gap-3 transition-all duration-300 translate-y-12 opacity-0 pointer-events-none border border-primary-container/20">
+    <span class="material-symbols-outlined" id="toast-icon">info</span>
+    <span class="font-typewriter text-sm" id="toast-message">Mensagem</span>
+</div>
+
+<!-- Site Scripts -->
+<script>
+    // System Data
+    const blogArticles = {
+        "1": {
+            title: "Recomendações de Leitura e Decoração",
+            category: "Curadoria",
+            content: `<p class="mb-4">A curadoria de um consultório psicológico ou de um espaço de estudos vai muito além da estética: trata-se de criar um ambiente que estimule o foco e evoque a sensação de calma. A escolha de cores neutras e terrosas, iluminação difusa (como luminárias de luz amarela quente) e plantas ajudam a reduzir os níveis de ansiedade e batimentos cardíacos.</p>
+                      <p class="mb-4">Para leituras inspiradoras, recomendamos obras que aproximam a psicologia clínica da experiência humana cotidiana:</p>
+                      <ul class="list-decimal pl-6 mb-4 space-y-2">
+                          <li><strong>Talvez você deva conversar com alguém</strong> (Lori Gottlieb) — Uma reflexão sensível sobre o processo de terapia tanto da perspectiva do terapeuta quanto do paciente.</li>
+                          <li><strong>A coragem de ser imperfeito</strong> (Brené Brown) — Um estudo essencial sobre vulnerabilidade, vergonha e aceitação.</li>
+                          <li><strong>O obstáculo é o caminho</strong> (Ryan Holiday) — Filosofia estoica aplicada ao cotidiano para o desenvolvimento de resiliência.</li>
+                      </ul>
+                      <p>Experimente incluir pequenos elementos táteis na sua mesa, como um bloco de notas de papel texturizado e uma caneta confortável, estimulando a presença física no momento presente.</p>`
+        },
+        "2": {
+            title: "Lidando com a Sobrecarga",
+            category: "Saúde Mental",
+            content: `<p class="mb-4">No ritmo acelerado da vida moderna, a exaustão mental (ou sobrecarga cognitiva) muitas vezes se instala de maneira silenciosa. Identificar os primeiros sinais é fundamental para evitar o esgotamento completo. Sintomas comuns incluem irritabilidade por motivos pequenos, dificuldade de concentração, alterações no sono e a sensação constante de que "o tempo nunca é suficiente".</p>
+                      <p class="mb-4">Estratégias práticas para lidar com a sobrecarga:</p>
+                      <ul class="list-disc pl-6 mb-4 space-y-2">
+                          <li><strong>Pausas Ativas:</strong> Afaste-se das telas por 5 minutos a cada 1 hora de trabalho. Faça alongamentos leves ou respire profundamente olhando pela janela.</li>
+                          <li><strong>Definição de Limites:</strong> Dizer "não" é uma habilidade de preservação da saúde mental. Avalie quais compromissos são realmente essenciais e quais podem ser delegados ou adiados.</li>
+                          <li><strong>Desconexão Digital:</strong> Crie uma barreira entre o trabalho e o descanso. Desative as notificações de aplicativos de trabalho após o expediente.</li>
+                      </ul>
+                      <p>Lembre-se: descansar não é uma recompensa pela produtividade, mas uma necessidade fisiológica e psicológica básica.</p>`
+        },
+        "3": {
+            title: "O Poder da Escrita Terapêutica",
+            category: "Reflexões",
+            content: `<p class="mb-4">A escrita terapêutica (ou journaling) é uma ferramenta simples e cientificamente validada para a organização emocional. Quando colocamos em palavras o que sentimos, traduzimos sensações difusas do cérebro em estruturas lineares e compreensíveis, o que reduz a ruminação mental.</p>
+                      <p class="mb-4">Como começar a praticar:</p>
+                      <ul class="list-disc pl-6 mb-4 space-y-2">
+                          <li><strong>Sem Julgamentos:</strong> Não se preocupe com gramática, caligrafia ou coerência. Escreva exatamente o que vier à mente.</li>
+                          <li><strong>O Método do Desabafo:</strong> Escreva por 10 minutos seguidos sobre uma situação difícil ou um sentimento incômodo. Se preferir, descarte o papel depois — o benefício está no ato físico de escrever.</li>
+                          <li><strong>Diário de Gratidão:</strong> Registre 3 pequenas coisas pelas quais você se sente grata no dia. Isso ajuda a reinar o cérebro para identificar aspectos positivos da rotina.</li>
+                      </ul>
+                      <p>Ao externalizar seus pensamentos no papel, você cria um distanciamento saudável de suas emoções, permitindo olhá-las com mais clareza e autocompaixão.</p>`
+        }
+    };
+
+    const legalContent = {
+        terms: {
+            title: "Termos de Uso",
+            content: `<h4 class="font-bold text-lg mb-2">1. Aceitação dos Termos</h4>
+                      <p class="mb-4">Ao acessar o site de Ester Figueiredo, você concorda em cumprir estes termos de serviço e todas as leis aplicáveis.</p>
+                      <h4 class="font-bold text-lg mb-2">2. Finalidade Informativa</h4>
+                      <p class="mb-4">O conteúdo deste site (textos, artigos, curadorias) possui caráter estritamente educativo e informativo. Não substitui consulta, diagnóstico ou acompanhamento psicológico profissional.</p>
+                      <h4 class="font-bold text-lg mb-2">3. Vínculo Profissional</h4>
+                      <p class="mb-4">A navegação pelo site ou envio de dados no formulário de lista de espera não estabelece relação terapêutica formal. O início do processo clínico será formalizado em contrato de prestação de serviços psicológicos.</p>
+                      <h4 class="font-bold text-lg mb-2">4. Links para Terceiros</h4>
+                      <p>Nosso site possui links externos (como WhatsApp e CVV). Não exercemos controle sobre o conteúdo ou práticas de sites de terceiros e não podemos assumir responsabilidade por suas respectivas políticas.</p>`
+        },
+        privacy: {
+            title: "Política de Privacidade",
+            content: `<h4 class="font-bold text-lg mb-2">1. Coleta de Informações</h4>
+                      <p class="mb-4">Coletamos apenas as informações inseridas voluntariamente por você no formulário de Lista de Espera (Nome Completo, Idade, WhatsApp e Cidade/Estado).</p>
+                      <h4 class="font-bold text-lg mb-2">2. Uso das Informações</h4>
+                      <p class="mb-4">Estes dados são utilizados unicamente para entrar em contato com você sobre a disponibilidade de horários para atendimento clínico.</p>
+                      <h4 class="font-bold text-lg mb-2">3. Segurança dos Dados</h4>
+                      <p class="mb-4">Adotamos medidas de segurança técnicas para proteger os seus dados contra acessos não autorizados. Seus dados nunca serão compartilhados, vendidos ou repassados a terceiros.</p>
+                      <h4 class="font-bold text-lg mb-2">4. Direitos do Usuário (LGPD)</h4>
+                      <p class="mb-4">Você possui direito de acessar, atualizar, corrigir ou solicitar a exclusão definitiva de seus dados de nossa lista de espera a qualquer momento por meio do e-mail <strong>psiesterfigueiredo@gmail.com</strong>.</p>
+                      <h4 class="font-bold text-lg mb-2">5. Sigilo Clínico</h4>
+                      <p>O sigilo sobre quaisquer conteúdos abordados nos contatos diretos e sessões é resguardado estritamente conforme o Código de Ética do Psicólogo estabelecido pelo Conselho Federal de Psicologia.</p>`
+        }
+    };
+
+    // DOM Elements
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileMenuDrawer = document.getElementById('mobile-menu-drawer');
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenuClose = document.getElementById('mobile-menu-close');
+
+    const customModal = document.getElementById('custom-modal');
+    const customModalDialog = document.getElementById('custom-modal-dialog');
+    const modalCloseBtn = document.getElementById('modal-close-btn');
+    const modalContentArea = document.getElementById('modal-content-area');
+
+    const successModal = document.getElementById('success-modal');
+    const successModalDialog = document.getElementById('success-modal-dialog');
+    const successModalClose = document.getElementById('success-modal-close');
+
+    const toast = document.getElementById('toast');
+    const toastIcon = document.getElementById('toast-icon');
+    const toastMessage = document.getElementById('toast-message');
+
+    const waitlistSubmit = document.getElementById('waitlist-submit');
+
+    // 1. Mobile Menu Logic
+    function openMobileMenu() {
+        mobileMenu.classList.remove('pointer-events-none', 'opacity-0');
+        mobileMenu.classList.add('opacity-100');
+        mobileMenuDrawer.classList.remove('translate-x-full');
+        mobileMenuDrawer.classList.add('translate-x-0');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeMobileMenu() {
+        mobileMenu.classList.add('pointer-events-none', 'opacity-0');
+        mobileMenu.classList.remove('opacity-100');
+        mobileMenuDrawer.classList.add('translate-x-full');
+        mobileMenuDrawer.classList.remove('translate-x-0');
+        document.body.style.overflow = '';
+    }
+
+    mobileMenuBtn.addEventListener('click', openMobileMenu);
+    mobileMenuClose.addEventListener('click', closeMobileMenu);
+    mobileMenu.addEventListener('click', (e) => {
+        if (e.target === mobileMenu) closeMobileMenu();
+    });
+
+    // Close mobile menu on anchor link clicks
+    document.querySelectorAll('#mobile-menu-drawer a').forEach(link => {
+        link.addEventListener('click', () => {
+            closeMobileMenu();
+        });
+    });
+
+    // 2. Toast System
+    let toastTimeout;
+    function showToast(message, icon = 'info') {
+        clearTimeout(toastTimeout);
+        toastIcon.textContent = icon;
+        toastMessage.textContent = message;
+
+        toast.classList.remove('pointer-events-none', 'opacity-0', 'translate-y-12');
+        toast.classList.add('opacity-100', 'translate-y-0');
+
+        toastTimeout = setTimeout(() => {
+            toast.classList.add('pointer-events-none', 'opacity-0', 'translate-y-12');
+            toast.classList.remove('opacity-100', 'translate-y-0');
+        }, 3000);
+    }
+
+    // 3. General Modals Logic
+    function openModal(htmlContent) {
+        modalContentArea.innerHTML = htmlContent;
+        customModal.classList.remove('pointer-events-none', 'opacity-0');
+        customModal.classList.add('opacity-100');
+        customModalDialog.classList.remove('scale-95');
+        customModalDialog.classList.add('scale-100');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+        customModal.classList.add('pointer-events-none', 'opacity-0');
+        customModal.classList.remove('opacity-100');
+        customModalDialog.classList.add('scale-95');
+        customModalDialog.classList.remove('scale-100');
+        if (!successModal.classList.contains('opacity-100')) {
+            document.body.style.overflow = '';
+        }
+    }
+
+    modalCloseBtn.addEventListener('click', closeModal);
+    customModal.addEventListener('click', (e) => {
+        if (e.target === customModal) closeModal();
+    });
+
+    // 4. Success Modal for Waitlist
+    function openSuccessModal() {
+        successModal.classList.remove('pointer-events-none', 'opacity-0');
+        successModal.classList.add('opacity-100');
+        successModalDialog.classList.remove('scale-95');
+        successModalDialog.classList.add('scale-100');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeSuccessModal() {
+        successModal.classList.add('pointer-events-none', 'opacity-0');
+        successModal.classList.remove('opacity-100');
+        successModalDialog.classList.add('scale-95');
+        successModalDialog.classList.remove('scale-100');
+        document.body.style.overflow = '';
+    }
+
+    successModalClose.addEventListener('click', closeSuccessModal);
+    successModal.addEventListener('click', (e) => {
+        if (e.target === successModal) closeSuccessModal();
+    });
+
+    // Esc key closes all active modals/menu
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            closeMobileMenu();
+            closeModal();
+            closeSuccessModal();
+        }
+    });
+
+    // 5. Connect Elements & Triggers
+    // Blog article click
+    document.querySelectorAll('.read-article-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const articleId = btn.getAttribute('data-id');
+            const article = blogArticles[articleId];
+            if (article) {
+                const html = `
+                    <span class="text-xs font-typewriter text-primary mb-2 uppercase tracking-wider block">${article.category}</span>
+                    <h3 class="font-handwritten text-4xl text-on-surface mb-6 border-b border-primary/20 pb-4">${article.title}</h3>
+                    <div class="font-typewriter text-on-surface-variant leading-relaxed text-base space-y-4">
+                        ${article.content}
+                    </div>
+                `;
+                openModal(html);
+            }
+        });
+    });
+
+    // Blog "See all" click
+    document.querySelectorAll('.blog-see-all').forEach(btn => {
+        btn.addEventListener('click', () => {
+            showToast("A curadoria de artigos estará disponível em breve com materiais exclusivos!", "menu_book");
+        });
+    });
+
+    // Terms and Privacy links click
+    document.getElementById('terms-link').addEventListener('click', () => {
+        const terms = legalContent.terms;
+        const html = `
+            <h3 class="font-handwritten text-4xl text-on-surface mb-6 border-b border-primary/20 pb-4">${terms.title}</h3>
+            <div class="font-typewriter text-on-surface-variant leading-relaxed text-sm space-y-4">
+                ${terms.content}
+            </div>
+        `;
+        openModal(html);
+    });
+
+    document.getElementById('privacy-link').addEventListener('click', () => {
+        const privacy = legalContent.privacy;
+        const html = `
+            <h3 class="font-handwritten text-4xl text-on-surface mb-6 border-b border-primary/20 pb-4">${privacy.title}</h3>
+            <div class="font-typewriter text-on-surface-variant leading-relaxed text-sm space-y-4">
+                ${privacy.content}
+            </div>
+        `;
+        openModal(html);
+    });
+
+    // 6. Waitlist Form Validation and Submission
+    waitlistSubmit.addEventListener('click', () => {
+        const nameInput = document.getElementById('name');
+        const ageInput = document.getElementById('age');
+        const whatsappInput = document.getElementById('whatsapp');
+        const locationInput = document.getElementById('location');
+
+        // Reset error styling
+        const inputs = [nameInput, ageInput, whatsappInput, locationInput];
+        inputs.forEach(input => {
+            input.classList.remove('border-red-500');
+            input.classList.add('border-outline-variant');
+        });
+
+        // Validation checks
+        let hasError = false;
+        if (!nameInput.value.trim()) {
+            nameInput.classList.remove('border-outline-variant');
+            nameInput.classList.add('border-red-500');
+            hasError = true;
+        }
+        if (!ageInput.value || parseInt(ageInput.value) <= 0) {
+            ageInput.classList.remove('border-outline-variant');
+            ageInput.classList.add('border-red-500');
+            hasError = true;
+        }
+        if (!whatsappInput.value.trim()) {
+            whatsappInput.classList.remove('border-outline-variant');
+            whatsappInput.classList.add('border-red-500');
+            hasError = true;
+        }
+        if (!locationInput.value.trim()) {
+            locationInput.classList.remove('border-outline-variant');
+            locationInput.classList.add('border-red-500');
+            hasError = true;
+        }
+
+        if (hasError) {
+            showToast("Por favor, preencha todos os campos obrigatórios corretamente.", "warning");
+            return;
+        }
+
+        // Save data to localStorage
+        const newSubmission = {
+            name: nameInput.value.trim(),
+            age: parseInt(ageInput.value),
+            whatsapp: whatsappInput.value.trim(),
+            location: locationInput.value.trim(),
+            timestamp: new Date().toISOString()
+        };
+
+        let currentSubmissions = [];
+        try {
+            const saved = localStorage.getItem('waitlist_submissions');
+            if (saved) {
+                currentSubmissions = JSON.parse(saved);
+            }
+        } catch (e) {
+            console.error("Erro ao ler lista de espera", e);
+        }
+
+        currentSubmissions.push(newSubmission);
+        localStorage.setItem('waitlist_submissions', JSON.stringify(currentSubmissions));
+
+        // Reset inputs
+        inputs.forEach(input => input.value = '');
+
+        // Show Success Modal
+        openSuccessModal();
+    });
+</script>
 </body></html>
