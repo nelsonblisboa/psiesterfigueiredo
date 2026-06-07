@@ -1,783 +1,1011 @@
 <!DOCTYPE html>
 
-<html class="light scroll-smooth" lang="pt-BR" style=""><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Ester Figueiredo - Psicóloga Clínica</title>
-<!-- Google Fonts: Plus Jakarta Sans -->
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
-<!-- Google Fonts: Caveat (Handwritten style) -->
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&amp;display=swap" rel="stylesheet"/>
-<!-- Google Fonts: Special Elite (Typewriter style) -->
-<link href="https://fonts.googleapis.com/css2?family=Special+Elite&amp;display=swap" rel="stylesheet"/>
-<!-- Material Symbols -->
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<!-- Tailwind CSS -->
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<!-- Tailwind Config -->
-<script id="tailwind-config">
-  tailwind.config = {
-    darkMode: "class",
-    theme: {
-      extend: {
-        "colors": {
-                "secondary-fixed": "#ffdbcd",
-                "surface-dim": "#dedad1",
-                "on-tertiary-fixed-variant": "#5b3f43",
-                "secondary-container": "#ffb292",
-                "tertiary": "#75565a",
-                "on-secondary-fixed-variant": "#6d3820",
-                "on-primary-container": "#26382b",
-                "on-surface-variant": "#434843",
-                "surface-container-low": "#f7f3ea",
-                "error": "#ba1a1a",
-                "secondary-fixed-dim": "#ffb597",
-                "on-background": "#1c1c16",
-                "surface-container-highest": "#e6e2d9",
-                "error-container": "#ffdad6",
-                "surface-container-high": "#ece8df",
-                "primary-fixed": "#d2e8d4",
-                "on-tertiary-container": "#472d31",
-                "outline": "#737872",
-                "tertiary-container": "#b89498",
-                "on-secondary-fixed": "#360f00",
-                "on-secondary-container": "#794229",
-                "surface-bright": "#fdf9f0",
-                "on-error": "#ffffff",
-                "tertiary-fixed": "#ffd9dd",
-                "inverse-surface": "#32302a",
-                "surface": "#fdf9f0",
-                "surface-container-lowest": "#ffffff",
-                "primary-fixed-dim": "#b6ccb9",
-                "on-surface": "#1c1c16",
-                "surface-tint": "#4f6353",
-                "on-secondary": "#ffffff",
-                "on-error-container": "#93000a",
-                "surface-variant": "#e6e2d9",
-                "secondary": "#8a4f35",
-                "on-primary-fixed-variant": "#384b3d",
-                "inverse-on-surface": "#f5f0e7",
-                "on-primary": "#ffffff",
-                "background": "#fdf9f0",
-                "tertiary-fixed-dim": "#e4bdc1",
-                "on-primary-fixed": "#0d1f13",
-                "primary": "#4f6353",
-                "inverse-primary": "#b6ccb9",
-                "on-tertiary": "#ffffff",
-                "on-tertiary-fixed": "#2b1519",
-                "surface-container": "#f2ede4",
-                "primary-container": "#8da290",
-                "outline-variant": "#c3c8c1",
-                "folder-bg": "#d8d3b8",
-                "folder-tab": "#e2ddc4",
-                "paper-bg": "#f0eedc"
-        },
-        "borderRadius": {
-                "DEFAULT": "0.25rem",
-                "lg": "0.5rem",
-                "xl": "0.75rem",
-                "full": "9999px"
-        },
-        "spacing": {
-                "base": "8px",
-                "margin-mobile": "16px",
-                "gutter": "24px",
-                "sm": "12px",
-                "md": "24px",
-                "lg": "48px",
-                "xs": "4px",
-                "xl": "80px",
-                "container-max": "1200px"
-        },
-        "fontFamily": {
-                "caption": [
-                        "Plus Jakarta Sans", "sans-serif"
-                ],
-                "body-md": [
-                        "Plus Jakarta Sans", "sans-serif"
-                ],
-                "title-lg": [
-                        "Plus Jakarta Sans", "sans-serif"
-                ],
-                "display-lg": [
-                        "Plus Jakarta Sans", "sans-serif"
-                ],
-                "display-lg-mobile": [
-                        "Plus Jakarta Sans", "sans-serif"
-                ],
-                "headline-md": [
-                        "Plus Jakarta Sans", "sans-serif"
-                ],
-                "label-md": [
-                        "Plus Jakarta Sans", "sans-serif"
-                ],
-                "body-lg": [
-                        "Plus Jakarta Sans", "sans-serif"
-                ],
-                "headline-md-mobile": [
-                        "Plus Jakarta Sans", "sans-serif"
-                ],
-                "handwritten": [
-                        "Caveat", "cursive"
-                ],
-                "typewriter": [
-                        "Special Elite", "monospace"
-                ]
-        },
-        "fontSize": {
-                "caption": [
-                        "12px",
-                        {
-                                "lineHeight": "1.4",
-                                "fontWeight": "400"
-                        }
-                ],
-                "body-md": [
-                        "16px",
-                        {
-                                "lineHeight": "1.6",
-                                "fontWeight": "400"
-                        }
-                ],
-                "title-lg": [
-                        "20px",
-                        {
-                                "lineHeight": "1.4",
-                                "fontWeight": "600"
-                        }
-                ],
-                "display-lg": [
-                        "48px",
-                        {
-                                "lineHeight": "1.2",
-                                "letterSpacing": "-0.02em",
-                                "fontWeight": "700"
-                        }
-                ],
-                "display-lg-mobile": [
-                        "32px",
-                        {
-                                "lineHeight": "1.2",
-                                "fontWeight": "700"
-                        }
-                ],
-                "headline-md": [
-                        "32px",
-                        {
-                                "lineHeight": "1.3",
-                                "fontWeight": "600"
-                        }
-                ],
-                "label-md": [
-                        "14px",
-                        {
-                                "lineHeight": "1.4",
-                                "letterSpacing": "0.01em",
-                                "fontWeight": "600"
-                        }
-                ],
-                "body-lg": [
-                        "18px",
-                        {
-                                "lineHeight": "1.6",
-                                "fontWeight": "400"
-                        }
-                ],
-                "headline-md-mobile": [
-                        "24px",
-                        {
-                                "lineHeight": "1.3",
-                                "fontWeight": "600"
-                        }
-                ]
-        }
-},
-    },
-  }
-</script>
-<style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-        .filled-icon {
-            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-        
-        /* Soft ambient shadow for cards */
-        .ambient-shadow {
-            box-shadow: 0 10px 40px -10px rgba(45, 45, 45, 0.05);
-        }
-        
-        /* Smooth transitions */
-        .hover-lift {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .hover-lift:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 40px -10px rgba(45, 45, 45, 0.08);
-        }
+<html class="light scroll-smooth" lang="pt-BR" style="">
 
-        /* Scrapbook Aesthetics */
-        .paper-texture {
-            background-color: #fdf9f0;
-            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
-        }
+<head>
+        <meta charset="utf-8" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <title>Ester Figueiredo - Psicóloga Clínica</title>
+        <!-- Google Fonts: Plus Jakarta Sans -->
+        <link href="https://fonts.googleapis.com" rel="preconnect" />
+        <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&amp;display=swap"
+                rel="stylesheet" />
+        <!-- Google Fonts: Caveat (Handwritten style) -->
+        <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&amp;display=swap" rel="stylesheet" />
+        <!-- Google Fonts: Special Elite (Typewriter style) -->
+        <link href="https://fonts.googleapis.com/css2?family=Special+Elite&amp;display=swap" rel="stylesheet" />
+        <!-- Material Symbols -->
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+                rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+                rel="stylesheet" />
+        <!-- Tailwind CSS -->
+        <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+        <!-- Tailwind Config -->
+        <script id="tailwind-config">
+                tailwind.config = {
+                        darkMode: "class",
+                        theme: {
+                                extend: {
+                                        "colors": {
+                                                "secondary-fixed": "#ffdbcd",
+                                                "surface-dim": "#dedad1",
+                                                "on-tertiary-fixed-variant": "#5b3f43",
+                                                "secondary-container": "#ffb292",
+                                                "tertiary": "#75565a",
+                                                "on-secondary-fixed-variant": "#6d3820",
+                                                "on-primary-container": "#26382b",
+                                                "on-surface-variant": "#434843",
+                                                "surface-container-low": "#f7f3ea",
+                                                "error": "#ba1a1a",
+                                                "secondary-fixed-dim": "#ffb597",
+                                                "on-background": "#1c1c16",
+                                                "surface-container-highest": "#e6e2d9",
+                                                "error-container": "#ffdad6",
+                                                "surface-container-high": "#ece8df",
+                                                "primary-fixed": "#d2e8d4",
+                                                "on-tertiary-container": "#472d31",
+                                                "outline": "#737872",
+                                                "tertiary-container": "#b89498",
+                                                "on-secondary-fixed": "#360f00",
+                                                "on-secondary-container": "#794229",
+                                                "surface-bright": "#fdf9f0",
+                                                "on-error": "#ffffff",
+                                                "tertiary-fixed": "#ffd9dd",
+                                                "inverse-surface": "#32302a",
+                                                "surface": "#fdf9f0",
+                                                "surface-container-lowest": "#ffffff",
+                                                "primary-fixed-dim": "#b6ccb9",
+                                                "on-surface": "#1c1c16",
+                                                "surface-tint": "#4f6353",
+                                                "on-secondary": "#ffffff",
+                                                "on-error-container": "#93000a",
+                                                "surface-variant": "#e6e2d9",
+                                                "secondary": "#8a4f35",
+                                                "on-primary-fixed-variant": "#384b3d",
+                                                "inverse-on-surface": "#f5f0e7",
+                                                "on-primary": "#ffffff",
+                                                "background": "#fdf9f0",
+                                                "tertiary-fixed-dim": "#e4bdc1",
+                                                "on-primary-fixed": "#0d1f13",
+                                                "primary": "#4f6353",
+                                                "inverse-primary": "#b6ccb9",
+                                                "on-tertiary": "#ffffff",
+                                                "on-tertiary-fixed": "#2b1519",
+                                                "surface-container": "#f2ede4",
+                                                "primary-container": "#8da290",
+                                                "outline-variant": "#c3c8c1",
+                                                "folder-bg": "#d8d3b8",
+                                                "folder-tab": "#e2ddc4",
+                                                "paper-bg": "#f0eedc"
+                                        },
+                                        "borderRadius": {
+                                                "DEFAULT": "0.25rem",
+                                                "lg": "0.5rem",
+                                                "xl": "0.75rem",
+                                                "full": "9999px"
+                                        },
+                                        "spacing": {
+                                                "base": "8px",
+                                                "margin-mobile": "16px",
+                                                "gutter": "24px",
+                                                "sm": "12px",
+                                                "md": "24px",
+                                                "lg": "48px",
+                                                "xs": "4px",
+                                                "xl": "80px",
+                                                "container-max": "1200px"
+                                        },
+                                        "fontFamily": {
+                                                "caption": [
+                                                        "Plus Jakarta Sans", "sans-serif"
+                                                ],
+                                                "body-md": [
+                                                        "Plus Jakarta Sans", "sans-serif"
+                                                ],
+                                                "title-lg": [
+                                                        "Plus Jakarta Sans", "sans-serif"
+                                                ],
+                                                "display-lg": [
+                                                        "Plus Jakarta Sans", "sans-serif"
+                                                ],
+                                                "display-lg-mobile": [
+                                                        "Plus Jakarta Sans", "sans-serif"
+                                                ],
+                                                "headline-md": [
+                                                        "Plus Jakarta Sans", "sans-serif"
+                                                ],
+                                                "label-md": [
+                                                        "Plus Jakarta Sans", "sans-serif"
+                                                ],
+                                                "body-lg": [
+                                                        "Plus Jakarta Sans", "sans-serif"
+                                                ],
+                                                "headline-md-mobile": [
+                                                        "Plus Jakarta Sans", "sans-serif"
+                                                ],
+                                                "handwritten": [
+                                                        "Caveat", "cursive"
+                                                ],
+                                                "typewriter": [
+                                                        "Special Elite", "monospace"
+                                                ]
+                                        },
+                                        "fontSize": {
+                                                "caption": [
+                                                        "12px",
+                                                        {
+                                                                "lineHeight": "1.4",
+                                                                "fontWeight": "400"
+                                                        }
+                                                ],
+                                                "body-md": [
+                                                        "16px",
+                                                        {
+                                                                "lineHeight": "1.6",
+                                                                "fontWeight": "400"
+                                                        }
+                                                ],
+                                                "title-lg": [
+                                                        "20px",
+                                                        {
+                                                                "lineHeight": "1.4",
+                                                                "fontWeight": "600"
+                                                        }
+                                                ],
+                                                "display-lg": [
+                                                        "48px",
+                                                        {
+                                                                "lineHeight": "1.2",
+                                                                "letterSpacing": "-0.02em",
+                                                                "fontWeight": "700"
+                                                        }
+                                                ],
+                                                "display-lg-mobile": [
+                                                        "32px",
+                                                        {
+                                                                "lineHeight": "1.2",
+                                                                "fontWeight": "700"
+                                                        }
+                                                ],
+                                                "headline-md": [
+                                                        "32px",
+                                                        {
+                                                                "lineHeight": "1.3",
+                                                                "fontWeight": "600"
+                                                        }
+                                                ],
+                                                "label-md": [
+                                                        "14px",
+                                                        {
+                                                                "lineHeight": "1.4",
+                                                                "letterSpacing": "0.01em",
+                                                                "fontWeight": "600"
+                                                        }
+                                                ],
+                                                "body-lg": [
+                                                        "18px",
+                                                        {
+                                                                "lineHeight": "1.6",
+                                                                "fontWeight": "400"
+                                                        }
+                                                ],
+                                                "headline-md-mobile": [
+                                                        "24px",
+                                                        {
+                                                                "lineHeight": "1.3",
+                                                                "fontWeight": "600"
+                                                        }
+                                                ]
+                                        }
+                                },
+                        },
+                }
+        </script>
+        <style>
+                .material-symbols-outlined {
+                        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+                }
 
-        .torn-edge-top {
-            position: relative;
-        }
-        .torn-edge-top::before {
-            content: '';
-            position: absolute;
-            top: -10px;
-            left: 0;
-            right: 0;
-            height: 20px;
-            background: inherit;
-            mask-image: url("data:image/svg+xml,%3Csvg width='100%25' height='20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,10 Q5,0 10,10 T20,10 T30,10 T40,10 T50,10 T60,10 T70,10 T80,10 T90,10 T100,10 L100,20 L0,20 Z' fill='black'/%3E%3C/svg%3E");
-            -webkit-mask-image: url("data:image/svg+xml,%3Csvg preserveAspectRatio='none' width='100%25' height='20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,10 Q5,0 10,8 T20,12 T30,7 T40,13 T50,9 T60,11 T70,8 T80,14 T90,9 T100,11 L100,20 L0,20 Z' fill='black'/%3E%3C/svg%3E");
-            -webkit-mask-size: 100px 20px;
-            z-index: 1;
-        }
+                .filled-icon {
+                        font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+                }
 
-        .polaroid {
-            background: white;
-            padding: 10px 10px 40px 10px;
-            box-shadow: 2px 4px 15px rgba(0,0,0,0.15);
-            transform: rotate(-2deg);
-            transition: transform 0.3s;
-        }
-        .polaroid:hover {
-            transform: rotate(0deg) scale(1.02);
-            z-index: 10;
-        }
-        .polaroid-right {
-            transform: rotate(3deg);
-        }
-        
-        .folder-tab {
-            display: inline-block;
-            padding: 8px 24px;
-            background-color: #d8d3b8;
-            border-radius: 8px 8px 0 0;
-            font-family: 'Special Elite', monospace;
-            font-size: 1.2rem;
-            color: #384b3d;
-            box-shadow: 0 -2px 5px rgba(0,0,0,0.05);
-            position: relative;
-            z-index: 2;
-        }
-        
-        .folder-body {
-            background-color: #d8d3b8;
-            border-radius: 0 8px 8px 8px;
-            padding: 2rem;
-            box-shadow: 2px 4px 15px rgba(0,0,0,0.1);
-            position: relative;
-            z-index: 1;
-        }
+                /* Soft ambient shadow for cards */
+                .ambient-shadow {
+                        box-shadow: 0 10px 40px -10px rgba(45, 45, 45, 0.05);
+                }
 
-        .tape {
-            position: absolute;
-            background-color: rgba(230, 226, 217, 0.7);
-            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
-            width: 100px;
-            height: 25px;
-            top: -10px;
-            left: 50%;
-            transform: translateX(-50%) rotate(-2deg);
-            z-index: 20;
-        }
+                /* Smooth transitions */
+                .hover-lift {
+                        transition: transform 0.3s ease, box-shadow 0.3s ease;
+                }
 
-        .paper-clip {
-            position: absolute;
-            top: -15px;
-            left: 20px;
-            width: 20px;
-            height: 60px;
-            border: 2px solid #a0a0a0;
-            border-radius: 10px;
-            z-index: 20;
-            transform: rotate(5deg);
-        }
-        .paper-clip::after {
-            content: '';
-            position: absolute;
-            top: 5px;
-            left: 4px;
-            width: 8px;
-            height: 45px;
-            border: 2px solid #a0a0a0;
-            border-radius: 5px;
-            border-top: none;
-        }
+                .hover-lift:hover {
+                        transform: translateY(-4px);
+                        box-shadow: 0 20px 40px -10px rgba(45, 45, 45, 0.08);
+                }
 
-        .notebook-paper {
-            background-color: #f0eedc;
-            background-image: linear-gradient(#ccc 1px, transparent 1px);
-            background-size: 100% 30px;
-            padding: 20px;
-            box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
-        }
-    </style>
+                /* Scrapbook Aesthetics */
+                .paper-texture {
+                        background-color: #fdf9f0;
+                        background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
+                }
+
+                .torn-edge-top {
+                        position: relative;
+                }
+
+                .torn-edge-top::before {
+                        content: '';
+                        position: absolute;
+                        top: -10px;
+                        left: 0;
+                        right: 0;
+                        height: 20px;
+                        background: inherit;
+                        mask-image: url("data:image/svg+xml,%3Csvg width='100%25' height='20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,10 Q5,0 10,10 T20,10 T30,10 T40,10 T50,10 T60,10 T70,10 T80,10 T90,10 T100,10 L100,20 L0,20 Z' fill='black'/%3E%3C/svg%3E");
+                        -webkit-mask-image: url("data:image/svg+xml,%3Csvg preserveAspectRatio='none' width='100%25' height='20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,10 Q5,0 10,8 T20,12 T30,7 T40,13 T50,9 T60,11 T70,8 T80,14 T90,9 T100,11 L100,20 L0,20 Z' fill='black'/%3E%3C/svg%3E");
+                        -webkit-mask-size: 100px 20px;
+                        z-index: 1;
+                }
+
+                .polaroid {
+                        background: white;
+                        padding: 10px 10px 40px 10px;
+                        box-shadow: 2px 4px 15px rgba(0, 0, 0, 0.15);
+                        transform: rotate(-2deg);
+                        transition: transform 0.3s;
+                }
+
+                .polaroid:hover {
+                        transform: rotate(0deg) scale(1.02);
+                        z-index: 10;
+                }
+
+                .polaroid-right {
+                        transform: rotate(3deg);
+                }
+
+                .folder-tab {
+                        display: inline-block;
+                        padding: 8px 24px;
+                        background-color: #d8d3b8;
+                        border-radius: 8px 8px 0 0;
+                        font-family: 'Special Elite', monospace;
+                        font-size: 1.2rem;
+                        color: #384b3d;
+                        box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.05);
+                        position: relative;
+                        z-index: 2;
+                }
+
+                .folder-body {
+                        background-color: #d8d3b8;
+                        border-radius: 0 8px 8px 8px;
+                        padding: 2rem;
+                        box-shadow: 2px 4px 15px rgba(0, 0, 0, 0.1);
+                        position: relative;
+                        z-index: 1;
+                }
+
+                .tape {
+                        position: absolute;
+                        background-color: rgba(230, 226, 217, 0.7);
+                        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+                        width: 100px;
+                        height: 25px;
+                        top: -10px;
+                        left: 50%;
+                        transform: translateX(-50%) rotate(-2deg);
+                        z-index: 20;
+                }
+
+                .paper-clip {
+                        position: absolute;
+                        top: -15px;
+                        left: 20px;
+                        width: 20px;
+                        height: 60px;
+                        border: 2px solid #a0a0a0;
+                        border-radius: 10px;
+                        z-index: 20;
+                        transform: rotate(5deg);
+                }
+
+                .paper-clip::after {
+                        content: '';
+                        position: absolute;
+                        top: 5px;
+                        left: 4px;
+                        width: 8px;
+                        height: 45px;
+                        border: 2px solid #a0a0a0;
+                        border-radius: 5px;
+                        border-top: none;
+                }
+
+                .notebook-paper {
+                        background-color: #f0eedc;
+                        background-image: linear-gradient(#ccc 1px, transparent 1px);
+                        background-size: 100% 30px;
+                        padding: 20px;
+                        box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+                }
+        </style>
 </head>
-<body class="paper-texture text-on-surface font-body-md antialiased selection:bg-primary-container selection:text-on-primary-container" data-republished="true" style="background-image: linear-gradient(rgba(253, 249, 240, 0.95), rgba(253, 249, 240, 0.95)), url(&quot;data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E&quot;); background-size: auto, 100px; background-position: center center, center center; background-repeat: repeat, repeat; background-attachment: fixed;">
-<!-- TopNavBar -->
-<nav class="fixed top-0 left-0 w-full z-50 bg-surface/90 backdrop-blur-md shadow-sm border-b border-surface-variant/50">
-    <div class="max-w-container-max mx-auto flex justify-between items-center px-margin-mobile md:px-xl py-base w-full">
-        <div class="flex items-center gap-2">
-            <!-- Brand Logo representation -->
-            <div class="font-typewriter text-2xl text-primary flex items-center"><img alt="Ester Figueiredo Logo" class="h-12 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdhN24sqfXGjqhwZEtGYxVtfbEPCNVVGVLEt5ZveaRZeSOSsERZCaWEOkraDJQu6fp6X9NWByfZrjAF4OSMX_N5cjX9U7Oj4Q3TfUH7yFQtijck_H11sQyTZroVCMmY6v8wtQ6GXnumQc1baHLa2o1YM4tKOYutt4diS64IrB6CuCoq5-_IG-pzLNCiLqMAB0Z1rvAT9tIg5dJz6KvId6pwEdK5Ml7fUgZHhQWQ_9S--ZkBHY6AlvUiwqHj2bM4KWzEs1PhqcnId0"/></div>
-        </div>
-        <!-- Desktop Nav -->
-        <div class="hidden md:flex items-center gap-gutter">
-            <a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="#sobre">Sobre</a>
-            <a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="#comofunciona">Como Funciona</a>
-            <a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="#diferenciais">Diferenciais</a>
-            <a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="#valores">Valores</a>
-            <a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="#blog">Blog</a>
-            <a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="#faq">FAQ</a>
-            <a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="#lista-espera">Lista de Espera</a>
-        </div>
-        <a class="hidden md:inline-flex items-center justify-center px-md py-sm bg-secondary text-on-secondary font-label-md text-label-md rounded-full hover:opacity-90 transition-opacity hover:translate-y-[-2px] duration-300" href="https://wa.me/5521988489341" rel="noopener noreferrer" target="_blank">
-            Agendar
+
+<body class="paper-texture text-on-surface font-body-md antialiased selection:bg-primary-container selection:text-on-primary-container"
+        data-republished="true"
+        style="background-image: linear-gradient(rgba(253, 249, 240, 0.95), rgba(253, 249, 240, 0.95)), url(&quot;data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E&quot;); background-size: auto, 100px; background-position: center center, center center; background-repeat: repeat, repeat; background-attachment: fixed;">
+        <!-- TopNavBar -->
+        <nav
+                class="fixed top-0 left-0 w-full z-50 bg-surface/90 backdrop-blur-md shadow-sm border-b border-surface-variant/50">
+                <div
+                        class="max-w-container-max mx-auto flex justify-between items-center px-margin-mobile md:px-xl py-base w-full">
+                        <div class="flex items-center gap-2">
+                                <!-- Brand Logo representation -->
+                                <div class="font-typewriter text-2xl text-primary flex items-center"><img
+                                                alt="Ester Figueiredo Logo" class="h-12 w-auto object-contain"
+                                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdhN24sqfXGjqhwZEtGYxVtfbEPCNVVGVLEt5ZveaRZeSOSsERZCaWEOkraDJQu6fp6X9NWByfZrjAF4OSMX_N5cjX9U7Oj4Q3TfUH7yFQtijck_H11sQyTZroVCMmY6v8wtQ6GXnumQc1baHLa2o1YM4tKOYutt4diS64IrB6CuCoq5-_IG-pzLNCiLqMAB0Z1rvAT9tIg5dJz6KvId6pwEdK5Ml7fUgZHhQWQ_9S--ZkBHY6AlvUiwqHj2bM4KWzEs1PhqcnId0" />
+                                </div>
+                        </div>
+                        <!-- Desktop Nav -->
+                        <div class="hidden md:flex items-center gap-gutter">
+                                <a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md"
+                                        href="#sobre">Sobre</a>
+                                <a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md"
+                                        href="#comofunciona">Como Funciona</a>
+                                <a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md"
+                                        href="#diferenciais">Diferenciais</a>
+                                <a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md"
+                                        href="#valores">Valores</a>
+                                <a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md"
+                                        href="#blog">Blog</a>
+                                <a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md"
+                                        href="#lista-espera">Lista de Espera</a>
+                                <a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md"
+                                        href="#faq">FAQ</a>
+                        </div>
+                        <a class="hidden md:inline-flex items-center justify-center px-md py-sm bg-secondary text-on-secondary font-label-md text-label-md rounded-full hover:opacity-90 transition-opacity hover:translate-y-[-2px] duration-300"
+                                href="https://wa.me/5521988489341" rel="noopener noreferrer" target="_blank">
+                                Agendar
+                        </a>
+                        <!-- Mobile Menu Button -->
+                        <button id="mobile-menu-btn" class="md:hidden text-primary p-2">
+                                <span class="material-symbols-outlined">menu</span>
+                        </button>
+                </div>
+        </nav>
+        <!-- Main Content -->
+        <main class="pt-[72px]">
+                <!-- Hero Section -->
+                <section
+                        class="relative w-full aspect-video min-h-[500px] md:min-h-[700px] flex items-center overflow-hidden">
+                        <!-- Background Image with Overlay -->
+                        <div class="absolute inset-0 z-0">
+                                <img alt="Background banner" class="object-cover w-full h-full"
+                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMEvlI9ObIxH1PN48mQufvj17z6ud0oBlMgeN8RmC7c8SlbDROD48mBX5hNn9s1lFg0yFLzEDY5ZSY5crHSFlZPIlj09DLoGCbZrEoptcFw7kSphK5A8gHRJtOO8IQqoEYxA9ZLz2mFKYhgI6-6EJRqC_YoKxLhj94i7igj1JZEdhnHSpyLVzq4qrGhcSLWL9T3N-7ruzQIfLFWV1t4IQZbB_orTxz99CA3yBXUMpyqh0NO1Vq-v1PLokPaYUM7NCwuprGp0ZtOSc" />
+                                <div class="absolute inset-0 bg-black/50 backdrop-blur-[1px]"></div>
+                        </div>
+                        <!-- Content -->
+                        <div
+                                class="relative z-10 max-w-container-max mx-auto px-margin-mobile md:px-xl flex flex-col items-start w-full gap-8">
+                                <!-- Wax seal decorative element -->
+                                <h1
+                                        class="font-handwritten text-[3.5rem] leading-[1.1] md:text-[5.5rem] text-white drop-shadow-md max-w-2xl">
+                                        Criando caminhos de leveza e propósito.
+                                </h1>
+                                <div class="max-w-xl">
+                                        <p
+                                                class="font-typewriter text-lg md:text-xl text-white/90 leading-relaxed drop-shadow-sm">
+                                                Um espaço seguro e acolhedor para o seu processo terapêutico.
+                                                Atendimento online para todo o Brasil e brasileiros no exterior.
+                                        </p>
+                                </div>
+                                <div class="pt-sm mt-4">
+                                        <a class="inline-flex items-center justify-center px-md py-sm bg-primary text-on-primary font-label-md text-label-md rounded-full hover:opacity-90 transition-all hover-lift shadow-lg w-full md:w-auto border border-primary/20 backdrop-blur-sm"
+                                                href="https://wa.me/5521988489341" rel="noopener noreferrer"
+                                                target="_blank">
+                                                <span
+                                                        class="material-symbols-outlined mr-2 text-on-primary filled-icon">chat</span>
+                                                Agende sua Consulta pelo WhatsApp
+                                        </a>
+                                </div>
+                        </div>
+                </section>
+                <!-- About Section -->
+                <section class="bg-surface-container-low py-xl torn-edge-top relative" id="sobre">
+                        <div
+                                class="max-w-container-max mx-auto px-margin-mobile md:px-xl grid md:grid-cols-12 gap-xl items-center relative z-10">
+                                <div class="md:col-span-5 order-2 md:order-1 relative">
+                                        <div class="polaroid polaroid-right w-full aspect-[3/4] relative z-10">
+                                                <div class="tape"
+                                                        style="top: -10px; right: -20px; left: auto; transform: rotate(15deg);">
+                                                </div>
+                                                <img alt="Ester Figueiredo" class="object-cover w-full h-full"
+                                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0Cy4cegf_snE5C1lWCj6vZyxTWNruYAHk1UnxpSUYuTd0l9nVbA4BCI-a9DppeiXPivkhUuaA3ed1CGoTad1anEbbQ1TOiYfI7Ak2SQ6TQP5Kz22exuTCIn2FI85DzQC5A4z54pAcLDneiPXUBM9C9pw_AdaLdVfGpHbgQYEp60Bj8QWOEQ4HgvDXUy9woCAV6nP-8GEmE3lP8g5ZcynTdtK4XlFCSKFcnwVkkvmuEyY8emuRVEnroSI1X33fdPPbOfxMjTnkHe8" />
+                                                <div
+                                                        class="font-handwritten text-center text-xl mt-3 text-on-surface-variant">
+                                                        Um espaço para você</div>
+                                        </div>
+                                </div>
+                                <div class="md:col-span-7 flex flex-col gap-md order-1 md:order-2">
+                                        <div>
+                                                <div class="folder-tab">QUEM SOU EU</div>
+                                                <div class="folder-body">
+                                                        <h2 class="font-typewriter text-3xl mb-6 text-on-surface">
+                                                                Muito prazer!
+                                                        </h2>
+                                                        <div
+                                                                class="font-handwritten text-2xl text-on-surface-variant flex flex-col gap-4 leading-relaxed">
+                                                                <p class="">
+                                                                        Sou psicóloga, mas não só isso. Minha bagagem
+                                                                        também passa pela comunicação, mídias sociais e
+                                                                        pela paixão por processos criativos.
+                                                                </p>
+                                                                <p class="">
+                                                                        Tenho prática clínica e na saúde, com mulheres e
+                                                                        público 60+.
+                                                                </p>
+                                                                <p class="">
+                                                                        Acredito que viver é um percurso em construção.
+                                                                        Que nenhuma história é reta, nenhuma dor é
+                                                                        definitiva e nenhum caminho é percorrido
+                                                                        sozinho. Que transformar não é apagar marcas,
+                                                                        mas ressignificá-las.
+                                                                </p>
+                                                                <p class="">
+                                                                        Escolho uma psicologia que não encaixa pessoas
+                                                                        em moldes, mas as convida a florescer no próprio
+                                                                        ritmo. Meu propósito é criar caminhos de leveza,
+                                                                        onde cada passo, mesmo difícil, possa carregar
+                                                                        sentido, presença e esperança.
+                                                                </p>
+                                                                <p
+                                                                        class="font-typewriter text-sm text-primary mt-4 border-t border-primary/20 pt-4">
+                                                                        Formada pela UNESA • Pós-graduanda na PUCRS
+                                                                </p>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
+                </section>
+                <!-- Como Funciona Section -->
+                <section class="bg-surface-container-lowest max-w-container-max mx-auto px-margin-mobile md:px-xl py-xl w-full max-w-none"
+                        id="comofunciona" style="opacity: 0.99;">
+                        <div class="relative max-w-4xl mx-auto">
+                                <div class="folder-tab">COMO FUNCIONA?</div>
+                                <div class="folder-body flex flex-col md:flex-row gap-8 items-center">
+                                        <div class="flex-1 font-typewriter text-on-surface space-y-6">
+                                                <div class="flex gap-4 items-start">
+                                                        <span
+                                                                class="text-2xl text-primary font-bold opacity-50">01</span>
+                                                        <p class="">Primeiro contato: você me manda um "oi" no WhatsApp
+                                                                e conversamos para entender suas necessidades e
+                                                                agendarmos o melhor dia e horário.</p>
+                                                </div>
+                                                <div class="flex gap-4 items-start">
+                                                        <span
+                                                                class="text-2xl text-primary font-bold opacity-50">02</span>
+                                                        <p class="">As sessões serão toda semana no horário e dia
+                                                                marcado, com duração de 50min cada.</p>
+                                                </div>
+                                                <div class="flex gap-4 items-start">
+                                                        <span
+                                                                class="text-2xl text-primary font-bold opacity-50">03</span>
+                                                        <p class="">Cada consulta contém um plano terapêutico, ou seja,
+                                                                não precisa se preocupar em "o que eu vou dizer hoje!?".
+                                                                Teremos sempre um norte para você receber o melhor
+                                                                tratamento.</p>
+                                                </div>
+                                                <div class="flex gap-4 items-start">
+                                                        <span
+                                                                class="text-2xl text-primary font-bold opacity-50">04</span>
+                                                        <p class="">Você irá receber materiais personalizados e sua
+                                                                evolução clínica será sempre revisada, ou seja, o meu
+                                                                compromisso com você vai além dos 50min de sessão.</p>
+                                                </div>
+                                        </div>
+                                        <div class="relative w-full md:w-1/3 flex justify-center">
+                                                <div class="polaroid transform rotate-3">
+                                                        <img alt="Sessão" class="w-full h-auto"
+                                                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1q1s6Bs0SjJl0vqC0gPmw_KcZVLo4ScjL7_W9K1uYcgYZcAvX0TYhLxRU4yI7vsB20ICCFoDd3kgG1AfZbCH0KVe8UmdCbV2lGCbOGUKj7dW3_W8iIPawUT1LJoiwkNhq7DwZIOmwi0C8aXbJ8Uxd7dEecaSoTRvnbJmB2kBk4YuUVulJe0Da1OV1yRXTGzYIcbqkJuiAYak9u4hDd2olL4CTHwgGGOOCIQtUTRLIylzU1Lt06oEn358IgL6UqzwI1wblqXv4qEg" />
+                                                        <div
+                                                                class="font-handwritten text-xl text-center mt-3 text-secondary">
+                                                                vamos nessa!</div>
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
+                </section>
+                <!-- Diferenciais Section -->
+                <section class="max-w-none w-full px-margin-mobile md:px-xl py-xl bg-surface-dim torn-edge-top"
+                        id="diferenciais">
+                        <div class="relative max-w-4xl mx-auto mt-8">
+                                <div class="folder-tab">POR QUE ME ESCOLHER?</div>
+                                <div class="folder-body notebook-paper">
+                                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+                                                <div class="lg:col-span-7 font-typewriter text-on-surface space-y-8">
+                                                        <div class="flex gap-4 items-start">
+                                                                <span
+                                                                        class="text-2xl text-primary font-bold opacity-50">01</span>
+                                                                <div>
+                                                                        <h3 class="font-bold mb-1">Abordagens baseadas em
+                                                                                evidências</h3>
+                                                                        <p class="text-sm">Meu trabalho é fundamentado em
+                                                                                abordagens reconhecidas cientificamente, como a
+                                                                                Terapia de Aceitação e Compromisso (ACT),
+                                                                                Terapia Cognitivo-Comportamental (TCC) e as
+                                                                                Terapias Contextuais.</p>
+                                                                </div>
+                                                        </div>
+                                                        <div class="flex gap-4 items-start">
+                                                                <span
+                                                                        class="text-2xl text-primary font-bold opacity-50">02</span>
+                                                                <div>
+                                                                        <h3 class="font-bold mb-1">Ambiente Seguro e Acolhedor
+                                                                        </h3>
+                                                                        <p class="text-sm">Mesmo sendo on-line, priorizo a
+                                                                                criação de um espaço de escuta acolhedora, com
+                                                                                privacidade e segurança para que você se sinta
+                                                                                confortável em compartilhar suas experiências,
+                                                                                emoções e desafios.</p>
+                                                                </div>
+                                                        </div>
+                                                        <div class="flex gap-4 items-start">
+                                                                <span
+                                                                        class="text-2xl text-primary font-bold opacity-50">03</span>
+                                                                <div>
+                                                                        <h3 class="font-bold mb-1">Flexibilidade de Atendimento
+                                                                        </h3>
+                                                                        <p class="text-sm">O atendimento online permite que você
+                                                                                escolha o local e o horário mais adequados para
+                                                                                o seu dia a dia. É possível cuidar da sua saúde
+                                                                                emocional com mais praticidade, sem abrir mão da
+                                                                                qualidade e do acolhimento.</p>
+                                                                </div>
+                                                        </div>
+                                                        <div class="flex gap-4 items-start">
+                                                                <span
+                                                                        class="text-2xl text-primary font-bold opacity-50">04</span>
+                                                                <div>
+                                                                        <h3 class="font-bold mb-1">Atendimento Personalizado
+                                                                        </h3>
+                                                                        <p class="text-sm">Cada pessoa é única, por isso, os
+                                                                                atendimentos são pensados de forma individual,
+                                                                                respeitando suas necessidades, sua história e
+                                                                                seu momento. A escuta atenta e o cuidado com os
+                                                                                detalhes são parte essencial do meu trabalho.
+                                                                        </p>
+                                                                </div>
+                                                        </div>
+                                                </div>
+                                                <div class="lg:col-span-5 flex justify-center w-full">
+                                                        <div class="polaroid polaroid-right w-full max-w-[280px] aspect-[3/4] relative">
+                                                                <div class="tape" style="top: -10px; left: 50%; transform: translateX(-50%) rotate(2deg); width: 80px;"></div>
+                                                                <img alt="Ester Figueiredo" class="object-cover w-full h-[85%] rounded" src="assets/ester-por-que-escolher.jpg"/>
+                                                                <div class="font-handwritten text-center text-lg mt-2 text-on-surface-variant">Presença & Acolhimento</div>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                        <!-- Decorative stamp -->
+                                        <div
+                                                class="absolute bottom-4 right-4 opacity-20 transform rotate-12 pointer-events-none z-0">
+                                                <span class="material-symbols-outlined text-6xl">verified</span>
+                                        </div>
+                                </div>
+                        </div>
+                </section>
+                <!-- Valores Section -->
+                <section class="max-w-none w-full px-margin-mobile md:px-xl py-xl bg-surface" id="valores">
+                        <div class="relative max-w-4xl mx-auto">
+                                <div class="folder-tab">VALORES DA PSICOTERAPIA</div>
+                                <div class="folder-body bg-[#e2e8e4] relative overflow-hidden">
+                                        <!-- Decorative elements inside folder -->
+                                        <div
+                                                class="absolute top-4 right-4 w-16 h-16 bg-[#d4af37] rounded-full opacity-80 flex items-center justify-center shadow-md">
+                                                <span
+                                                        class="material-symbols-outlined text-white text-2xl">verified</span>
+                                        </div>
+                                        <ul
+                                                class="font-typewriter text-on-surface space-y-6 relative z-10 pl-4 list-disc marker:text-primary">
+                                                <li class=""><span class="font-bold">Valor por sessão:</span> R$ 80,00.
+                                                </li>
+                                                <li class=""><span class="font-bold">Valor mensal referente a 4
+                                                                sessões:</span> R$ 300,00</li>
+                                                <li class="">Condições especiais ou flexibilizações podem ser
+                                                        conversadas e avaliadas individualmente.</li>
+                                                <li class=""><span class="font-bold">Política:</span> todos os
+                                                        combinados serão firmados em contrato/termo de prestação de
+                                                        serviços: frequência, honorários, forma de pagamento,
+                                                        cancelamento e sigilo.</li>
+                                        </ul>
+                                        <div
+                                                class="mt-8 p-4 bg-surface-container-highest/50 border-l-4 border-primary font-typewriter text-xs text-on-surface-variant relative z-10">
+                                                <p class="font-bold mb-1">OBS:</p>
+                                                <p class="">Os valores e condições de atendimento seguem critérios
+                                                        éticos da prática profissional e são formalizados
+                                                        individualmente em contrato.</p>
+                                        </div>
+                                </div>
+                        </div>
+                </section>
+                <!-- Blog & Curadoria Section -->
+                <section class="bg-surface-container-low py-xl torn-edge-top w-full max-w-none" id="blog">
+                        <div class="max-w-container-max mx-auto px-margin-mobile md:px-xl">
+                                <div class="flex justify-between items-end mb-lg">
+                                        <div>
+                                                <div class="folder-tab">BLOG &amp; CURADORIA</div>
+                                                <p
+                                                        class="font-typewriter text-body-md text-on-surface-variant mt-sm ml-2">
+                                                        Reflexões, dicas e links úteis para pacientes, psicólogos e
+                                                        estudantes.
+                                                </p>
+                                        </div>
+                                        <a class="hidden md:flex items-center text-primary hover:text-primary-fixed-dim transition-colors font-label-md blog-see-all"
+                                                href="javascript:void(0)">
+                                                Ver todos
+                                                <span
+                                                        class="material-symbols-outlined ml-1 text-sm">arrow_forward</span>
+                                        </a>
+                                </div>
+                                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                                        <!-- Article 1 -->
+                                        <article class="polaroid hover-lift flex flex-col h-full bg-white">
+                                                <div class="tape top-0"></div>
+                                                <div class="pt-4 flex flex-col flex-grow">
+                                                        <span
+                                                                class="text-xs font-typewriter text-primary mb-2 uppercase tracking-wider">Curadoria</span>
+                                                        <h3
+                                                                class="font-handwritten text-2xl text-on-surface mb-2 leading-tight">
+                                                                Recomendações de Leitura e Decoração</h3>
+                                                        <p
+                                                                class="font-body-md text-body-md text-on-surface-variant text-sm mb-4 flex-grow">
+                                                                Uma seleção especial de livros e itens de decoração para
+                                                                transformar seu ambiente de trabalho ou estudo.
+                                                        </p>
+                                                        <a class="inline-flex items-center text-primary font-typewriter text-sm hover:underline read-article-btn"
+                                                                data-id="1" href="javascript:void(0)">
+                                                                Ler artigo <span
+                                                                        class="material-symbols-outlined ml-1 text-sm">arrow_forward</span>
+                                                        </a>
+                                                </div>
+                                        </article>
+                                        <!-- Article 2 -->
+                                        <article class="polaroid hover-lift flex flex-col h-full bg-white"
+                                                style="transform: rotate(-1deg);">
+                                                <div class="paper-clip"></div>
+                                                <div class="pt-4 flex flex-col flex-grow">
+                                                        <span
+                                                                class="text-xs font-typewriter text-primary mb-2 uppercase tracking-wider">Saúde
+                                                                Mental</span>
+                                                        <h3
+                                                                class="font-handwritten text-2xl text-on-surface mb-2 leading-tight">
+                                                                Lidando com a Sobrecarga</h3>
+                                                        <p
+                                                                class="font-body-md text-body-md text-on-surface-variant text-sm mb-4 flex-grow">
+                                                                Estratégias práticas para reconhecer os sinais de
+                                                                exaustão e encontrar pausas significativas no seu dia.
+                                                        </p>
+                                                        <a class="inline-flex items-center text-primary font-typewriter text-sm hover:underline read-article-btn"
+                                                                data-id="2" href="javascript:void(0)">
+                                                                Ler artigo <span
+                                                                        class="material-symbols-outlined ml-1 text-sm">arrow_forward</span>
+                                                        </a>
+                                                </div>
+                                        </article>
+                                        <!-- Article 3 -->
+                                        <article class="polaroid hover-lift flex flex-col h-full bg-white"
+                                                style="transform: rotate(2deg);">
+                                                <div class="tape" style="top: -5px; right: 20px; left: auto;"></div>
+                                                <div class="pt-4 flex flex-col flex-grow">
+                                                        <span
+                                                                class="text-xs font-typewriter text-primary mb-2 uppercase tracking-wider">Reflexões</span>
+                                                        <h3
+                                                                class="font-handwritten text-2xl text-on-surface mb-2 leading-tight">
+                                                                O Poder da Escrita Terapêutica</h3>
+                                                        <p
+                                                                class="font-body-md text-body-md text-on-surface-variant text-sm mb-4 flex-grow">
+                                                                Como colocar seus pensamentos no papel pode ajudar na
+                                                                organização emocional e alívio da ansiedade.
+                                                        </p>
+                                                        <a class="inline-flex items-center text-primary font-typewriter text-sm hover:underline read-article-btn"
+                                                                data-id="3" href="javascript:void(0)">
+                                                                Ler artigo <span
+                                                                        class="material-symbols-outlined ml-1 text-sm">arrow_forward</span>
+                                                        </a>
+                                                </div>
+                                        </article>
+                                </div>
+                                <div class="mt-md text-center md:hidden">
+                                        <a class="inline-flex items-center text-primary hover:text-primary-fixed-dim transition-colors font-typewriter text-sm blog-see-all"
+                                                href="javascript:void(0)">
+                                                Ver todos
+                                                <span
+                                                        class="material-symbols-outlined ml-1 text-sm">arrow_forward</span>
+                                        </a>
+                                </div>
+                        </div>
+                </section>
+                <!-- E-books (Coming Soon) -->
+                <section
+                        class="max-w-none w-full px-margin-mobile md:px-xl py-xl text-center bg-surface-container-lowest">
+                        <div class="notebook-paper max-w-3xl mx-auto rounded-lg relative transform -rotate-1">
+                                <div class="tape top-0"></div>
+                                <div
+                                        class="inline-block px-3 py-1 bg-secondary/10 text-secondary rounded-full font-typewriter text-xs mb-4">
+                                        Em Breve
+                                </div>
+                                <h2 class="font-handwritten text-4xl text-on-surface mb-sm">
+                                        E-books e Materiais Exclusivos
+                                </h2>
+                                <p class="font-typewriter text-body-md text-on-surface-variant max-w-2xl mx-auto mb-lg">
+                                        Estou preparando conteúdos práticos e aprofundados para auxiliar no seu
+                                        desenvolvimento pessoal. Fique de olho nas novidades.
+                                </p>
+                                <div
+                                        class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-white ambient-shadow text-primary border border-surface-variant/50">
+                                        <span class="material-symbols-outlined"
+                                                style="font-size: 32px;">menu_book</span>
+                                </div>
+                        </div>
+                </section>
+                <!-- Waitlist Form Section -->
+                <section class="bg-surface-dim py-xl torn-edge-top w-full max-w-none" id="lista-espera">
+                        <div class="max-w-3xl mx-auto px-margin-mobile md:px-xl">
+                                <div class="text-center mb-lg">
+                                        <div class="folder-tab inline-block">LISTA DE ESPERA</div>
+                                        <p class="font-typewriter text-body-md text-on-surface-variant mt-sm">
+                                                Preencha os dados abaixo para ser avisado(a) assim que houver novos
+                                                horários disponíveis.
+                                        </p>
+                                </div>
+                                <div class="folder-body">
+                                        <form class="space-y-6 font-typewriter">
+                                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                                        <div>
+                                                                <label class="block text-sm text-on-surface mb-2"
+                                                                        for="name">Nome Completo</label>
+                                                                <input class="w-full bg-white/50 border-b-2 border-outline-variant px-4 py-3 text-body-md focus:border-primary focus:ring-0 transition-colors bg-transparent border-t-0 border-x-0"
+                                                                        id="name" name="name" placeholder="Seu nome"
+                                                                        type="text" />
+                                                        </div>
+                                                        <div>
+                                                                <label class="block text-sm text-on-surface mb-2"
+                                                                        for="age">Idade</label>
+                                                                <input class="w-full bg-white/50 border-b-2 border-outline-variant px-4 py-3 text-body-md focus:border-primary focus:ring-0 transition-colors bg-transparent border-t-0 border-x-0"
+                                                                        id="age" name="age" placeholder="Sua idade"
+                                                                        type="number" />
+                                                        </div>
+                                                        <div>
+                                                                <label class="block text-sm text-on-surface mb-2"
+                                                                        for="whatsapp">WhatsApp</label>
+                                                                <input class="w-full bg-white/50 border-b-2 border-outline-variant px-4 py-3 text-body-md focus:border-primary focus:ring-0 transition-colors bg-transparent border-t-0 border-x-0"
+                                                                        id="whatsapp" name="whatsapp"
+                                                                        placeholder="(00) 00000-0000" type="tel" />
+                                                        </div>
+                                                        <div>
+                                                                <label class="block text-sm text-on-surface mb-2"
+                                                                        for="location">Cidade/Estado (ou País)</label>
+                                                                <input class="w-full bg-white/50 border-b-2 border-outline-variant px-4 py-3 text-body-md focus:border-primary focus:ring-0 transition-colors bg-transparent border-t-0 border-x-0"
+                                                                        id="location" name="location"
+                                                                        placeholder="Ex: Rio de Janeiro, RJ"
+                                                                        type="text" />
+                                                        </div>
+                                                </div>
+                                                <button id="waitlist-submit"
+                                                        class="w-full mt-8 bg-primary text-on-primary py-4 rounded-md font-typewriter text-lg hover:bg-primary/90 transition-colors hover-lift shadow-md"
+                                                        type="button">
+                                                        Entrar na Lista de Espera
+                                                </button>
+                                        </form>
+                                </div>
+                        </div>
+                </section>
+                <!-- FAQ Section -->
+                <section class="max-w-none w-full px-margin-mobile md:px-xl py-xl bg-surface-container-low" id="faq">
+                        <div class="max-w-3xl mx-auto">
+                                <div class="text-center mb-lg">
+                                        <div class="folder-tab inline-block">PERGUNTAS FREQUENTES</div>
+                                </div>
+                                <div class="flex flex-col gap-sm">
+                                        <!-- Accordion Item 1 -->
+                                        <details
+                                                class="group bg-[#f0eedc] rounded-md ambient-shadow border border-surface-variant/50 overflow-hidden relative">
+                                                <div class="tape"
+                                                        style="top: 0; left: 10px; transform: none; width: 30px; height: 15px;">
+                                                </div>
+                                                <summary
+                                                        class="flex justify-between items-center cursor-pointer p-md font-handwritten text-2xl text-on-surface list-none pl-12">
+                                                        Qual o valor da sessão?
+                                                        <span
+                                                                class="material-symbols-outlined transition-transform group-open:rotate-180 text-primary">expand_more</span>
+                                                </summary>
+                                                <div
+                                                        class="p-md pt-0 font-typewriter text-sm text-on-surface-variant pl-12">
+                                                        Os honorários são informados durante o primeiro contato,
+                                                        respeitando as diretrizes do Conselho Federal de Psicologia.
+                                                        Entre em contato pelo WhatsApp para receber as informações
+                                                        detalhadas. (Ou consulte a seção Valores acima).
+                                                </div>
+                                        </details>
+                                        <!-- Accordion Item 2 -->
+                                        <details
+                                                class="group bg-[#f0eedc] rounded-md ambient-shadow border border-surface-variant/50 overflow-hidden relative">
+                                                <div class="tape"
+                                                        style="top: 0; left: 10px; transform: none; width: 30px; height: 15px;">
+                                                </div>
+                                                <summary
+                                                        class="flex justify-between items-center cursor-pointer p-md font-handwritten text-2xl text-on-surface list-none pl-12">
+                                                        Aceita convênio médico?
+                                                        <span
+                                                                class="material-symbols-outlined transition-transform group-open:rotate-180 text-primary">expand_more</span>
+                                                </summary>
+                                                <div
+                                                        class="p-md pt-0 font-typewriter text-sm text-on-surface-variant pl-12">
+                                                        Os atendimentos são particulares, mas emito recibo para
+                                                        solicitação de reembolso junto ao seu plano de saúde, caso seu
+                                                        convênio ofereça essa modalidade.
+                                                </div>
+                                        </details>
+                                        <!-- Accordion Item 3 -->
+                                        <details
+                                                class="group bg-[#f0eedc] rounded-md ambient-shadow border border-surface-variant/50 overflow-hidden relative">
+                                                <div class="tape"
+                                                        style="top: 0; left: 10px; transform: none; width: 30px; height: 15px;">
+                                                </div>
+                                                <summary
+                                                        class="flex justify-between items-center cursor-pointer p-md font-handwritten text-2xl text-on-surface list-none pl-12">
+                                                        Como funciona a primeira sessão?
+                                                        <span
+                                                                class="material-symbols-outlined transition-transform group-open:rotate-180 text-primary">expand_more</span>
+                                                </summary>
+                                                <div
+                                                        class="p-md pt-0 font-typewriter text-sm text-on-surface-variant pl-12">
+                                                        A primeira sessão é um momento de acolhimento e escuta. Serve
+                                                        para nos conhecermos, para eu entender sua demanda e para você
+                                                        avaliar se sente conforto e segurança para iniciarmos o processo
+                                                        terapêutico juntos.
+                                                </div>
+                                        </details>
+                                </div>
+                        </div>
+                </section>
+        </main>
+        <!-- Footer -->
+        <footer
+                class="w-full torn-edge-top bg-surface-container-low dark:bg-surface-dim pt-16 pb-8 px-margin-mobile md:px-xl flex flex-col items-center gap-md relative mt-8">
+                <div class="text-2xl font-typewriter text-primary dark:text-primary-fixed-dim"><img
+                                alt="Ester Figueiredo Logo" class="h-16 w-auto object-contain mx-auto"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdhN24sqfXGjqhwZEtGYxVtfbEPCNVVGVLEt5ZveaRZeSOSsERZCaWEOkraDJQu6fp6X9NWByfZrjAF4OSMX_N5cjX9U7Oj4Q3TfUH7yFQtijck_H11sQyTZroVCMmY6v8wtQ6GXnumQc1baHLa2o1YM4tKOYutt4diS64IrB6CuCoq5-_IG-pzLNCiLqMAB0Z1rvAT9tIg5dJz6KvId6pwEdK5Ml7fUgZHhQWQ_9S--ZkBHY6AlvUiwqHj2bM4KWzEs1PhqcnId0" />
+                </div>
+                <div
+                        class="flex flex-col md:flex-row items-center gap-4 text-on-surface-variant font-typewriter text-sm mb-4">
+                        <a class="hover:text-primary transition-colors flex items-center gap-1"
+                                href="https://instagram.com/psiesterfigueiredo" rel="noopener noreferrer"
+                                target="_blank">
+                                <span class="material-symbols-outlined text-sm">photo_camera</span> @psiesterfigueiredo
+                        </a>
+                        <span class="hidden md:inline">•</span>
+                        <a class="hover:text-primary transition-colors flex items-center gap-1"
+                                href="mailto:psiesterfigueiredo@gmail.com">
+                                <span class="material-symbols-outlined text-sm">mail</span> psiesterfigueiredo@gmail.com
+                        </a>
+                        <span class="hidden md:inline">•</span>
+                        <a class="hover:text-primary transition-colors flex items-center gap-1"
+                                href="https://wa.me/5521988489341" rel="noopener noreferrer" target="_blank">
+                                <span class="material-symbols-outlined text-sm">call</span> +55 21 98848-9341
+                        </a>
+                </div>
+                <div class="flex flex-wrap justify-center gap-md font-typewriter text-xs">
+                        <a class="text-on-surface-variant hover:text-secondary transition-colors"
+                                href="javascript:void(0)" id="terms-link">Termos de Uso</a>
+                        <a class="text-on-surface-variant hover:text-secondary transition-colors"
+                                href="javascript:void(0)" id="privacy-link">Política de Privacidade</a>
+                        <a class="text-on-surface-variant hover:text-secondary transition-colors"
+                                href="#lista-espera">Contato</a>
+                </div>
+                <div class="text-secondary dark:text-secondary-fixed font-typewriter text-xs text-center mt-md">
+                        © 2024 Ester Figueiredo - Psicóloga Clínica. Todos os direitos reservados.
+                </div>
+        </footer>
+        <!-- Emergency Exit FAB (Fixed) -->
+        <a class="fixed bottom-6 right-6 bg-surface-container-highest text-on-surface-variant px-4 py-2 rounded-full font-typewriter text-xs ambient-shadow hover:bg-surface-variant transition-colors flex items-center gap-2 z-50 border border-outline-variant/30 opacity-80 hover:opacity-100"
+                href="https://cvv.org.br/" rel="noopener noreferrer" target="_blank">
+                <span class="material-symbols-outlined text-sm">emergency</span>
+                Precisa de ajuda agora?
         </a>
-        <!-- Mobile Menu Button -->
-        <button id="mobile-menu-btn" class="md:hidden text-primary p-2">
-            <span class="material-symbols-outlined">menu</span>
-        </button>
-    </div>
-</nav>
-<!-- Main Content -->
-<main class="pt-[72px]">
-<!-- Hero Section -->
-<section class="relative w-full aspect-video min-h-[500px] md:min-h-[700px] flex items-center overflow-hidden">
-<!-- Background Image with Overlay -->
-<div class="absolute inset-0 z-0">
-<img alt="Background banner" class="object-cover w-full h-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMEvlI9ObIxH1PN48mQufvj17z6ud0oBlMgeN8RmC7c8SlbDROD48mBX5hNn9s1lFg0yFLzEDY5ZSY5crHSFlZPIlj09DLoGCbZrEoptcFw7kSphK5A8gHRJtOO8IQqoEYxA9ZLz2mFKYhgI6-6EJRqC_YoKxLhj94i7igj1JZEdhnHSpyLVzq4qrGhcSLWL9T3N-7ruzQIfLFWV1t4IQZbB_orTxz99CA3yBXUMpyqh0NO1Vq-v1PLokPaYUM7NCwuprGp0ZtOSc"/>
-<div class="absolute inset-0 bg-black/50 backdrop-blur-[1px]"></div>
-</div>
-<!-- Content -->
-<div class="relative z-10 max-w-container-max mx-auto px-margin-mobile md:px-xl flex flex-col items-start w-full gap-8">
-<!-- Wax seal decorative element -->
-<h1 class="font-handwritten text-[3.5rem] leading-[1.1] md:text-[5.5rem] text-white drop-shadow-md max-w-2xl">
-            Criando caminhos de leveza e propósito.
-        </h1>
-<div class="max-w-xl">
-<p class="font-typewriter text-lg md:text-xl text-white/90 leading-relaxed drop-shadow-sm">
-                Um espaço seguro e acolhedor para o seu processo terapêutico. Atendimento online para todo o Brasil e brasileiros no exterior.
-            </p>
-</div>
-<div class="pt-sm mt-4">
-<a class="inline-flex items-center justify-center px-md py-sm bg-primary text-on-primary font-label-md text-label-md rounded-full hover:opacity-90 transition-all hover-lift shadow-lg w-full md:w-auto border border-primary/20 backdrop-blur-sm" href="https://wa.me/5521988489341" rel="noopener noreferrer" target="_blank">
-<span class="material-symbols-outlined mr-2 text-on-primary filled-icon">chat</span>
-                Agende sua Consulta pelo WhatsApp
-            </a>
-</div>
-</div>
-</section>
-<!-- About Section -->
-<section class="bg-surface-container-low py-xl torn-edge-top relative" id="sobre">
-<div class="max-w-container-max mx-auto px-margin-mobile md:px-xl grid md:grid-cols-12 gap-xl items-center relative z-10">
-<div class="md:col-span-5 order-2 md:order-1 relative">
-<div class="polaroid polaroid-right w-full aspect-[3/4] relative z-10">
-<div class="tape" style="top: -10px; right: -20px; left: auto; transform: rotate(15deg);"></div>
-<img alt="Ester Figueiredo" class="object-cover w-full h-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0Cy4cegf_snE5C1lWCj6vZyxTWNruYAHk1UnxpSUYuTd0l9nVbA4BCI-a9DppeiXPivkhUuaA3ed1CGoTad1anEbbQ1TOiYfI7Ak2SQ6TQP5Kz22exuTCIn2FI85DzQC5A4z54pAcLDneiPXUBM9C9pw_AdaLdVfGpHbgQYEp60Bj8QWOEQ4HgvDXUy9woCAV6nP-8GEmE3lP8g5ZcynTdtK4XlFCSKFcnwVkkvmuEyY8emuRVEnroSI1X33fdPPbOfxMjTnkHe8"/>
-<div class="font-handwritten text-center text-xl mt-3 text-on-surface-variant">Um espaço para você</div>
-</div>
-</div>
-<div class="md:col-span-7 flex flex-col gap-md order-1 md:order-2">
-<div>
-<div class="folder-tab">QUEM SOU EU</div>
-<div class="folder-body">
-<h2 class="font-typewriter text-3xl mb-6 text-on-surface">
-                        Muito prazer!
-                    </h2>
-<div class="font-handwritten text-2xl text-on-surface-variant flex flex-col gap-4 leading-relaxed">
-<p class="">
-                            Sou psicóloga, mas não só isso. Minha bagagem também passa pela comunicação, mídias sociais e pela paixão por processos criativos.
-                        </p>
-<p class="">
-                            Tenho prática clínica e na saúde, com mulheres e público 60+.
-                        </p>
-<p class="">
-                            Acredito que viver é um percurso em construção. Que nenhuma história é reta, nenhuma dor é definitiva e nenhum caminho é percorrido sozinho. Que transformar não é apagar marcas, mas ressignificá-las.
-                        </p>
-<p class="">
-                            Escolho uma psicologia que não encaixa pessoas em moldes, mas as convida a florescer no próprio ritmo. Meu propósito é criar caminhos de leveza, onde cada passo, mesmo difícil, possa carregar sentido, presença e esperança.
-                        </p>
-<p class="font-typewriter text-sm text-primary mt-4 border-t border-primary/20 pt-4">
-                            Formada pela UNESA • Pós-graduanda na PUCRS
-                        </p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Como Funciona Section -->
-<section class="bg-surface-container-lowest max-w-container-max mx-auto px-margin-mobile md:px-xl py-xl w-full max-w-none" id="comofunciona" style="opacity: 0.99;">
-<div class="relative max-w-4xl mx-auto">
-<div class="folder-tab">COMO FUNCIONA?</div>
-<div class="folder-body flex flex-col md:flex-row gap-8 items-center">
-<div class="flex-1 font-typewriter text-on-surface space-y-6">
-<div class="flex gap-4 items-start">
-<span class="text-2xl text-primary font-bold opacity-50">01</span>
-<p class="">Primeiro contato: você me manda um "oi" no WhatsApp e conversamos para entender suas necessidades e agendarmos o melhor dia e horário.</p>
-</div>
-<div class="flex gap-4 items-start">
-<span class="text-2xl text-primary font-bold opacity-50">02</span>
-<p class="">As sessões serão toda semana no horário e dia marcado, com duração de 50min cada.</p>
-</div>
-<div class="flex gap-4 items-start">
-<span class="text-2xl text-primary font-bold opacity-50">03</span>
-<p class="">Cada consulta contém um plano terapêutico, ou seja, não precisa se preocupar em "o que eu vou dizer hoje!?". Teremos sempre um norte para você receber o melhor tratamento.</p>
-</div>
-<div class="flex gap-4 items-start">
-<span class="text-2xl text-primary font-bold opacity-50">04</span>
-<p class="">Você irá receber materiais personalizados e sua evolução clínica será sempre revisada, ou seja, o meu compromisso com você vai além dos 50min de sessão.</p>
-</div>
-</div>
-<div class="relative w-full md:w-1/3 flex justify-center">
-<div class="polaroid transform rotate-3">
-<img alt="Sessão" class="w-full h-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1q1s6Bs0SjJl0vqC0gPmw_KcZVLo4ScjL7_W9K1uYcgYZcAvX0TYhLxRU4yI7vsB20ICCFoDd3kgG1AfZbCH0KVe8UmdCbV2lGCbOGUKj7dW3_W8iIPawUT1LJoiwkNhq7DwZIOmwi0C8aXbJ8Uxd7dEecaSoTRvnbJmB2kBk4YuUVulJe0Da1OV1yRXTGzYIcbqkJuiAYak9u4hDd2olL4CTHwgGGOOCIQtUTRLIylzU1Lt06oEn358IgL6UqzwI1wblqXv4qEg"/>
-<div class="font-handwritten text-xl text-center mt-3 text-secondary">vamos nessa!</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Diferenciais Section -->
-<section class="max-w-none w-full px-margin-mobile md:px-xl py-xl bg-surface-dim torn-edge-top" id="diferenciais">
-<div class="relative max-w-4xl mx-auto mt-8">
-<div class="folder-tab">POR QUE ME ESCOLHER?</div>
-<div class="folder-body notebook-paper">
-<div class="font-typewriter text-on-surface space-y-8">
-<div class="flex gap-4 items-start">
-<span class="text-2xl text-primary font-bold opacity-50">01</span>
-<div>
-<h3 class="font-bold mb-1">Abordagens baseadas em evidências</h3>
-<p class="text-sm">Meu trabalho é fundamentado em abordagens reconhecidas cientificamente, como a Terapia de Aceitação e Compromisso (ACT), Terapia Cognitivo-Comportamental (TCC) e as Terapias Contextuais.</p>
-</div>
-</div>
-<div class="flex gap-4 items-start">
-<span class="text-2xl text-primary font-bold opacity-50">02</span>
-<div>
-<h3 class="font-bold mb-1">Ambiente Seguro e Acolhedor</h3>
-<p class="text-sm">Mesmo sendo on-line, priorizo a criação de um espaço de escuta acolhedora, com privacidade e segurança para que você se sinta confortável em compartilhar suas experiências, emoções e desafios.</p>
-</div>
-</div>
-<div class="flex gap-4 items-start">
-<span class="text-2xl text-primary font-bold opacity-50">03</span>
-<div>
-<h3 class="font-bold mb-1">Flexibilidade de Atendimento</h3>
-<p class="text-sm">O atendimento online permite que você escolha o local e o horário mais adequados para o seu dia a dia. É possível cuidar da sua saúde emocional com mais praticidade, sem abrir mão da qualidade e do acolhimento.</p>
-</div>
-</div>
-<div class="flex gap-4 items-start">
-<span class="text-2xl text-primary font-bold opacity-50">04</span>
-<div>
-<h3 class="font-bold mb-1">Atendimento Personalizado</h3>
-<p class="text-sm">Cada pessoa é única, por isso, os atendimentos são pensados de forma individual, respeitando suas necessidades, sua história e seu momento. A escuta atenta e o cuidado com os detalhes são parte essencial do meu trabalho.</p>
-</div>
-</div>
-</div>
-<!-- Decorative stamp -->
-<div class="absolute bottom-4 right-4 opacity-30 transform rotate-12 pointer-events-none">
-<span class="material-symbols-outlined text-6xl">verified</span>
-</div>
-</div>
-</div>
-</section>
-<!-- Valores Section -->
-<section class="max-w-none w-full px-margin-mobile md:px-xl py-xl bg-surface" id="valores">
-<div class="relative max-w-4xl mx-auto">
-<div class="folder-tab">VALORES DA PSICOTERAPIA</div>
-<div class="folder-body bg-[#e2e8e4] relative overflow-hidden">
-<!-- Decorative elements inside folder -->
-<div class="absolute top-4 right-4 w-16 h-16 bg-[#d4af37] rounded-full opacity-80 flex items-center justify-center shadow-md">
-<span class="material-symbols-outlined text-white text-2xl">verified</span>
-</div>
-<ul class="font-typewriter text-on-surface space-y-6 relative z-10 pl-4 list-disc marker:text-primary">
-<li class=""><span class="font-bold">Valor por sessão:</span> R$ 80,00.</li>
-<li class=""><span class="font-bold">Valor mensal referente a 4 sessões:</span> R$ 300,00</li>
-<li class="">Condições especiais ou flexibilizações podem ser conversadas e avaliadas individualmente.</li>
-<li class=""><span class="font-bold">Política:</span> todos os combinados serão firmados em contrato/termo de prestação de serviços: frequência, honorários, forma de pagamento, cancelamento e sigilo.</li>
-</ul>
-<div class="mt-8 p-4 bg-surface-container-highest/50 border-l-4 border-primary font-typewriter text-xs text-on-surface-variant relative z-10">
-<p class="font-bold mb-1">OBS:</p>
-<p class="">Os valores e condições de atendimento seguem critérios éticos da prática profissional e são formalizados individualmente em contrato.</p>
-</div>
-</div>
-</div>
-</section>
-<!-- Blog & Curadoria Section -->
-<section class="bg-surface-container-low py-xl torn-edge-top w-full max-w-none" id="blog">
-<div class="max-w-container-max mx-auto px-margin-mobile md:px-xl">
-<div class="flex justify-between items-end mb-lg">
-<div>
-<div class="folder-tab">BLOG &amp; CURADORIA</div>
-<p class="font-typewriter text-body-md text-on-surface-variant mt-sm ml-2">
-                    Reflexões, dicas e links úteis para pacientes, psicólogos e estudantes.
-                </p>
-</div>
-<a class="hidden md:flex items-center text-primary hover:text-primary-fixed-dim transition-colors font-label-md blog-see-all" href="javascript:void(0)">
-        Ver todos
-        <span class="material-symbols-outlined ml-1 text-sm">arrow_forward</span>
-</a>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-<!-- Article 1 -->
-<article class="polaroid hover-lift flex flex-col h-full bg-white">
-<div class="tape top-0"></div>
-<div class="pt-4 flex flex-col flex-grow">
-<span class="text-xs font-typewriter text-primary mb-2 uppercase tracking-wider">Curadoria</span>
-<h3 class="font-handwritten text-2xl text-on-surface mb-2 leading-tight">Recomendações de Leitura e Decoração</h3>
-<p class="font-body-md text-body-md text-on-surface-variant text-sm mb-4 flex-grow">
-            Uma seleção especial de livros e itens de decoração para transformar seu ambiente de trabalho ou estudo.
-        </p>
-<a class="inline-flex items-center text-primary font-typewriter text-sm hover:underline read-article-btn" data-id="1" href="javascript:void(0)">
-            Ler artigo <span class="material-symbols-outlined ml-1 text-sm">arrow_forward</span>
-</a>
-</div>
-</article>
-<!-- Article 2 -->
-<article class="polaroid hover-lift flex flex-col h-full bg-white" style="transform: rotate(-1deg);">
-<div class="paper-clip"></div>
-<div class="pt-4 flex flex-col flex-grow">
-<span class="text-xs font-typewriter text-primary mb-2 uppercase tracking-wider">Saúde Mental</span>
-<h3 class="font-handwritten text-2xl text-on-surface mb-2 leading-tight">Lidando com a Sobrecarga</h3>
-<p class="font-body-md text-body-md text-on-surface-variant text-sm mb-4 flex-grow">
-            Estratégias práticas para reconhecer os sinais de exaustão e encontrar pausas significativas no seu dia.
-        </p>
-<a class="inline-flex items-center text-primary font-typewriter text-sm hover:underline read-article-btn" data-id="2" href="javascript:void(0)">
-            Ler artigo <span class="material-symbols-outlined ml-1 text-sm">arrow_forward</span>
-</a>
-</div>
-</article>
-<!-- Article 3 -->
-<article class="polaroid hover-lift flex flex-col h-full bg-white" style="transform: rotate(2deg);">
-<div class="tape" style="top: -5px; right: 20px; left: auto;"></div>
-<div class="pt-4 flex flex-col flex-grow">
-<span class="text-xs font-typewriter text-primary mb-2 uppercase tracking-wider">Reflexões</span>
-<h3 class="font-handwritten text-2xl text-on-surface mb-2 leading-tight">O Poder da Escrita Terapêutica</h3>
-<p class="font-body-md text-body-md text-on-surface-variant text-sm mb-4 flex-grow">
-            Como colocar seus pensamentos no papel pode ajudar na organização emocional e alívio da ansiedade.
-        </p>
-<a class="inline-flex items-center text-primary font-typewriter text-sm hover:underline read-article-btn" data-id="3" href="javascript:void(0)">
-            Ler artigo <span class="material-symbols-outlined ml-1 text-sm">arrow_forward</span>
-</a>
-</div>
-</article>
-</div>
-<div class="mt-md text-center md:hidden">
-<a class="inline-flex items-center text-primary hover:text-primary-fixed-dim transition-colors font-typewriter text-sm blog-see-all" href="javascript:void(0)">
-        Ver todos
-        <span class="material-symbols-outlined ml-1 text-sm">arrow_forward</span>
-</a>
-</div>
-</div>
-</section>
-<!-- E-books (Coming Soon) -->
-<section class="max-w-none w-full px-margin-mobile md:px-xl py-xl text-center bg-surface-container-lowest">
-<div class="notebook-paper max-w-3xl mx-auto rounded-lg relative transform -rotate-1">
-<div class="tape top-0"></div>
-<div class="inline-block px-3 py-1 bg-secondary/10 text-secondary rounded-full font-typewriter text-xs mb-4">
-        Em Breve
-    </div>
-<h2 class="font-handwritten text-4xl text-on-surface mb-sm">
-        E-books e Materiais Exclusivos
-    </h2>
-<p class="font-typewriter text-body-md text-on-surface-variant max-w-2xl mx-auto mb-lg">
-        Estou preparando conteúdos práticos e aprofundados para auxiliar no seu desenvolvimento pessoal. Fique de olho nas novidades.
-    </p>
-<div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-white ambient-shadow text-primary border border-surface-variant/50">
-<span class="material-symbols-outlined" style="font-size: 32px;">menu_book</span>
-</div>
-</div>
-</section>
-<!-- Waitlist Form Section -->
-<section class="bg-surface-dim py-xl torn-edge-top w-full max-w-none" id="lista-espera">
-<div class="max-w-3xl mx-auto px-margin-mobile md:px-xl">
-<div class="text-center mb-lg">
-<div class="folder-tab inline-block">LISTA DE ESPERA</div>
-<p class="font-typewriter text-body-md text-on-surface-variant mt-sm">
-                Preencha os dados abaixo para ser avisado(a) assim que houver novos horários disponíveis.
-            </p>
-</div>
-<div class="folder-body">
-<form class="space-y-6 font-typewriter">
-<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-<div>
-<label class="block text-sm text-on-surface mb-2" for="name">Nome Completo</label>
-<input class="w-full bg-white/50 border-b-2 border-outline-variant px-4 py-3 text-body-md focus:border-primary focus:ring-0 transition-colors bg-transparent border-t-0 border-x-0" id="name" name="name" placeholder="Seu nome" type="text"/>
-</div>
-<div>
-<label class="block text-sm text-on-surface mb-2" for="age">Idade</label>
-<input class="w-full bg-white/50 border-b-2 border-outline-variant px-4 py-3 text-body-md focus:border-primary focus:ring-0 transition-colors bg-transparent border-t-0 border-x-0" id="age" name="age" placeholder="Sua idade" type="number"/>
-</div>
-<div>
-<label class="block text-sm text-on-surface mb-2" for="whatsapp">WhatsApp</label>
-<input class="w-full bg-white/50 border-b-2 border-outline-variant px-4 py-3 text-body-md focus:border-primary focus:ring-0 transition-colors bg-transparent border-t-0 border-x-0" id="whatsapp" name="whatsapp" placeholder="(00) 00000-0000" type="tel"/>
-</div>
-<div>
-<label class="block text-sm text-on-surface mb-2" for="location">Cidade/Estado (ou País)</label>
-<input class="w-full bg-white/50 border-b-2 border-outline-variant px-4 py-3 text-body-md focus:border-primary focus:ring-0 transition-colors bg-transparent border-t-0 border-x-0" id="location" name="location" placeholder="Ex: Rio de Janeiro, RJ" type="text"/>
-</div>
-</div>
-<button id="waitlist-submit" class="w-full mt-8 bg-primary text-on-primary py-4 rounded-md font-typewriter text-lg hover:bg-primary/90 transition-colors hover-lift shadow-md" type="button">
-                Entrar na Lista de Espera
-            </button>
-</form>
-</div>
-</div>
-</section>
-<!-- FAQ Section -->
-<section class="max-w-none w-full px-margin-mobile md:px-xl py-xl bg-surface-container-low" id="faq">
-<div class="max-w-3xl mx-auto">
-<div class="text-center mb-lg">
-<div class="folder-tab inline-block">PERGUNTAS FREQUENTES</div>
-</div>
-<div class="flex flex-col gap-sm">
-<!-- Accordion Item 1 -->
-<details class="group bg-[#f0eedc] rounded-md ambient-shadow border border-surface-variant/50 overflow-hidden relative">
-<div class="tape" style="top: 0; left: 10px; transform: none; width: 30px; height: 15px;"></div>
-<summary class="flex justify-between items-center cursor-pointer p-md font-handwritten text-2xl text-on-surface list-none pl-12">
-                            Qual o valor da sessão?
-                            <span class="material-symbols-outlined transition-transform group-open:rotate-180 text-primary">expand_more</span>
-</summary>
-<div class="p-md pt-0 font-typewriter text-sm text-on-surface-variant pl-12">
-                            Os honorários são informados durante o primeiro contato, respeitando as diretrizes do Conselho Federal de Psicologia. Entre em contato pelo WhatsApp para receber as informações detalhadas. (Ou consulte a seção Valores acima).
+
+        <!-- Mobile Navigation Drawer -->
+        <div id="mobile-menu"
+                class="fixed inset-0 z-[100] bg-black/50 backdrop-blur-sm transition-opacity duration-300 opacity-0 pointer-events-none">
+                <div class="fixed top-0 right-0 h-full w-4/5 max-w-sm bg-surface p-6 shadow-2xl transition-transform duration-300 translate-x-full flex flex-col gap-6"
+                        id="mobile-menu-drawer">
+                        <div class="flex justify-between items-center border-b border-surface-variant/50 pb-4">
+                                <span class="font-typewriter text-xl text-primary font-bold">Navegação</span>
+                                <button id="mobile-menu-close" class="text-primary p-2">
+                                        <span class="material-symbols-outlined text-2xl">close</span>
+                                </button>
                         </div>
-</details>
-<!-- Accordion Item 2 -->
-<details class="group bg-[#f0eedc] rounded-md ambient-shadow border border-surface-variant/50 overflow-hidden relative">
-<div class="tape" style="top: 0; left: 10px; transform: none; width: 30px; height: 15px;"></div>
-<summary class="flex justify-between items-center cursor-pointer p-md font-handwritten text-2xl text-on-surface list-none pl-12">
-                            Aceita convênio médico?
-                            <span class="material-symbols-outlined transition-transform group-open:rotate-180 text-primary">expand_more</span>
-</summary>
-<div class="p-md pt-0 font-typewriter text-sm text-on-surface-variant pl-12">
-                            Os atendimentos são particulares, mas emito recibo para solicitação de reembolso junto ao seu plano de saúde, caso seu convênio ofereça essa modalidade.
+                        <div class="flex flex-col gap-4 font-typewriter text-lg">
+                                <a class="text-on-surface hover:text-primary transition-colors py-2 border-b border-surface-variant/30"
+                                        href="#sobre">Sobre</a>
+                                <a class="text-on-surface hover:text-primary transition-colors py-2 border-b border-surface-variant/30"
+                                        href="#comofunciona">Como Funciona</a>
+                                <a class="text-on-surface hover:text-primary transition-colors py-2 border-b border-surface-variant/30"
+                                        href="#diferenciais">Diferenciais</a>
+                                <a class="text-on-surface hover:text-primary transition-colors py-2 border-b border-surface-variant/30"
+                                        href="#valores">Valores</a>
+                                <a class="text-on-surface hover:text-primary transition-colors py-2 border-b border-surface-variant/30"
+                                        href="#blog">Blog</a>
+                                <a class="text-on-surface hover:text-primary transition-colors py-2 border-b border-surface-variant/30"
+                                        href="#faq">FAQ</a>
+                                <a class="text-on-surface hover:text-primary transition-colors py-2 border-b border-surface-variant/30"
+                                        href="#lista-espera">Lista de Espera</a>
                         </div>
-</details>
-<!-- Accordion Item 3 -->
-<details class="group bg-[#f0eedc] rounded-md ambient-shadow border border-surface-variant/50 overflow-hidden relative">
-<div class="tape" style="top: 0; left: 10px; transform: none; width: 30px; height: 15px;"></div>
-<summary class="flex justify-between items-center cursor-pointer p-md font-handwritten text-2xl text-on-surface list-none pl-12">
-                            Como funciona a primeira sessão?
-                            <span class="material-symbols-outlined transition-transform group-open:rotate-180 text-primary">expand_more</span>
-</summary>
-<div class="p-md pt-0 font-typewriter text-sm text-on-surface-variant pl-12">
-                            A primeira sessão é um momento de acolhimento e escuta. Serve para nos conhecermos, para eu entender sua demanda e para você avaliar se sente conforto e segurança para iniciarmos o processo terapêutico juntos.
+                        <a class="mt-auto inline-flex items-center justify-center px-md py-sm bg-secondary text-on-secondary font-label-md text-label-md rounded-full hover:opacity-90 transition-opacity"
+                                href="https://wa.me/5521988489341" rel="noopener noreferrer" target="_blank">
+                                Agendar Consulta
+                        </a>
+                </div>
+        </div>
+
+        <!-- Generic Modal Overlay -->
+        <div id="custom-modal"
+                class="fixed inset-0 z-[110] bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 transition-opacity duration-300 opacity-0 pointer-events-none">
+                <div class="bg-surface rounded-lg max-w-2xl w-full max-h-[85vh] overflow-y-auto shadow-2xl transition-all duration-300 scale-95 flex flex-col relative notebook-paper"
+                        id="custom-modal-dialog">
+                        <div class="tape top-0 z-10"></div>
+                        <button id="modal-close-btn"
+                                class="absolute top-4 right-4 text-on-surface-variant hover:text-primary transition-colors z-20 p-2">
+                                <span class="material-symbols-outlined text-2xl">close</span>
+                        </button>
+                        <div class="p-8 mt-4" id="modal-content-area">
+                                <!-- Loaded dynamically -->
                         </div>
-</details>
-</div>
-</div>
-</section>
-</main>
-<!-- Footer -->
-<footer class="w-full torn-edge-top bg-surface-container-low dark:bg-surface-dim pt-16 pb-8 px-margin-mobile md:px-xl flex flex-col items-center gap-md relative mt-8">
-<div class="text-2xl font-typewriter text-primary dark:text-primary-fixed-dim"><img alt="Ester Figueiredo Logo" class="h-16 w-auto object-contain mx-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdhN24sqfXGjqhwZEtGYxVtfbEPCNVVGVLEt5ZveaRZeSOSsERZCaWEOkraDJQu6fp6X9NWByfZrjAF4OSMX_N5cjX9U7Oj4Q3TfUH7yFQtijck_H11sQyTZroVCMmY6v8wtQ6GXnumQc1baHLa2o1YM4tKOYutt4diS64IrB6CuCoq5-_IG-pzLNCiLqMAB0Z1rvAT9tIg5dJz6KvId6pwEdK5Ml7fUgZHhQWQ_9S--ZkBHY6AlvUiwqHj2bM4KWzEs1PhqcnId0"/></div>
-<div class="flex flex-col md:flex-row items-center gap-4 text-on-surface-variant font-typewriter text-sm mb-4">
-<a class="hover:text-primary transition-colors flex items-center gap-1" href="https://instagram.com/psiesterfigueiredo" rel="noopener noreferrer" target="_blank">
-<span class="material-symbols-outlined text-sm">photo_camera</span> @psiesterfigueiredo
-    </a>
-<span class="hidden md:inline">•</span>
-<a class="hover:text-primary transition-colors flex items-center gap-1" href="mailto:psiesterfigueiredo@gmail.com">
-<span class="material-symbols-outlined text-sm">mail</span> psiesterfigueiredo@gmail.com
-    </a>
-<span class="hidden md:inline">•</span>
-<a class="hover:text-primary transition-colors flex items-center gap-1" href="https://wa.me/5521988489341" rel="noopener noreferrer" target="_blank">
-<span class="material-symbols-outlined text-sm">call</span> +55 21 98848-9341
-    </a>
-</div>
-<div class="flex flex-wrap justify-center gap-md font-typewriter text-xs">
-<a class="text-on-surface-variant hover:text-secondary transition-colors" href="javascript:void(0)" id="terms-link">Termos de Uso</a>
-<a class="text-on-surface-variant hover:text-secondary transition-colors" href="javascript:void(0)" id="privacy-link">Política de Privacidade</a>
-<a class="text-on-surface-variant hover:text-secondary transition-colors" href="#lista-espera">Contato</a>
-</div>
-<div class="text-secondary dark:text-secondary-fixed font-typewriter text-xs text-center mt-md">
-            © 2024 Ester Figueiredo - Psicóloga Clínica. Todos os direitos reservados.
+                </div>
         </div>
-</footer>
-<!-- Emergency Exit FAB (Fixed) -->
-<a class="fixed bottom-6 right-6 bg-surface-container-highest text-on-surface-variant px-4 py-2 rounded-full font-typewriter text-xs ambient-shadow hover:bg-surface-variant transition-colors flex items-center gap-2 z-50 border border-outline-variant/30 opacity-80 hover:opacity-100" href="https://cvv.org.br/" rel="noopener noreferrer" target="_blank">
-    <span class="material-symbols-outlined text-sm">emergency</span>
-    Precisa de ajuda agora?
-</a>
 
-<!-- Mobile Navigation Drawer -->
-<div id="mobile-menu" class="fixed inset-0 z-[100] bg-black/50 backdrop-blur-sm transition-opacity duration-300 opacity-0 pointer-events-none">
-    <div class="fixed top-0 right-0 h-full w-4/5 max-w-sm bg-surface p-6 shadow-2xl transition-transform duration-300 translate-x-full flex flex-col gap-6" id="mobile-menu-drawer">
-        <div class="flex justify-between items-center border-b border-surface-variant/50 pb-4">
-            <span class="font-typewriter text-xl text-primary font-bold">Navegação</span>
-            <button id="mobile-menu-close" class="text-primary p-2">
-                <span class="material-symbols-outlined text-2xl">close</span>
-            </button>
+        <!-- Success Modal Overlay for Waitlist -->
+        <div id="success-modal"
+                class="fixed inset-0 z-[120] bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 transition-opacity duration-300 opacity-0 pointer-events-none">
+                <div class="bg-surface rounded-lg max-w-md w-full shadow-2xl p-8 text-center relative notebook-paper transform transition-all duration-300 scale-95"
+                        id="success-modal-dialog">
+                        <div class="tape top-0"></div>
+                        <div
+                                class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 text-primary mb-4 border border-primary/20">
+                                <span class="material-symbols-outlined text-4xl filled-icon">check_circle</span>
+                        </div>
+                        <h3 class="font-handwritten text-3xl text-on-surface mb-2">Inscrição Confirmada!</h3>
+                        <p class="font-typewriter text-sm text-on-surface-variant mb-6 leading-relaxed">
+                                Seus dados foram salvos na nossa lista de espera com sucesso. Ester entrará em contato
+                                via WhatsApp assim que houver horários disponíveis.
+                        </p>
+                        <button id="success-modal-close"
+                                class="w-full bg-primary text-on-primary py-3 rounded-md font-typewriter hover:bg-primary/90 transition-colors shadow-md">
+                                Fechar
+                        </button>
+                </div>
         </div>
-        <div class="flex flex-col gap-4 font-typewriter text-lg">
-            <a class="text-on-surface hover:text-primary transition-colors py-2 border-b border-surface-variant/30" href="#sobre">Sobre</a>
-            <a class="text-on-surface hover:text-primary transition-colors py-2 border-b border-surface-variant/30" href="#comofunciona">Como Funciona</a>
-            <a class="text-on-surface hover:text-primary transition-colors py-2 border-b border-surface-variant/30" href="#diferenciais">Diferenciais</a>
-            <a class="text-on-surface hover:text-primary transition-colors py-2 border-b border-surface-variant/30" href="#valores">Valores</a>
-            <a class="text-on-surface hover:text-primary transition-colors py-2 border-b border-surface-variant/30" href="#blog">Blog</a>
-            <a class="text-on-surface hover:text-primary transition-colors py-2 border-b border-surface-variant/30" href="#faq">FAQ</a>
-            <a class="text-on-surface hover:text-primary transition-colors py-2 border-b border-surface-variant/30" href="#lista-espera">Lista de Espera</a>
+
+        <!-- Toast Notification -->
+        <div id="toast"
+                class="fixed bottom-6 left-6 z-[130] max-w-sm bg-primary text-on-primary px-6 py-3 rounded-lg shadow-xl flex items-center gap-3 transition-all duration-300 translate-y-12 opacity-0 pointer-events-none border border-primary-container/20">
+                <span class="material-symbols-outlined" id="toast-icon">info</span>
+                <span class="font-typewriter text-sm" id="toast-message">Mensagem</span>
         </div>
-        <a class="mt-auto inline-flex items-center justify-center px-md py-sm bg-secondary text-on-secondary font-label-md text-label-md rounded-full hover:opacity-90 transition-opacity" href="https://wa.me/5521988489341" rel="noopener noreferrer" target="_blank">
-            Agendar Consulta
-        </a>
-    </div>
-</div>
 
-<!-- Generic Modal Overlay -->
-<div id="custom-modal" class="fixed inset-0 z-[110] bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 transition-opacity duration-300 opacity-0 pointer-events-none">
-    <div class="bg-surface rounded-lg max-w-2xl w-full max-h-[85vh] overflow-y-auto shadow-2xl transition-all duration-300 scale-95 flex flex-col relative notebook-paper" id="custom-modal-dialog">
-        <div class="tape top-0 z-10"></div>
-        <button id="modal-close-btn" class="absolute top-4 right-4 text-on-surface-variant hover:text-primary transition-colors z-20 p-2">
-            <span class="material-symbols-outlined text-2xl">close</span>
-        </button>
-        <div class="p-8 mt-4" id="modal-content-area">
-            <!-- Loaded dynamically -->
-        </div>
-    </div>
-</div>
-
-<!-- Success Modal Overlay for Waitlist -->
-<div id="success-modal" class="fixed inset-0 z-[120] bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 transition-opacity duration-300 opacity-0 pointer-events-none">
-    <div class="bg-surface rounded-lg max-w-md w-full shadow-2xl p-8 text-center relative notebook-paper transform transition-all duration-300 scale-95" id="success-modal-dialog">
-        <div class="tape top-0"></div>
-        <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 text-primary mb-4 border border-primary/20">
-            <span class="material-symbols-outlined text-4xl filled-icon">check_circle</span>
-        </div>
-        <h3 class="font-handwritten text-3xl text-on-surface mb-2">Inscrição Confirmada!</h3>
-        <p class="font-typewriter text-sm text-on-surface-variant mb-6 leading-relaxed">
-            Seus dados foram salvos na nossa lista de espera com sucesso. Ester entrará em contato via WhatsApp assim que houver horários disponíveis.
-        </p>
-        <button id="success-modal-close" class="w-full bg-primary text-on-primary py-3 rounded-md font-typewriter hover:bg-primary/90 transition-colors shadow-md">
-            Fechar
-        </button>
-    </div>
-</div>
-
-<!-- Toast Notification -->
-<div id="toast" class="fixed bottom-6 left-6 z-[130] max-w-sm bg-primary text-on-primary px-6 py-3 rounded-lg shadow-xl flex items-center gap-3 transition-all duration-300 translate-y-12 opacity-0 pointer-events-none border border-primary-container/20">
-    <span class="material-symbols-outlined" id="toast-icon">info</span>
-    <span class="font-typewriter text-sm" id="toast-message">Mensagem</span>
-</div>
-
-<!-- Site Scripts -->
-<script>
-    // System Data
-    const blogArticles = {
-        "1": {
-            title: "Recomendações de Leitura e Decoração",
-            category: "Curadoria",
-            content: `<p class="mb-4">A curadoria de um consultório psicológico ou de um espaço de estudos vai muito além da estética: trata-se de criar um ambiente que estimule o foco e evoque a sensação de calma. A escolha de cores neutras e terrosas, iluminação difusa (como luminárias de luz amarela quente) e plantas ajudam a reduzir os níveis de ansiedade e batimentos cardíacos.</p>
+        <!-- Site Scripts -->
+        <script>
+                // System Data
+                const blogArticles = {
+                        "1": {
+                                title: "Recomendações de Leitura e Decoração",
+                                category: "Curadoria",
+                                content: `<p class="mb-4">A curadoria de um consultório psicológico ou de um espaço de estudos vai muito além da estética: trata-se de criar um ambiente que estimule o foco e evoque a sensação de calma. A escolha de cores neutras e terrosas, iluminação difusa (como luminárias de luz amarela quente) e plantas ajudam a reduzir os níveis de ansiedade e batimentos cardíacos.</p>
                       <p class="mb-4">Para leituras inspiradoras, recomendamos obras que aproximam a psicologia clínica da experiência humana cotidiana:</p>
                       <ul class="list-decimal pl-6 mb-4 space-y-2">
                           <li><strong>Talvez você deva conversar com alguém</strong> (Lori Gottlieb) — Uma reflexão sensível sobre o processo de terapia tanto da perspectiva do terapeuta quanto do paciente.</li>
@@ -785,11 +1013,11 @@
                           <li><strong>O obstáculo é o caminho</strong> (Ryan Holiday) — Filosofia estoica aplicada ao cotidiano para o desenvolvimento de resiliência.</li>
                       </ul>
                       <p>Experimente incluir pequenos elementos táteis na sua mesa, como um bloco de notas de papel texturizado e uma caneta confortável, estimulando a presença física no momento presente.</p>`
-        },
-        "2": {
-            title: "Lidando com a Sobrecarga",
-            category: "Saúde Mental",
-            content: `<p class="mb-4">No ritmo acelerado da vida moderna, a exaustão mental (ou sobrecarga cognitiva) muitas vezes se instala de maneira silenciosa. Identificar os primeiros sinais é fundamental para evitar o esgotamento completo. Sintomas comuns incluem irritabilidade por motivos pequenos, dificuldade de concentração, alterações no sono e a sensação constante de que "o tempo nunca é suficiente".</p>
+                        },
+                        "2": {
+                                title: "Lidando com a Sobrecarga",
+                                category: "Saúde Mental",
+                                content: `<p class="mb-4">No ritmo acelerado da vida moderna, a exaustão mental (ou sobrecarga cognitiva) muitas vezes se instala de maneira silenciosa. Identificar os primeiros sinais é fundamental para evitar o esgotamento completo. Sintomas comuns incluem irritabilidade por motivos pequenos, dificuldade de concentração, alterações no sono e a sensação constante de que "o tempo nunca é suficiente".</p>
                       <p class="mb-4">Estratégias práticas para lidar com a sobrecarga:</p>
                       <ul class="list-disc pl-6 mb-4 space-y-2">
                           <li><strong>Pausas Ativas:</strong> Afaste-se das telas por 5 minutos a cada 1 hora de trabalho. Faça alongamentos leves ou respire profundamente olhando pela janela.</li>
@@ -797,11 +1025,11 @@
                           <li><strong>Desconexão Digital:</strong> Crie uma barreira entre o trabalho e o descanso. Desative as notificações de aplicativos de trabalho após o expediente.</li>
                       </ul>
                       <p>Lembre-se: descansar não é uma recompensa pela produtividade, mas uma necessidade fisiológica e psicológica básica.</p>`
-        },
-        "3": {
-            title: "O Poder da Escrita Terapêutica",
-            category: "Reflexões",
-            content: `<p class="mb-4">A escrita terapêutica (ou journaling) é uma ferramenta simples e cientificamente validada para a organização emocional. Quando colocamos em palavras o que sentimos, traduzimos sensações difusas do cérebro em estruturas lineares e compreensíveis, o que reduz a ruminação mental.</p>
+                        },
+                        "3": {
+                                title: "O Poder da Escrita Terapêutica",
+                                category: "Reflexões",
+                                content: `<p class="mb-4">A escrita terapêutica (ou journaling) é uma ferramenta simples e cientificamente validada para a organização emocional. Quando colocamos em palavras o que sentimos, traduzimos sensações difusas do cérebro em estruturas lineares e compreensíveis, o que reduz a ruminação mental.</p>
                       <p class="mb-4">Como começar a praticar:</p>
                       <ul class="list-disc pl-6 mb-4 space-y-2">
                           <li><strong>Sem Julgamentos:</strong> Não se preocupe com gramática, caligrafia ou coerência. Escreva exatamente o que vier à mente.</li>
@@ -809,13 +1037,13 @@
                           <li><strong>Diário de Gratidão:</strong> Registre 3 pequenas coisas pelas quais você se sente grata no dia. Isso ajuda a reinar o cérebro para identificar aspectos positivos da rotina.</li>
                       </ul>
                       <p>Ao externalizar seus pensamentos no papel, você cria um distanciamento saudável de suas emoções, permitindo olhá-las com mais clareza e autocompaixão.</p>`
-        }
-    };
+                        }
+                };
 
-    const legalContent = {
-        terms: {
-            title: "Termos de Uso",
-            content: `<h4 class="font-bold text-lg mb-2">1. Aceitação dos Termos</h4>
+                const legalContent = {
+                        terms: {
+                                title: "Termos de Uso",
+                                content: `<h4 class="font-bold text-lg mb-2">1. Aceitação dos Termos</h4>
                       <p class="mb-4">Ao acessar o site de Ester Figueiredo, você concorda em cumprir estes termos de serviço e todas as leis aplicáveis.</p>
                       <h4 class="font-bold text-lg mb-2">2. Finalidade Informativa</h4>
                       <p class="mb-4">O conteúdo deste site (textos, artigos, curadorias) possui caráter estritamente educativo e informativo. Não substitui consulta, diagnóstico ou acompanhamento psicológico profissional.</p>
@@ -823,10 +1051,10 @@
                       <p class="mb-4">A navegação pelo site ou envio de dados no formulário de lista de espera não estabelece relação terapêutica formal. O início do processo clínico será formalizado em contrato de prestação de serviços psicológicos.</p>
                       <h4 class="font-bold text-lg mb-2">4. Links para Terceiros</h4>
                       <p>Nosso site possui links externos (como WhatsApp e CVV). Não exercemos controle sobre o conteúdo ou práticas de sites de terceiros e não podemos assumir responsabilidade por suas respectivas políticas.</p>`
-        },
-        privacy: {
-            title: "Política de Privacidade",
-            content: `<h4 class="font-bold text-lg mb-2">1. Coleta de Informações</h4>
+                        },
+                        privacy: {
+                                title: "Política de Privacidade",
+                                content: `<h4 class="font-bold text-lg mb-2">1. Coleta de Informações</h4>
                       <p class="mb-4">Coletamos apenas as informações inseridas voluntariamente por você no formulário de Lista de Espera (Nome Completo, Idade, WhatsApp e Cidade/Estado).</p>
                       <h4 class="font-bold text-lg mb-2">2. Uso das Informações</h4>
                       <p class="mb-4">Estes dados são utilizados unicamente para entrar em contato com você sobre a disponibilidade de horários para atendimento clínico.</p>
@@ -836,250 +1064,252 @@
                       <p class="mb-4">Você possui direito de acessar, atualizar, corrigir ou solicitar a exclusão definitiva de seus dados de nossa lista de espera a qualquer momento por meio do e-mail <strong>psiesterfigueiredo@gmail.com</strong>.</p>
                       <h4 class="font-bold text-lg mb-2">5. Sigilo Clínico</h4>
                       <p>O sigilo sobre quaisquer conteúdos abordados nos contatos diretos e sessões é resguardado estritamente conforme o Código de Ética do Psicólogo estabelecido pelo Conselho Federal de Psicologia.</p>`
-        }
-    };
+                        }
+                };
 
-    // DOM Elements
-    const mobileMenu = document.getElementById('mobile-menu');
-    const mobileMenuDrawer = document.getElementById('mobile-menu-drawer');
-    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-    const mobileMenuClose = document.getElementById('mobile-menu-close');
+                // DOM Elements
+                const mobileMenu = document.getElementById('mobile-menu');
+                const mobileMenuDrawer = document.getElementById('mobile-menu-drawer');
+                const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+                const mobileMenuClose = document.getElementById('mobile-menu-close');
 
-    const customModal = document.getElementById('custom-modal');
-    const customModalDialog = document.getElementById('custom-modal-dialog');
-    const modalCloseBtn = document.getElementById('modal-close-btn');
-    const modalContentArea = document.getElementById('modal-content-area');
+                const customModal = document.getElementById('custom-modal');
+                const customModalDialog = document.getElementById('custom-modal-dialog');
+                const modalCloseBtn = document.getElementById('modal-close-btn');
+                const modalContentArea = document.getElementById('modal-content-area');
 
-    const successModal = document.getElementById('success-modal');
-    const successModalDialog = document.getElementById('success-modal-dialog');
-    const successModalClose = document.getElementById('success-modal-close');
+                const successModal = document.getElementById('success-modal');
+                const successModalDialog = document.getElementById('success-modal-dialog');
+                const successModalClose = document.getElementById('success-modal-close');
 
-    const toast = document.getElementById('toast');
-    const toastIcon = document.getElementById('toast-icon');
-    const toastMessage = document.getElementById('toast-message');
+                const toast = document.getElementById('toast');
+                const toastIcon = document.getElementById('toast-icon');
+                const toastMessage = document.getElementById('toast-message');
 
-    const waitlistSubmit = document.getElementById('waitlist-submit');
+                const waitlistSubmit = document.getElementById('waitlist-submit');
 
-    // 1. Mobile Menu Logic
-    function openMobileMenu() {
-        mobileMenu.classList.remove('pointer-events-none', 'opacity-0');
-        mobileMenu.classList.add('opacity-100');
-        mobileMenuDrawer.classList.remove('translate-x-full');
-        mobileMenuDrawer.classList.add('translate-x-0');
-        document.body.style.overflow = 'hidden';
-    }
+                // 1. Mobile Menu Logic
+                function openMobileMenu() {
+                        mobileMenu.classList.remove('pointer-events-none', 'opacity-0');
+                        mobileMenu.classList.add('opacity-100');
+                        mobileMenuDrawer.classList.remove('translate-x-full');
+                        mobileMenuDrawer.classList.add('translate-x-0');
+                        document.body.style.overflow = 'hidden';
+                }
 
-    function closeMobileMenu() {
-        mobileMenu.classList.add('pointer-events-none', 'opacity-0');
-        mobileMenu.classList.remove('opacity-100');
-        mobileMenuDrawer.classList.add('translate-x-full');
-        mobileMenuDrawer.classList.remove('translate-x-0');
-        document.body.style.overflow = '';
-    }
+                function closeMobileMenu() {
+                        mobileMenu.classList.add('pointer-events-none', 'opacity-0');
+                        mobileMenu.classList.remove('opacity-100');
+                        mobileMenuDrawer.classList.add('translate-x-full');
+                        mobileMenuDrawer.classList.remove('translate-x-0');
+                        document.body.style.overflow = '';
+                }
 
-    mobileMenuBtn.addEventListener('click', openMobileMenu);
-    mobileMenuClose.addEventListener('click', closeMobileMenu);
-    mobileMenu.addEventListener('click', (e) => {
-        if (e.target === mobileMenu) closeMobileMenu();
-    });
+                mobileMenuBtn.addEventListener('click', openMobileMenu);
+                mobileMenuClose.addEventListener('click', closeMobileMenu);
+                mobileMenu.addEventListener('click', (e) => {
+                        if (e.target === mobileMenu) closeMobileMenu();
+                });
 
-    // Close mobile menu on anchor link clicks
-    document.querySelectorAll('#mobile-menu-drawer a').forEach(link => {
-        link.addEventListener('click', () => {
-            closeMobileMenu();
-        });
-    });
+                // Close mobile menu on anchor link clicks
+                document.querySelectorAll('#mobile-menu-drawer a').forEach(link => {
+                        link.addEventListener('click', () => {
+                                closeMobileMenu();
+                        });
+                });
 
-    // 2. Toast System
-    let toastTimeout;
-    function showToast(message, icon = 'info') {
-        clearTimeout(toastTimeout);
-        toastIcon.textContent = icon;
-        toastMessage.textContent = message;
+                // 2. Toast System
+                let toastTimeout;
+                function showToast(message, icon = 'info') {
+                        clearTimeout(toastTimeout);
+                        toastIcon.textContent = icon;
+                        toastMessage.textContent = message;
 
-        toast.classList.remove('pointer-events-none', 'opacity-0', 'translate-y-12');
-        toast.classList.add('opacity-100', 'translate-y-0');
+                        toast.classList.remove('pointer-events-none', 'opacity-0', 'translate-y-12');
+                        toast.classList.add('opacity-100', 'translate-y-0');
 
-        toastTimeout = setTimeout(() => {
-            toast.classList.add('pointer-events-none', 'opacity-0', 'translate-y-12');
-            toast.classList.remove('opacity-100', 'translate-y-0');
-        }, 3000);
-    }
+                        toastTimeout = setTimeout(() => {
+                                toast.classList.add('pointer-events-none', 'opacity-0', 'translate-y-12');
+                                toast.classList.remove('opacity-100', 'translate-y-0');
+                        }, 3000);
+                }
 
-    // 3. General Modals Logic
-    function openModal(htmlContent) {
-        modalContentArea.innerHTML = htmlContent;
-        customModal.classList.remove('pointer-events-none', 'opacity-0');
-        customModal.classList.add('opacity-100');
-        customModalDialog.classList.remove('scale-95');
-        customModalDialog.classList.add('scale-100');
-        document.body.style.overflow = 'hidden';
-    }
+                // 3. General Modals Logic
+                function openModal(htmlContent) {
+                        modalContentArea.innerHTML = htmlContent;
+                        customModal.classList.remove('pointer-events-none', 'opacity-0');
+                        customModal.classList.add('opacity-100');
+                        customModalDialog.classList.remove('scale-95');
+                        customModalDialog.classList.add('scale-100');
+                        document.body.style.overflow = 'hidden';
+                }
 
-    function closeModal() {
-        customModal.classList.add('pointer-events-none', 'opacity-0');
-        customModal.classList.remove('opacity-100');
-        customModalDialog.classList.add('scale-95');
-        customModalDialog.classList.remove('scale-100');
-        if (!successModal.classList.contains('opacity-100')) {
-            document.body.style.overflow = '';
-        }
-    }
+                function closeModal() {
+                        customModal.classList.add('pointer-events-none', 'opacity-0');
+                        customModal.classList.remove('opacity-100');
+                        customModalDialog.classList.add('scale-95');
+                        customModalDialog.classList.remove('scale-100');
+                        if (!successModal.classList.contains('opacity-100')) {
+                                document.body.style.overflow = '';
+                        }
+                }
 
-    modalCloseBtn.addEventListener('click', closeModal);
-    customModal.addEventListener('click', (e) => {
-        if (e.target === customModal) closeModal();
-    });
+                modalCloseBtn.addEventListener('click', closeModal);
+                customModal.addEventListener('click', (e) => {
+                        if (e.target === customModal) closeModal();
+                });
 
-    // 4. Success Modal for Waitlist
-    function openSuccessModal() {
-        successModal.classList.remove('pointer-events-none', 'opacity-0');
-        successModal.classList.add('opacity-100');
-        successModalDialog.classList.remove('scale-95');
-        successModalDialog.classList.add('scale-100');
-        document.body.style.overflow = 'hidden';
-    }
+                // 4. Success Modal for Waitlist
+                function openSuccessModal() {
+                        successModal.classList.remove('pointer-events-none', 'opacity-0');
+                        successModal.classList.add('opacity-100');
+                        successModalDialog.classList.remove('scale-95');
+                        successModalDialog.classList.add('scale-100');
+                        document.body.style.overflow = 'hidden';
+                }
 
-    function closeSuccessModal() {
-        successModal.classList.add('pointer-events-none', 'opacity-0');
-        successModal.classList.remove('opacity-100');
-        successModalDialog.classList.add('scale-95');
-        successModalDialog.classList.remove('scale-100');
-        document.body.style.overflow = '';
-    }
+                function closeSuccessModal() {
+                        successModal.classList.add('pointer-events-none', 'opacity-0');
+                        successModal.classList.remove('opacity-100');
+                        successModalDialog.classList.add('scale-95');
+                        successModalDialog.classList.remove('scale-100');
+                        document.body.style.overflow = '';
+                }
 
-    successModalClose.addEventListener('click', closeSuccessModal);
-    successModal.addEventListener('click', (e) => {
-        if (e.target === successModal) closeSuccessModal();
-    });
+                successModalClose.addEventListener('click', closeSuccessModal);
+                successModal.addEventListener('click', (e) => {
+                        if (e.target === successModal) closeSuccessModal();
+                });
 
-    // Esc key closes all active modals/menu
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-            closeMobileMenu();
-            closeModal();
-            closeSuccessModal();
-        }
-    });
+                // Esc key closes all active modals/menu
+                document.addEventListener('keydown', (e) => {
+                        if (e.key === 'Escape') {
+                                closeMobileMenu();
+                                closeModal();
+                                closeSuccessModal();
+                        }
+                });
 
-    // 5. Connect Elements & Triggers
-    // Blog article click
-    document.querySelectorAll('.read-article-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-            const articleId = btn.getAttribute('data-id');
-            const article = blogArticles[articleId];
-            if (article) {
-                const html = `
+                // 5. Connect Elements & Triggers
+                // Blog article click
+                document.querySelectorAll('.read-article-btn').forEach(btn => {
+                        btn.addEventListener('click', () => {
+                                const articleId = btn.getAttribute('data-id');
+                                const article = blogArticles[articleId];
+                                if (article) {
+                                        const html = `
                     <span class="text-xs font-typewriter text-primary mb-2 uppercase tracking-wider block">${article.category}</span>
                     <h3 class="font-handwritten text-4xl text-on-surface mb-6 border-b border-primary/20 pb-4">${article.title}</h3>
                     <div class="font-typewriter text-on-surface-variant leading-relaxed text-base space-y-4">
                         ${article.content}
                     </div>
                 `;
-                openModal(html);
-            }
-        });
-    });
+                                        openModal(html);
+                                }
+                        });
+                });
 
-    // Blog "See all" click
-    document.querySelectorAll('.blog-see-all').forEach(btn => {
-        btn.addEventListener('click', () => {
-            showToast("A curadoria de artigos estará disponível em breve com materiais exclusivos!", "menu_book");
-        });
-    });
+                // Blog "See all" click
+                document.querySelectorAll('.blog-see-all').forEach(btn => {
+                        btn.addEventListener('click', () => {
+                                showToast("A curadoria de artigos estará disponível em breve com materiais exclusivos!", "menu_book");
+                        });
+                });
 
-    // Terms and Privacy links click
-    document.getElementById('terms-link').addEventListener('click', () => {
-        const terms = legalContent.terms;
-        const html = `
+                // Terms and Privacy links click
+                document.getElementById('terms-link').addEventListener('click', () => {
+                        const terms = legalContent.terms;
+                        const html = `
             <h3 class="font-handwritten text-4xl text-on-surface mb-6 border-b border-primary/20 pb-4">${terms.title}</h3>
             <div class="font-typewriter text-on-surface-variant leading-relaxed text-sm space-y-4">
                 ${terms.content}
             </div>
         `;
-        openModal(html);
-    });
+                        openModal(html);
+                });
 
-    document.getElementById('privacy-link').addEventListener('click', () => {
-        const privacy = legalContent.privacy;
-        const html = `
+                document.getElementById('privacy-link').addEventListener('click', () => {
+                        const privacy = legalContent.privacy;
+                        const html = `
             <h3 class="font-handwritten text-4xl text-on-surface mb-6 border-b border-primary/20 pb-4">${privacy.title}</h3>
             <div class="font-typewriter text-on-surface-variant leading-relaxed text-sm space-y-4">
                 ${privacy.content}
             </div>
         `;
-        openModal(html);
-    });
+                        openModal(html);
+                });
 
-    // 6. Waitlist Form Validation and Submission
-    waitlistSubmit.addEventListener('click', () => {
-        const nameInput = document.getElementById('name');
-        const ageInput = document.getElementById('age');
-        const whatsappInput = document.getElementById('whatsapp');
-        const locationInput = document.getElementById('location');
+                // 6. Waitlist Form Validation and Submission
+                waitlistSubmit.addEventListener('click', () => {
+                        const nameInput = document.getElementById('name');
+                        const ageInput = document.getElementById('age');
+                        const whatsappInput = document.getElementById('whatsapp');
+                        const locationInput = document.getElementById('location');
 
-        // Reset error styling
-        const inputs = [nameInput, ageInput, whatsappInput, locationInput];
-        inputs.forEach(input => {
-            input.classList.remove('border-red-500');
-            input.classList.add('border-outline-variant');
-        });
+                        // Reset error styling
+                        const inputs = [nameInput, ageInput, whatsappInput, locationInput];
+                        inputs.forEach(input => {
+                                input.classList.remove('border-red-500');
+                                input.classList.add('border-outline-variant');
+                        });
 
-        // Validation checks
-        let hasError = false;
-        if (!nameInput.value.trim()) {
-            nameInput.classList.remove('border-outline-variant');
-            nameInput.classList.add('border-red-500');
-            hasError = true;
-        }
-        if (!ageInput.value || parseInt(ageInput.value) <= 0) {
-            ageInput.classList.remove('border-outline-variant');
-            ageInput.classList.add('border-red-500');
-            hasError = true;
-        }
-        if (!whatsappInput.value.trim()) {
-            whatsappInput.classList.remove('border-outline-variant');
-            whatsappInput.classList.add('border-red-500');
-            hasError = true;
-        }
-        if (!locationInput.value.trim()) {
-            locationInput.classList.remove('border-outline-variant');
-            locationInput.classList.add('border-red-500');
-            hasError = true;
-        }
+                        // Validation checks
+                        let hasError = false;
+                        if (!nameInput.value.trim()) {
+                                nameInput.classList.remove('border-outline-variant');
+                                nameInput.classList.add('border-red-500');
+                                hasError = true;
+                        }
+                        if (!ageInput.value || parseInt(ageInput.value) <= 0) {
+                                ageInput.classList.remove('border-outline-variant');
+                                ageInput.classList.add('border-red-500');
+                                hasError = true;
+                        }
+                        if (!whatsappInput.value.trim()) {
+                                whatsappInput.classList.remove('border-outline-variant');
+                                whatsappInput.classList.add('border-red-500');
+                                hasError = true;
+                        }
+                        if (!locationInput.value.trim()) {
+                                locationInput.classList.remove('border-outline-variant');
+                                locationInput.classList.add('border-red-500');
+                                hasError = true;
+                        }
 
-        if (hasError) {
-            showToast("Por favor, preencha todos os campos obrigatórios corretamente.", "warning");
-            return;
-        }
+                        if (hasError) {
+                                showToast("Por favor, preencha todos os campos obrigatórios corretamente.", "warning");
+                                return;
+                        }
 
-        // Save data to localStorage
-        const newSubmission = {
-            name: nameInput.value.trim(),
-            age: parseInt(ageInput.value),
-            whatsapp: whatsappInput.value.trim(),
-            location: locationInput.value.trim(),
-            timestamp: new Date().toISOString()
-        };
+                        // Save data to localStorage
+                        const newSubmission = {
+                                name: nameInput.value.trim(),
+                                age: parseInt(ageInput.value),
+                                whatsapp: whatsappInput.value.trim(),
+                                location: locationInput.value.trim(),
+                                timestamp: new Date().toISOString()
+                        };
 
-        let currentSubmissions = [];
-        try {
-            const saved = localStorage.getItem('waitlist_submissions');
-            if (saved) {
-                currentSubmissions = JSON.parse(saved);
-            }
-        } catch (e) {
-            console.error("Erro ao ler lista de espera", e);
-        }
+                        let currentSubmissions = [];
+                        try {
+                                const saved = localStorage.getItem('waitlist_submissions');
+                                if (saved) {
+                                        currentSubmissions = JSON.parse(saved);
+                                }
+                        } catch (e) {
+                                console.error("Erro ao ler lista de espera", e);
+                        }
 
-        currentSubmissions.push(newSubmission);
-        localStorage.setItem('waitlist_submissions', JSON.stringify(currentSubmissions));
+                        currentSubmissions.push(newSubmission);
+                        localStorage.setItem('waitlist_submissions', JSON.stringify(currentSubmissions));
 
-        // Reset inputs
-        inputs.forEach(input => input.value = '');
+                        // Reset inputs
+                        inputs.forEach(input => input.value = '');
 
-        // Show Success Modal
-        openSuccessModal();
-    });
-</script>
-</body></html>
+                        // Show Success Modal
+                        openSuccessModal();
+                });
+        </script>
+</body>
+
+</html>
