@@ -1267,6 +1267,25 @@
                         openModal(html);
                 });
 
+                // Phone input mask (WhatsApp)
+                const phoneInputEl = document.getElementById('whatsapp');
+                phoneInputEl.addEventListener('input', (e) => {
+                        let value = e.target.value.replace(/\D/g, '');
+                        if (value.length > 11) value = value.slice(0, 11);
+                        
+                        if (value.length > 10) {
+                                e.target.value = `(${value.slice(0, 2)}) ${value.slice(2, 7)}-${value.slice(7)}`;
+                        } else if (value.length > 6) {
+                                e.target.value = `(${value.slice(0, 2)}) ${value.slice(2, 6)}-${value.slice(6)}`;
+                        } else if (value.length > 2) {
+                                e.target.value = `(${value.slice(0, 2)}) ${value.slice(2)}`;
+                        } else if (value.length > 0) {
+                                e.target.value = `(${value}`;
+                        } else {
+                                e.target.value = '';
+                        }
+                });
+
                 // 6. Waitlist Form Validation and Submission
                 waitlistSubmit.addEventListener('click', () => {
                         // ENDPOINT DE ENVIO - FormSubmit.co direciona para o e-mail da psicóloga de forma gratuita e imediata
@@ -1303,7 +1322,8 @@
                                 ageInput.classList.add('border-red-500');
                                 hasError = true;
                         }
-                        if (!whatsappInput.value.trim()) {
+                        const phoneDigits = whatsappInput.value.replace(/\D/g, '');
+                        if (phoneDigits.length < 10 || phoneDigits.length > 11) {
                                 whatsappInput.classList.remove('border-outline-variant');
                                 whatsappInput.classList.add('border-red-500');
                                 hasError = true;
