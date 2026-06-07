@@ -1262,6 +1262,11 @@
 
                 // 6. Waitlist Form Validation and Submission
                 waitlistSubmit.addEventListener('click', () => {
+                        // CONFIGURAÇÃO DO ENDPOINT DO FORMGRID.DEV
+                        // Substitua 'SEU_ID_DO_FORMULARIO' pelo ID real gerado em sua conta no Formgrid.dev.
+                        // Exemplo: 'https://formgrid.dev/api/f/abc123xyz'
+                        const FORMGRID_ENDPOINT = 'https://formgrid.dev/api/f/SEU_ID_DO_FORMULARIO';
+
                         const nameInput = document.getElementById('name');
                         const ageInput = document.getElementById('age');
                         const whatsappInput = document.getElementById('whatsapp');
@@ -1302,15 +1307,16 @@
                                 return;
                         }
 
-                        // Save data to localStorage
-                        const newSubmission = {
-                                name: nameInput.value.trim(),
-                                age: parseInt(ageInput.value),
-                                whatsapp: whatsappInput.value.trim(),
-                                location: locationInput.value.trim(),
+                        // Prepare payload
+                        const payload = {
+                                Nome: nameInput.value.trim(),
+                                Idade: parseInt(ageInput.value),
+                                WhatsApp: whatsappInput.value.trim(),
+                                Localizacao: locationInput.value.trim(),
                                 timestamp: new Date().toISOString()
                         };
 
+                        // Save data to localStorage (local backup)
                         let currentSubmissions = [];
                         try {
                                 const saved = localStorage.getItem('waitlist_submissions');
@@ -1318,17 +1324,55 @@
                                         currentSubmissions = JSON.parse(saved);
                                 }
                         } catch (e) {
-                                console.error("Erro ao ler lista de espera", e);
+                                console.error("Erro ao ler lista de espera local", e);
                         }
-
-                        currentSubmissions.push(newSubmission);
+                        currentSubmissions.push(payload);
                         localStorage.setItem('waitlist_submissions', JSON.stringify(currentSubmissions));
 
-                        // Reset inputs
-                        inputs.forEach(input => input.value = '');
+                        // Visual feedback: disable button and show loading text
+                        const originalBtnText = waitlistSubmit.textContent;
+                        waitlistSubmit.disabled = true;
+                        waitlistSubmit.textContent = 'Enviando...';
 
-                        // Show Success Modal
-                        openSuccessModal();
+                        // Check if the endpoint is configured
+                        if (FORMGRID_ENDPOINT && !FORMGRID_ENDPOINT.includes('SEU_ID_DO_FORMULARIO')) {
+                                fetch(FORMGRID_ENDPOINT, {
+                                        method: 'POST',
+                                        headers: {
+                                                'Content-Type': 'application/json',
+                                                'Accept': 'application/json'
+                                        },
+                                        body: JSON.stringify(payload)
+                                })
+                                .then(response => {
+                                        if (response.ok) {
+                                                // Reset inputs and show success modal
+                                                inputs.forEach(input => input.value = '');
+                                                openSuccessModal();
+                                        } else {
+                                                showToast("Houve um problema ao enviar para o servidor. Seus dados foram salvos localmente.", "warning");
+                                                openSuccessModal(); // fallback visual
+                                        }
+                                })
+                                .catch(error => {
+                                        console.error("Erro de rede ao enviar:", error);
+                                        showToast("Sem conexão. Seus dados foram salvos no dispositivo.", "wifi_off");
+                                        openSuccessModal(); // fallback visual
+                                })
+                                .finally(() => {
+                                        waitlistSubmit.disabled = false;
+                                        waitlistSubmit.textContent = originalBtnText;
+                                });
+                        } else {
+                                // MOCK / TEST MODE (Local only)
+                                setTimeout(() => {
+                                        inputs.forEach(input => input.value = '');
+                                        waitlistSubmit.disabled = false;
+                                        waitlistSubmit.textContent = originalBtnText;
+                                        openSuccessModal();
+                                        showToast("Modo teste: Dados salvos localmente. Configure o FORMGRID_ENDPOINT no código para enviar por e-mail.", "info");
+                                }, 800);
+                        }
                 });
         </script>
 </body>
