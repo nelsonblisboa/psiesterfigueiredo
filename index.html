@@ -787,12 +787,19 @@
                                 <div class="folder-body">
                                         <form class="space-y-6 font-typewriter">
                                                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                                        <div>
+                                                        <div class="md:col-span-2">
                                                                 <label class="block text-sm text-on-surface mb-2"
                                                                         for="name">Nome Completo</label>
                                                                 <input class="w-full bg-white/50 border-b-2 border-outline-variant px-4 py-3 text-body-md focus:border-primary focus:ring-0 transition-colors bg-transparent border-t-0 border-x-0"
                                                                         id="name" name="name" placeholder="Seu nome"
                                                                         type="text" />
+                                                        </div>
+                                                        <div>
+                                                                <label class="block text-sm text-on-surface mb-2"
+                                                                        for="email">E-mail</label>
+                                                                <input class="w-full bg-white/50 border-b-2 border-outline-variant px-4 py-3 text-body-md focus:border-primary focus:ring-0 transition-colors bg-transparent border-t-0 border-x-0"
+                                                                        id="email" name="email" placeholder="seu.email@exemplo.com"
+                                                                        type="email" />
                                                         </div>
                                                         <div>
                                                                 <label class="block text-sm text-on-surface mb-2"
@@ -1268,12 +1275,13 @@
                         const FORMGRID_ENDPOINT = 'https://formgrid.dev/api/f/SEU_ID_DO_FORMULARIO';
 
                         const nameInput = document.getElementById('name');
+                        const emailInput = document.getElementById('email');
                         const ageInput = document.getElementById('age');
                         const whatsappInput = document.getElementById('whatsapp');
                         const locationInput = document.getElementById('location');
 
                         // Reset error styling
-                        const inputs = [nameInput, ageInput, whatsappInput, locationInput];
+                        const inputs = [nameInput, emailInput, ageInput, whatsappInput, locationInput];
                         inputs.forEach(input => {
                                 input.classList.remove('border-red-500');
                                 input.classList.add('border-outline-variant');
@@ -1284,6 +1292,12 @@
                         if (!nameInput.value.trim()) {
                                 nameInput.classList.remove('border-outline-variant');
                                 nameInput.classList.add('border-red-500');
+                                hasError = true;
+                        }
+                        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                        if (!emailInput.value.trim() || !emailRegex.test(emailInput.value.trim())) {
+                                emailInput.classList.remove('border-outline-variant');
+                                emailInput.classList.add('border-red-500');
                                 hasError = true;
                         }
                         if (!ageInput.value || parseInt(ageInput.value) <= 0) {
@@ -1310,6 +1324,7 @@
                         // Prepare payload
                         const payload = {
                                 Nome: nameInput.value.trim(),
+                                Email: emailInput.value.trim(),
                                 Idade: parseInt(ageInput.value),
                                 WhatsApp: whatsappInput.value.trim(),
                                 Localizacao: locationInput.value.trim(),
