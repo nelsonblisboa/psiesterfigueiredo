@@ -812,10 +812,9 @@
                                 <a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md"
                                         href="#faq">FAQ</a>
                         </div>
-                        <a class="hidden md:inline-flex items-center justify-center px-md py-sm bg-secondary text-on-secondary font-label-md text-label-md rounded-full hover:opacity-90 transition-opacity hover:translate-y-[-2px] duration-300"
-                                href="https://wa.me/5521988489341" rel="noopener noreferrer" target="_blank">
-                                Agendar
-                        </a>
+                        <button data-cal-link="ester-figueiredo/30min" class="hidden md:inline-flex items-center justify-center px-md py-sm bg-secondary text-on-secondary font-label-md text-label-md rounded-full hover:opacity-90 transition-all hover:translate-y-[-2px] duration-300 cursor-pointer">
+                                Agendar Online
+                        </button>
                         <!-- Mobile Menu Button -->
                         <button id="mobile-menu-btn" class="md:hidden text-primary p-2">
                                 <span class="material-symbols-outlined">menu</span>
@@ -848,14 +847,19 @@
                                                 Atendimento online para todo o Brasil e brasileiros no exterior.
                                         </p>
                                 </div>
-                                <div class="pt-sm mt-4">
-                                        <a class="inline-flex items-center justify-center px-md py-sm bg-primary text-on-primary font-label-md text-label-md rounded-full hover:opacity-90 transition-all hover-lift shadow-lg w-full md:w-auto border border-primary/20 backdrop-blur-sm"
+                                <div class="pt-sm mt-4 flex flex-col sm:flex-row gap-4 w-full md:w-auto">
+                                        <a class="inline-flex items-center justify-center px-md py-sm bg-primary text-on-primary font-label-md text-label-md rounded-full hover:opacity-90 transition-all hover-lift shadow-lg w-full sm:w-auto border border-primary/20 backdrop-blur-sm"
                                                 href="https://wa.me/5521988489341" rel="noopener noreferrer"
                                                 target="_blank">
                                                 <span
                                                         class="material-symbols-outlined mr-2 text-on-primary filled-icon">chat</span>
-                                                Agende sua Consulta pelo WhatsApp
+                                                WhatsApp
                                         </a>
+                                        <button data-cal-link="ester-figueiredo/30min" class="inline-flex items-center justify-center px-md py-sm bg-secondary text-on-secondary font-label-md text-label-md rounded-full hover:opacity-90 transition-all hover-lift shadow-lg w-full sm:w-auto border border-secondary/20 backdrop-blur-sm cursor-pointer">
+                                                <span
+                                                        class="material-symbols-outlined mr-2 text-on-secondary filled-icon">calendar_month</span>
+                                                Agendar Online
+                                        </button>
                                 </div>
                         </div>
                 </section>
@@ -1472,10 +1476,9 @@
                                 <a class="text-on-surface hover:text-primary transition-colors py-2 border-b border-surface-variant/30"
                                         href="#lista-espera">Lista de Espera</a>
                         </div>
-                        <a class="mt-auto inline-flex items-center justify-center px-md py-sm bg-secondary text-on-secondary font-label-md text-label-md rounded-full hover:opacity-90 transition-opacity"
-                                href="https://wa.me/5521988489341" rel="noopener noreferrer" target="_blank">
-                                Agendar Consulta
-                        </a>
+                        <button data-cal-link="ester-figueiredo/30min" class="mt-auto inline-flex items-center justify-center px-md py-sm bg-secondary text-on-secondary font-label-md text-label-md rounded-full hover:opacity-90 transition-all cursor-pointer">
+                                                Agendar Consulta
+                        </button>
                 </div>
         </div>
 
@@ -2295,6 +2298,44 @@
                         if (e.key === 'Enter') {
                                 sendChatMessage();
                         }
+                });
+
+                // ==========================================
+                // CAL.COM BOOKING SYSTEM
+                // ==========================================
+                (function (C, A, L) {
+                        let p = function (a, ar) { a.q.push(ar); };
+                        let d = C.document;
+                        C.Cal = C.Cal || function () {
+                                let cal = C.Cal;
+                                let ar = arguments;
+                                if (!cal.loaded) {
+                                        cal.ns = {};
+                                        cal.q = cal.q || [];
+                                        d.head.appendChild(d.createElement("script")).src = A;
+                                        cal.loaded = true;
+                                }
+                                if (ar[0] === L) {
+                                        const api = function () { p(api, arguments); };
+                                        const namespace = ar[1];
+                                        api.q = api.q || [];
+                                        if (typeof namespace === "string") {
+                                                cal.ns[namespace] = cal.ns[namespace] || api;
+                                                p(cal.ns[namespace], ar);
+                                                p(cal, ["initNamespace", namespace]);
+                                        } else p(cal, ar);
+                                        return;
+                                }
+                                p(cal, ar);
+                        };
+                })(window, "https://app.cal.com/embed/embed.js", "init");
+
+                Cal("init", { origin: "https://app.cal.com" });
+
+                Cal("ui", {
+                        styles: { branding: { brandColor: "#8a4f35" } }, // Matches terracotta secondary color
+                        hideEventTypeDetails: false,
+                        layout: "month_view"
                 });
         </script>
 </body>
