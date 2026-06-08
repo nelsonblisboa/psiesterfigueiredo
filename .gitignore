@@ -5,3 +5,7 @@ dist-ssr/
 *.local
 .env
 .env.*
+
+# Agent skills and references
+.agent/
+references/
