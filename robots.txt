@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://psiesterfigueiredo.com.br/sitemap.xml
