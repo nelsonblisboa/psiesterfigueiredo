@@ -807,9 +807,9 @@
                                 <a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md"
                                         href="#faq">FAQ</a>
                         </div>
-                        <button data-cal-link="ester-figueiredo/30min" class="hidden md:inline-flex items-center justify-center px-md py-sm bg-secondary text-on-secondary font-label-md text-label-md rounded-full hover:opacity-90 transition-all hover:translate-y-[-2px] duration-300 cursor-pointer">
+                        <a href="#agendar-consulta" class="hidden md:inline-flex items-center justify-center px-md py-sm bg-secondary text-on-secondary font-label-md text-label-md rounded-full hover:opacity-90 transition-all hover:translate-y-[-2px] duration-300 cursor-pointer">
                                 Agendar Online
-                        </button>
+                        </a>
                         <!-- Mobile Menu Button -->
                         <button id="mobile-menu-btn" class="md:hidden text-primary p-2">
                                 <span class="material-symbols-outlined">menu</span>
@@ -850,11 +850,11 @@
                                                         class="material-symbols-outlined mr-2 text-on-primary filled-icon">chat</span>
                                                 WhatsApp
                                         </a>
-                                        <button data-cal-link="ester-figueiredo/30min" class="inline-flex items-center justify-center px-md py-sm bg-secondary text-on-secondary font-label-md text-label-md rounded-full hover:opacity-90 transition-all hover-lift shadow-lg w-full sm:w-auto border border-secondary/20 backdrop-blur-sm cursor-pointer">
+                                        <a href="#agendar-consulta" class="inline-flex items-center justify-center px-md py-sm bg-secondary text-on-secondary font-label-md text-label-md rounded-full hover:opacity-90 transition-all hover-lift shadow-lg w-full sm:w-auto border border-secondary/20 backdrop-blur-sm cursor-pointer">
                                                 <span
                                                         class="material-symbols-outlined mr-2 text-on-secondary filled-icon">calendar_month</span>
                                                 Agendar Online
-                                        </button>
+                                        </a>
                                 </div>
                         </div>
                 </section>
@@ -1537,9 +1537,9 @@
                                 <a class="text-on-surface hover:text-primary transition-colors py-2 border-b border-surface-variant/30"
                                         href="#lista-espera">Lista de Espera</a>
                         </div>
-                        <button data-cal-link="ester-figueiredo/30min" class="mt-auto inline-flex items-center justify-center px-md py-sm bg-secondary text-on-secondary font-label-md text-label-md rounded-full hover:opacity-90 transition-all cursor-pointer">
+                        <a href="#agendar-consulta" class="mt-auto inline-flex items-center justify-center px-md py-sm bg-secondary text-on-secondary font-label-md text-label-md rounded-full hover:opacity-90 transition-all cursor-pointer">
                                                 Agendar Consulta
-                        </button>
+                        </a>
                 </div>
         </div>
 
@@ -2639,43 +2639,7 @@
                         }
                 });
 
-                // ==========================================
-                // CAL.COM BOOKING SYSTEM
-                // ==========================================
-                (function (C, A, L) {
-                        let p = function (a, ar) { a.q.push(ar); };
-                        let d = C.document;
-                        C.Cal = C.Cal || function () {
-                                let cal = C.Cal;
-                                let ar = arguments;
-                                if (!cal.loaded) {
-                                        cal.ns = {};
-                                        cal.q = cal.q || [];
-                                        d.head.appendChild(d.createElement("script")).src = A;
-                                        cal.loaded = true;
-                                }
-                                if (ar[0] === L) {
-                                        const api = function () { p(api, arguments); };
-                                        const namespace = ar[1];
-                                        api.q = api.q || [];
-                                        if (typeof namespace === "string") {
-                                                cal.ns[namespace] = cal.ns[namespace] || api;
-                                                p(cal.ns[namespace], ar);
-                                                p(cal, ["initNamespace", namespace]);
-                                        } else p(cal, ar);
-                                        return;
-                                }
-                                p(cal, ar);
-                        };
-                })(window, "https://app.cal.com/embed/embed.js", "init");
-
-                Cal("init", { origin: "https://app.cal.com" });
-
-                Cal("ui", {
-                        styles: { branding: { brandColor: "#8a4f35" } }, // Matches terracotta secondary color
-                        hideEventTypeDetails: false,
-                        layout: "month_view"
-                });
+                // Cal.com embed removido para priorizar agendamento local integrado com a IA.
         </script>
 </body>
 
