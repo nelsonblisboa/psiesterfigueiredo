@@ -1,0 +1,16 @@
+{
+  "name": "Ester Figueiredo - Psicóloga Clínica",
+  "short_name": "Ester Psicologia",
+  "description": "Consultório de psicologia clínica de Ester Figueiredo. Especializada em Terapia Cognitivo-Comportamental.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#5F7A6A",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
