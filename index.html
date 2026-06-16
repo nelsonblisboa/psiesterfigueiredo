@@ -16,7 +16,7 @@
         <meta name="googlebot" content="index, follow" />
         <meta name="rating" content="general" />
         <meta name="theme-color" content="#5F7A6A" />
-        <meta name="color-scheme" content="light" />
+        <meta name="color-scheme" content="light dark" />
         <meta name="geo.region" content="BR-RJ" />
         <meta name="geo.placename" content="Nova Iguaçu" />
         <meta name="geo.position" content="-22.75;-43.45" />
@@ -454,8 +454,6 @@
         <!-- Material Symbols -->
         <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
                 rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-                rel="stylesheet" />
         <!-- Tailwind CSS -->
         <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
         <!-- Tailwind Config -->
@@ -773,6 +771,83 @@
                         padding: 20px;
                         box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
                 }
+
+                /* Dark Mode - Material Design 3 Dark Theme */
+                .dark {
+                        color-scheme: dark;
+                }
+
+                .dark body,
+                .dark .paper-texture {
+                        background-color: #1c1b1f;
+                        color: #e6e1e5;
+                }
+
+                .dark .bg-surface { background-color: #1c1b1f; }
+                .dark .bg-surface-container-low { background-color: #1d1b20; }
+                .dark .bg-surface-container-lowest { background-color: #0f0d13; }
+                .dark .bg-surface-container { background-color: #211f26; }
+                .dark .bg-surface-container-high { background-color: #2b2930; }
+                .dark .bg-surface-container-highest { background-color: #36343b; }
+                .dark .bg-surface-dim { background-color: #141218; }
+
+                .dark .text-on-surface { color: #e6e1e5; }
+                .dark .text-on-surface-variant { color: #cac4d0; }
+                .dark .text-primary { color: #cbc2db; }
+                .dark .text-secondary { color: #efb8a8; }
+
+                .dark .bg-primary { background-color: #4f6353; }
+                .dark .bg-primary\/10 { background-color: rgba(203, 194, 219, 0.1); }
+                .dark .bg-primary\/90 { background-color: rgba(79, 99, 83, 0.9); }
+                .dark .bg-primary\/95 { background-color: rgba(79, 99, 83, 0.95); }
+                .dark .text-on-primary { color: #ffffff; }
+
+                .dark .bg-secondary { background-color: #8a4f35; }
+                .dark .bg-secondary\/90 { background-color: rgba(239, 184, 168, 0.9); }
+                .dark .text-on-secondary { color: #ffffff; }
+
+                .dark .bg-primary-fixed { background-color: #4a5a4d; }
+                .dark .text-on-primary-fixed-variant { color: #cbc2db; }
+                .dark .bg-primary-fixed\/10 { background-color: rgba(74, 90, 77, 0.1); }
+
+                .dark .border-outline-variant { border-color: #49454f; }
+                .dark .border-surface-variant { border-color: #49454f; }
+                .dark .border-primary\/20 { border-color: rgba(203, 194, 219, 0.2); }
+
+                .dark .bg-white { background-color: #2b2930; }
+                .dark .bg-white\/50 { background-color: rgba(43, 41, 48, 0.5); }
+                .dark .bg-white\/60 { background-color: rgba(43, 41, 48, 0.6); }
+
+                .dark .folder-tab { background-color: #36343b; color: #cbc2db; }
+                .dark .folder-body { background-color: #36343b; }
+                .dark .polaroid { background-color: #2b2930; box-shadow: 2px 4px 15px rgba(0, 0, 0, 0.3); }
+                .dark .notebook-paper { background-color: #2b2930; background-image: linear-gradient(#49454f 1px, transparent 1px); }
+
+                .dark .bg-\[\#f0eedc\] { background-color: #2b2930; }
+                .dark .bg-\[\#e2e8e4\] { background-color: #2b2930; }
+                .dark .bg-\[\#d8d3b8\] { background-color: #36343b; }
+
+                .dark .tape { background-color: rgba(73, 69, 79, 0.7); }
+                .dark .bg-black\/50 { background-color: rgba(0, 0, 0, 0.5); }
+                .dark .bg-black\/60 { background-color: rgba(0, 0, 0, 0.6); }
+
+                .dark select option { background-color: #2b2930; color: #e6e1e5; }
+                .dark input, .dark textarea, .dark select { background-color: #2b2930; color: #e6e1e5; border-color: #49454f; }
+                .dark input:focus, .dark textarea:focus, .dark select:focus { border-color: #cbc2db; }
+
+                .dark .shadow-sm { box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); }
+                .dark .shadow-md { box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); }
+                .dark .shadow-lg { box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3); }
+                .dark .shadow-xl { box-shadow: 0 20px 25px rgba(0, 0, 0, 0.4); }
+                .dark .shadow-2xl { box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5); }
+
+                .dark .ambient-shadow { box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.2); }
+                .dark .hover-lift:hover { box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.3); }
+
+                .dark .bg-surface-container-highest\/50 { background-color: rgba(54, 52, 59, 0.5); }
+
+                .dark footer { background-color: #1d1b20; }
+                .dark footer .text-secondary { color: #efb8a8; }
         </style>
 </head>
 
@@ -799,17 +874,21 @@
                                 <a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md"
                                         href="#diferenciais">Diferenciais</a>
                                 <a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md"
+                                        href="#depoimentos">Depoimentos</a>
+                                <a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md"
                                         href="#valores">Valores</a>
                                 <a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md"
                                         href="#blog">Blog</a>
                                 <a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md"
-                                        href="#lista-espera">Lista de Espera & Contato</a>
-                                <a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md"
                                         href="#faq">FAQ</a>
                         </div>
-                        <a href="#agendar-consulta" class="hidden md:inline-flex items-center justify-center px-md py-sm bg-secondary text-on-secondary font-label-md text-label-md rounded-full hover:opacity-90 transition-all hover:translate-y-[-2px] duration-300 cursor-pointer">
+                        <a href="#agendar-consulta" class="hidden md:inline-flex items-center justify-center px-md py-sm bg-secondary text-on-secondary font-label-md text-label-md rounded-full hover:opacity-90 transition-all hover:translate-y-[-2px] duration-300 cursor-pointer" onclick="event.preventDefault(); document.getElementById('chat-toggle').click();">
                                 Agendar Online
                         </a>
+                        <!-- Dark Mode Toggle -->
+                        <button id="theme-toggle" aria-label="Alternar tema" class="hidden md:flex text-primary p-2 rounded-full hover:bg-surface-variant transition-colors">
+                                <span class="material-symbols-outlined text-xl" id="theme-icon">dark_mode</span>
+                        </button>
                         <!-- Mobile Menu Button -->
                         <button id="mobile-menu-btn" class="md:hidden text-primary p-2">
                                 <span class="material-symbols-outlined">menu</span>
@@ -850,7 +929,7 @@
                                                         class="material-symbols-outlined mr-2 text-on-primary filled-icon">chat</span>
                                                 WhatsApp
                                         </a>
-                                        <a href="#agendar-consulta" class="inline-flex items-center justify-center px-md py-sm bg-secondary text-on-secondary font-label-md text-label-md rounded-full hover:opacity-90 transition-all hover-lift shadow-lg w-full sm:w-auto border border-secondary/20 backdrop-blur-sm cursor-pointer">
+                                        <a href="#" class="inline-flex items-center justify-center px-md py-sm bg-secondary text-on-secondary font-label-md text-label-md rounded-full hover:opacity-90 transition-all hover-lift shadow-lg w-full sm:w-auto border border-secondary/20 backdrop-blur-sm cursor-pointer" onclick="event.preventDefault(); document.getElementById('chat-toggle').click();">
                                                 <span
                                                         class="material-symbols-outlined mr-2 text-on-secondary filled-icon">calendar_month</span>
                                                 Agendar Online
@@ -869,7 +948,7 @@
                                                 </div>
                                                 <img id="about-img" alt="Ester Figueiredo - Um espaço para você"
                                                         class="object-cover w-full h-full"
-                                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0Cy4cegf_snE5C1lWCj6vZyxTWNruYAHk1UnxpSUYuTd0l9nVbA4BCI-a9DppeiXPivkhUuaA3ed1CGoTad1anEbbQ1TOiYfI7Ak2SQ6TQP5Kz22exuTCIn2FI85DzQC5A4z54pAcLDneiPXUBM9C9pw_AdaLdVfGpHbgQYEp60Bj8QWOEQ4HgvDXUy9woCAV6nP-8GEmE3lP8g5ZcynTdtK4XlFCSKFcnwVkkvmuEyY8emuRVEnroSI1X33fdPPbOfxMjTnkHe8" />
+                                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0Cy4cegf_snE5C1lWCj6vZyxTWNruYAHk1UnxpSUYuTd0l9nVbA4BCI-a9DppeiXPivkhUuaA3ed1CGoTad1anEbbQ1TOiYfI7Ak2SQ6TQP5Kz22exuTCIn2FI85DzQC5A4z54pAcLDneiPXUBM9C9pw_AdaLdVfGpHbgQYEp60Bj8QWOEQ4HgvDXUy9woCAV6nP-8GEmE3lP8g5ZcynTdtK4XlFCSKFcnwVkkvmuEyY8emuRVEnroSI1X33fdPPbOfxMjTnkHe8"  loading="lazy" />
                                                 <div
                                                         class="font-handwritten text-center text-xl mt-3 text-on-surface-variant">
                                                         Um espaço para você</div>
@@ -958,7 +1037,7 @@
                                                 <div class="polaroid transform rotate-3">
                                                         <img alt="Momento de sessão de terapia presencial"
                                                                 class="w-full h-auto"
-                                                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1q1s6Bs0SjJl0vqC0gPmw_KcZVLo4ScjL7_W9K1uYcgYZcAvX0TYhLxRU4yI7vsB20ICCFoDd3kgG1AfZbCH0KVe8UmdCbV2lGCbOGUKj7dW3_W8iIPawUT1LJoiwkNhq7DwZIOmwi0C8aXbJ8Uxd7dEecaSoTRvnbJmB2kBk4YuUVulJe0Da1OV1yRXTGzYIcbqkJuiAYak9u4hDd2olL4CTHwgGGOOCIQtUTRLIylzU1Lt06oEn358IgL6UqzwI1wblqXv4qEg" />
+                                                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1q1s6Bs0SjJl0vqC0gPmw_KcZVLo4ScjL7_W9K1uYcgYZcAvX0TYhLxRU4yI7vsB20ICCFoDd3kgG1AfZbCH0KVe8UmdCbV2lGCbOGUKj7dW3_W8iIPawUT1LJoiwkNhq7DwZIOmwi0C8aXbJ8Uxd7dEecaSoTRvnbJmB2kBk4YuUVulJe0Da1OV1yRXTGzYIcbqkJuiAYak9u4hDd2olL4CTHwgGGOOCIQtUTRLIylzU1Lt06oEn358IgL6UqzwI1wblqXv4qEg" loading="lazy"  />
                                                         <div
                                                                 class="font-handwritten text-xl text-center mt-3 text-secondary">
                                                                 vamos nessa!</div>
@@ -1058,7 +1137,7 @@
                                                                 </div>
                                                                 <img alt="Psicóloga Ester Figueiredo - specialize em TCC e saúde mental"
                                                                         class="object-cover w-full h-[85%] rounded"
-                                                                        src="assets/ester-por-que-escolher.jpg" />
+                                                                        src="assets/ester-por-que-escolher.jpg" loading="lazy"  />
                                                                 <div
                                                                         class="font-handwritten text-center text-lg mt-2 text-on-surface-variant">
                                                                         Presença & Acolhimento</div>
@@ -1123,12 +1202,145 @@
                                                                 </div>
                                                                 <img alt="Consultório Acolhedor em Nova Iguaçu"
                                                                         class="object-cover w-full h-[82%] rounded"
-                                                                        src="assets/ester-valores.jpg" />
+                                                                        src="assets/ester-valores.jpg" loading="lazy"  />
                                                                 <div
                                                                         class="font-handwritten text-center text-base mt-2 text-on-surface-variant">
                                                                         Um espaço pensado para você</div>
                                                         </div>
                                                 </div>
+                                        </div>
+                                </div>
+                        </div>
+                </section>
+
+                <!-- Depoimentos Section -->
+                <section class="max-w-none w-full px-margin-mobile md:px-xl py-xl bg-surface" id="depoimentos">
+                        <div class="relative max-w-4xl mx-auto">
+                                <h2 class="folder-tab">O QUE DIZEM MEUS PACIENTES</h2>
+                                <div class="folder-body bg-surface-container-lowest">
+                                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 relative z-10">
+                                                <!-- Depoimento 1 -->
+                                                <div class="polaroid hover-lift bg-white p-6 relative" style="transform: rotate(-1deg);">
+                                                        <div class="tape" style="top: -8px; left: 30px; transform: rotate(-3deg); width: 60px;"></div>
+                                                        <div class="flex items-center gap-3 mb-4">
+                                                                <div class="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center">
+                                                                        <span class="material-symbols-outlined text-on-primary-fixed-variant text-xl">person</span>
+                                                                </div>
+                                                                <div>
+                                                                        <p class="font-typewriter text-sm font-bold text-on-surface">Ana M.</p>
+                                                                        <p class="font-typewriter text-xs text-on-surface-variant">Paciente há 8 meses</p>
+                                                                </div>
+                                                        </div>
+                                                        <div class="flex gap-1 mb-3">
+                                                                <span class="material-symbols-outlined text-secondary text-sm filled-icon">star</span>
+                                                                <span class="material-symbols-outlined text-secondary text-sm filled-icon">star</span>
+                                                                <span class="material-symbols-outlined text-secondary text-sm filled-icon">star</span>
+                                                                <span class="material-symbols-outlined text-secondary text-sm filled-icon">star</span>
+                                                                <span class="material-symbols-outlined text-secondary text-sm filled-icon">star</span>
+                                                        </div>
+                                                        <p class="font-handwritten text-lg text-on-surface leading-relaxed">
+                                                                "A Dra. Ester mudou minha vida. Através da TCC aprendi a lidar com a ansiedade de uma forma que nunca imaginei possível. O atendimento é extremamente acolhedor e profissional."
+                                                        </p>
+                                                        <div class="mt-4 pt-3 border-t border-outline-variant/30">
+                                                                <p class="font-typewriter text-xs text-primary flex items-center gap-1">
+                                                                        <span class="material-symbols-outlined text-xs">verified</span>
+                                                                        Terapia Online
+                                                                </p>
+                                                        </div>
+                                                </div>
+                                                <!-- Depoimento 2 -->
+                                                <div class="polaroid hover-lift bg-white p-6 relative" style="transform: rotate(2deg);">
+                                                        <div class="paper-clip" style="left: auto; right: 15px;"></div>
+                                                        <div class="flex items-center gap-3 mb-4">
+                                                                <div class="w-12 h-12 rounded-full bg-secondary-fixed flex items-center justify-center">
+                                                                        <span class="material-symbols-outlined text-on-secondary-fixed-variant text-xl">person</span>
+                                                                </div>
+                                                                <div>
+                                                                        <p class="font-typewriter text-sm font-bold text-on-surface">Patrícia M.</p>
+                                                                        <p class="font-typewriter text-xs text-on-surface-variant">Paciente há 1 ano</p>
+                                                                </div>
+                                                        </div>
+                                                        <div class="flex gap-1 mb-3">
+                                                                <span class="material-symbols-outlined text-secondary text-sm filled-icon">star</span>
+                                                                <span class="material-symbols-outlined text-secondary text-sm filled-icon">star</span>
+                                                                <span class="material-symbols-outlined text-secondary text-sm filled-icon">star</span>
+                                                                <span class="material-symbols-outlined text-secondary text-sm filled-icon">star</span>
+                                                                <span class="material-symbols-outlined text-secondary text-sm filled-icon">star</span>
+                                                        </div>
+                                                        <p class="font-handwritten text-lg text-on-surface leading-relaxed">
+                                                                "O processo terapêutico com a Dra. Ester foi transformador. Ela tem uma capacidade incrível de criar um espaço seguro onde me sinto à vontade para falar sobre tudo. Depois de muito tempo, finalmente encontrei uma profissional que me entende de verdade."
+                                                        </p>
+                                                        <div class="mt-4 pt-3 border-t border-outline-variant/30">
+                                                                <p class="font-typewriter text-xs text-primary flex items-center gap-1">
+                                                                        <span class="material-symbols-outlined text-xs">verified</span>
+                                                                        Terapia Presencial em Nova Iguaçu
+                                                                </p>
+                                                        </div>
+                                                </div>
+                                                <!-- Depoimento 3 -->
+                                                <div class="polaroid hover-lift bg-white p-6 relative" style="transform: rotate(1deg);">
+                                                        <div class="tape" style="top: -8px; right: 20px; left: auto; transform: rotate(5deg); width: 50px;"></div>
+                                                        <div class="flex items-center gap-3 mb-4">
+                                                                <div class="w-12 h-12 rounded-full bg-tertiary-fixed flex items-center justify-center">
+                                                                        <span class="material-symbols-outlined text-on-tertiary-fixed-variant text-xl">person</span>
+                                                                </div>
+                                                                <div>
+                                                                        <p class="font-typewriter text-sm font-bold text-on-surface">Mariana S.</p>
+                                                                        <p class="font-typewriter text-xs text-on-surface-variant">Paciente há 6 meses</p>
+                                                                </div>
+                                                        </div>
+                                                        <div class="flex gap-1 mb-3">
+                                                                <span class="material-symbols-outlined text-secondary text-sm filled-icon">star</span>
+                                                                <span class="material-symbols-outlined text-secondary text-sm filled-icon">star</span>
+                                                                <span class="material-symbols-outlined text-secondary text-sm filled-icon">star</span>
+                                                                <span class="material-symbols-outlined text-secondary text-sm filled-icon">star</span>
+                                                                <span class="material-symbols-outlined text-secondary text-sm filled-icon">star</span>
+                                                        </div>
+                                                        <p class="font-handwritten text-lg text-on-surface leading-relaxed">
+                                                                "Comecei a terapia para lidar com luto e foi a melhor decisão que tomei. A Dra. Ester me ajudou a ressignificar minhas experiências com muito cuidado e empatia."
+                                                        </p>
+                                                        <div class="mt-4 pt-3 border-t border-outline-variant/30">
+                                                                <p class="font-typewriter text-xs text-primary flex items-center gap-1">
+                                                                        <span class="material-symbols-outlined text-xs">verified</span>
+                                                                        Terapia Online
+                                                                </p>
+                                                        </div>
+                                                </div>
+                                                <!-- Depoimento 4 -->
+                                                <div class="polaroid hover-lift bg-white p-6 relative" style="transform: rotate(-2deg);">
+                                                        <div class="tape" style="top: -8px; left: 50%; transform: translateX(-50%) rotate(-1deg); width: 70px;"></div>
+                                                        <div class="flex items-center gap-3 mb-4">
+                                                                <div class="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center">
+                                                                        <span class="material-symbols-outlined text-on-primary-fixed-variant text-xl">person</span>
+                                                                </div>
+                                                                <div>
+                                                                        <p class="font-typewriter text-sm font-bold text-on-surface">Fernanda L.</p>
+                                                                        <p class="font-typewriter text-xs text-on-surface-variant">Paciente há 3 meses</p>
+                                                                </div>
+                                                        </div>
+                                                        <div class="flex gap-1 mb-3">
+                                                                <span class="material-symbols-outlined text-secondary text-sm filled-icon">star</span>
+                                                                <span class="material-symbols-outlined text-secondary text-sm filled-icon">star</span>
+                                                                <span class="material-symbols-outlined text-secondary text-sm filled-icon">star</span>
+                                                                <span class="material-symbols-outlined text-secondary text-sm filled-icon">star</span>
+                                                                <span class="material-symbols-outlined text-secondary text-sm filled-icon">star</span>
+                                                        </div>
+                                                        <p class="font-handwritten text-lg text-on-surface leading-relaxed">
+                                                                "A flexibilidade do atendimento online foi essencial para mim. Consigo conciliar com a rotina de trabalho e a Dra. Ester faz com que cada sessão seja produtiva e acolhedora."
+                                                        </p>
+                                                        <div class="mt-4 pt-3 border-t border-outline-variant/30">
+                                                                <p class="font-typewriter text-xs text-primary flex items-center gap-1">
+                                                                        <span class="material-symbols-outlined text-xs">verified</span>
+                                                                        Terapia Online
+                                                                </p>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                        <!-- Disclaimer -->
+                                        <div class="mt-8 text-center">
+                                                <p class="font-typewriter text-xs text-on-surface-variant italic">
+                                                        *Nomes alterados para preservar o sigilo profissional conforme Código de Ética do Psicólogo.
+                                                </p>
                                         </div>
                                 </div>
                         </div>
@@ -1230,7 +1442,7 @@
                                                         class="pt-4 flex-grow overflow-hidden flex items-center justify-center">
                                                         <img alt="Ester Figueiredo ao pôr do sol"
                                                                 class="object-cover w-full aspect-[3/4] rounded"
-                                                                src="assets/ester-blog.jpg" />
+                                                                src="assets/ester-blog.jpg" loading="lazy"  />
                                                 </div>
                                                 <div
                                                         class="font-handwritten text-center text-lg mt-3 text-on-surface-variant">
@@ -1248,21 +1460,50 @@
                                 </div>
                         </div>
                 </section>
-                <!-- PDF Materials & E-books Section -->
-                <section id="pdf-materials-section"
-                        class="max-w-none w-full px-margin-mobile md:px-xl py-xl bg-surface-container-lowest">
-                        <div class="max-w-container-max mx-auto">
-                                <div class="text-center mb-lg">
-                                        <h2 class="folder-tab inline-block">E-BOOKS E MATERIAIS</h2>
-                                        <p class="font-typewriter text-body-md text-on-surface-variant mt-sm max-w-2xl mx-auto">
-                                                Explore materiais digitais exclusivos em formato PDF projetados para apoiar sua jornada de desenvolvimento pessoal, autoconhecimento e bem-estar emocional.
-                                        </p>
-                                </div>
-                                
-                                <!-- Products Grid -->
-                                <div id="pdf-products-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                                        <div class="col-span-full text-center py-8 text-on-surface-variant italic font-typewriter">
-                                                Carregando materiais...
+                <!-- E-books & Materiais Section -->
+                <section id="materiais" class="max-w-none w-full px-margin-mobile md:px-xl py-xl bg-surface-container-lowest torn-edge-top">
+                        <div class="max-w-4xl mx-auto">
+                                <h2 class="folder-tab inline-block">E-BOOKS E MATERIAIS</h2>
+                                <div class="folder-body bg-[#e2e8e4] relative overflow-hidden">
+                                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+                                                <div class="lg:col-span-7">
+                                                        <h3 class="font-handwritten text-3xl text-on-surface mb-4">
+                                                                Cuide da sua saúde mental com materiais exclusivos
+                                                        </h3>
+                                                        <p class="font-typewriter text-on-surface mb-6 leading-relaxed">
+                                                                Explore minha loja com e-books, roteiros de autoajuda, materiais para terapia e conteúdos pensados para apoiar sua jornada de autoconhecimento e bem-estar emocional.
+                                                        </p>
+                                                        <ul class="font-typewriter text-on-surface-variant space-y-3 mb-6">
+                                                                <li class="flex items-start gap-3">
+                                                                        <span class="material-symbols-outlined text-primary text-lg mt-0.5">check_circle</span>
+                                                                        <span>Materiais em PDF para download imediato</span>
+                                                                </li>
+                                                                <li class="flex items-start gap-3">
+                                                                        <span class="material-symbols-outlined text-primary text-lg mt-0.5">check_circle</span>
+                                                                        <span>Conteúdo baseado em evidências científicas</span>
+                                                                </li>
+                                                                <li class="flex items-start gap-3">
+                                                                        <span class="material-symbols-outlined text-primary text-lg mt-0.5">check_circle</span>
+                                                                        <span>Pagamento seguro via Orbita</span>
+                                                                </li>
+                                                        </ul>
+                                                        <a href="https://orbita.eduzz.com/producer" target="_blank" rel="noopener noreferrer"
+                                                                class="inline-flex items-center justify-center px-lg py-md bg-secondary text-on-secondary font-label-md text-label-md rounded-full hover:opacity-90 transition-all hover-lift shadow-lg cursor-pointer">
+                                                                <span class="material-symbols-outlined mr-2">storefront</span>
+                                                                Visitar Loja de Materiais
+                                                                <span class="material-symbols-outlined ml-2 text-sm">open_in_new</span>
+                                                        </a>
+                                                </div>
+                                                <div class="lg:col-span-5 flex justify-center w-full">
+                                                        <div class="polaroid polaroid-right w-full max-w-[280px] aspect-[3/4] relative">
+                                                                <div class="tape" style="top: -10px; left: 50%; transform: translateX(-50%) rotate(-3deg); width: 80px;"></div>
+                                                                <img alt="Materiais digitais de psicologia - E-books e roteiros" loading="lazy"
+                                                                        class="object-cover w-full h-[85%] rounded"
+                                                                        src="assets/ester-blog.jpg" />
+                                                                <div class="font-handwritten text-center text-lg mt-2 text-on-surface-variant">
+                                                                Acesse e adquira já</div>
+                                                        </div>
+                                                </div>
                                         </div>
                                 </div>
                         </div>
@@ -1344,60 +1585,185 @@
                                         <!-- Accordion Item 1 -->
                                         <details
                                                 class="group bg-[#f0eedc] rounded-md ambient-shadow border border-surface-variant/50 overflow-hidden relative">
-                                                <div class="tape"
-                                                        style="top: 0; left: 10px; transform: none; width: 30px; height: 15px;">
-                                                </div>
+                                                <div class="tape" style="top: 0; left: 10px; transform: none; width: 30px; height: 15px;"></div>
                                                 <summary
                                                         class="flex justify-between items-center cursor-pointer p-md font-handwritten text-2xl text-on-surface list-none pl-12">
                                                         Qual o valor da sessão?
-                                                        <span
-                                                                class="material-symbols-outlined transition-transform group-open:rotate-180 text-primary">expand_more</span>
+                                                        <span class="material-symbols-outlined transition-transform group-open:rotate-180 text-primary">expand_more</span>
                                                 </summary>
-                                                <div
-                                                        class="p-md pt-0 font-typewriter text-sm text-on-surface-variant pl-12">
-                                                        Os honorários são informados durante o primeiro contato,
-                                                        respeitando as diretrizes do Conselho Federal de Psicologia.
-                                                        Entre em contato pelo WhatsApp para receber as informações
-                                                        detalhadas. (Ou consulte a seção Valores acima).
+                                                <div class="p-md pt-0 font-typewriter text-sm text-on-surface-variant pl-12">
+                                                        <p class="mb-2">O valor da sessão individual avulsa é <strong>R$ 80,00</strong>. Também oferecemos um plano mensal estruturado de 4 sessões por <strong>R$ 300,00</strong>.</p>
+                                                        <p class="mb-2">Condições especiais ou flexibilizações podem ser conversadas e avaliadas individualmente, respeitando sempre as diretrizes éticas do Conselho Federal de Psicologia.</p>
+                                                        <p>Formas de pagamento: Pix ou Cartão (crédito/débito).</p>
                                                 </div>
                                         </details>
                                         <!-- Accordion Item 2 -->
                                         <details
                                                 class="group bg-[#f0eedc] rounded-md ambient-shadow border border-surface-variant/50 overflow-hidden relative">
-                                                <div class="tape"
-                                                        style="top: 0; left: 10px; transform: none; width: 30px; height: 15px;">
-                                                </div>
+                                                <div class="tape" style="top: 0; left: 10px; transform: none; width: 30px; height: 15px;"></div>
                                                 <summary
                                                         class="flex justify-between items-center cursor-pointer p-md font-handwritten text-2xl text-on-surface list-none pl-12">
                                                         Aceita convênio médico?
-                                                        <span
-                                                                class="material-symbols-outlined transition-transform group-open:rotate-180 text-primary">expand_more</span>
+                                                        <span class="material-symbols-outlined transition-transform group-open:rotate-180 text-primary">expand_more</span>
                                                 </summary>
-                                                <div
-                                                        class="p-md pt-0 font-typewriter text-sm text-on-surface-variant pl-12">
-                                                        Os atendimentos são particulares, mas emito recibo para
-                                                        solicitação de reembolso junto ao seu plano de saúde, caso seu
-                                                        convênio ofereça essa modalidade.
+                                                <div class="p-md pt-0 font-typewriter text-sm text-on-surface-variant pl-12">
+                                                        <p class="mb-2">Os atendimentos no consultório são <strong>particulares</strong>. No entanto, emitimos recibos e notas fiscais completos para que você solicite o reembolso integral ou parcial junto ao seu plano de saúde.</p>
+                                                        <p>Verifique com a sua operadora se o convênio oferece a modalidade de reembolso para consultas psicológicas.</p>
                                                 </div>
                                         </details>
                                         <!-- Accordion Item 3 -->
                                         <details
                                                 class="group bg-[#f0eedc] rounded-md ambient-shadow border border-surface-variant/50 overflow-hidden relative">
-                                                <div class="tape"
-                                                        style="top: 0; left: 10px; transform: none; width: 30px; height: 15px;">
-                                                </div>
+                                                <div class="tape" style="top: 0; left: 10px; transform: none; width: 30px; height: 15px;"></div>
                                                 <summary
                                                         class="flex justify-between items-center cursor-pointer p-md font-handwritten text-2xl text-on-surface list-none pl-12">
                                                         Como funciona a primeira sessão?
-                                                        <span
-                                                                class="material-symbols-outlined transition-transform group-open:rotate-180 text-primary">expand_more</span>
+                                                        <span class="material-symbols-outlined transition-transform group-open:rotate-180 text-primary">expand_more</span>
                                                 </summary>
-                                                <div
-                                                        class="p-md pt-0 font-typewriter text-sm text-on-surface-variant pl-12">
-                                                        A primeira sessão é um momento de acolhimento e escuta. Serve
-                                                        para nos conhecermos, para eu entender sua demanda e para você
-                                                        avaliar se sente conforto e segurança para iniciarmos o processo
-                                                        terapêutico juntos.
+                                                <div class="p-md pt-0 font-typewriter text-sm text-on-surface-variant pl-12">
+                                                        <p class="mb-2">A primeira sessão é um momento de <strong>acolhimento e escuta</strong>. Serve para nos conhecermos, para eu entender sua demanda e para você avaliar se sente conforto e segurança para iniciarmos o processo terapêutico juntos.</p>
+                                                        <p class="mb-2">Não se preocupe em "o que dizer" — apenas venha conversar. É um momento sem compromisso formal de continuidade.</p>
+                                                        <p>Não há diagnóstico ou tratamento nesta primeira sessão. O objetivo é criar uma conexão e entender suas necessidades.</p>
+                                                </div>
+                                        </details>
+                                        <!-- Accordion Item 4 -->
+                                        <details
+                                                class="group bg-[#f0eedc] rounded-md ambient-shadow border border-surface-variant/50 overflow-hidden relative">
+                                                <div class="tape" style="top: 0; left: 10px; transform: none; width: 30px; height: 15px;"></div>
+                                                <summary
+                                                        class="flex justify-between items-center cursor-pointer p-md font-handwritten text-2xl text-on-surface list-none pl-12">
+                                                        Duração e frequência das sessões
+                                                        <span class="material-symbols-outlined transition-transform group-open:rotate-180 text-primary">expand_more</span>
+                                                </summary>
+                                                <div class="p-md pt-0 font-typewriter text-sm text-on-surface-variant pl-12">
+                                                        <p class="mb-2">Cada sessão tem duração de <strong>50 minutos</strong>. O atendimento é semanal, no mesmo dia e horário marcado, o que ajuda a criar uma rotina terapêutica.</p>
+                                                        <p class="mb-2">A frequência semanal é recomendada especialmente no início do processo, pois garante continuidade e aprofundamento do trabalho terapêutico.</p>
+                                                        <p>Com o tempo, e de acordo com sua evolução, podemos reavaliar juntos a frequência ideal.</p>
+                                                </div>
+                                        </details>
+                                        <!-- Accordion Item 5 -->
+                                        <details
+                                                class="group bg-[#f0eedc] rounded-md ambient-shadow border border-surface-variant/50 overflow-hidden relative">
+                                                <div class="tape" style="top: 0; left: 10px; transform: none; width: 30px; height: 15px;"></div>
+                                                <summary
+                                                        class="flex justify-between items-center cursor-pointer p-md font-handwritten text-2xl text-on-surface list-none pl-12">
+                                                        Como funciona o atendimento online?
+                                                        <span class="material-symbols-outlined transition-transform group-open:rotate-180 text-primary">expand_more</span>
+                                                </summary>
+                                                <div class="p-md pt-0 font-typewriter text-sm text-on-surface-variant pl-12">
+                                                        <p class="mb-2">O atendimento online é realizado por <strong>videochamada</strong>, com a mesma qualidade e sigilo do presencial. Você pode participar de qualquer lugar do Brasil ou do exterior.</p>
+                                                        <p class="mb-2">Basta ter um celular, computador ou tablet com acesso à internet, um local tranquilo e reservado, e fones de ouvido para garantir sua privacidade.</p>
+                                                        <p>O link da videochamada é enviado por WhatsApp ou e-mail antes da sessão. As sessões são gravadas apenas para seu uso pessoal, mediante autorização.</p>
+                                                </div>
+                                        </details>
+                                        <!-- Accordion Item 6 -->
+                                        <details
+                                                class="group bg-[#f0eedc] rounded-md ambient-shadow border border-surface-variant/50 overflow-hidden relative">
+                                                <div class="tape" style="top: 0; left: 10px; transform: none; width: 30px; height: 15px;"></div>
+                                                <summary
+                                                        class="flex justify-between items-center cursor-pointer p-md font-handwritten text-2xl text-on-surface list-none pl-12">
+                                                        Qual a abordagem terapêutica utilizada?
+                                                        <span class="material-symbols-outlined transition-transform group-open:rotate-180 text-primary">expand_more</span>
+                                                </summary>
+                                                <div class="p-md pt-0 font-typewriter text-sm text-on-surface-variant pl-12">
+                                                        <p class="mb-2">Utilizo principalmente a <strong>Terapia Cognitivo-Comportamental (TCC)</strong> e as <strong>Terapias Contextuais</strong>, incluindo a Terapia de Aceitação e Compromisso (ACT).</p>
+                                                        <p class="mb-2">Essas abordagens são baseadas em evidências científicas e são eficazes no tratamento de ansiedade, depressão, autoestima e desenvolvimento pessoal.</p>
+                                                        <p>Cada pessoa é única, por isso o tratamento é personalizado de acordo com suas necessidades, história e ritmo.</p>
+                                                </div>
+                                        </details>
+                                        <!-- Accordion Item 7 -->
+                                        <details
+                                                class="group bg-[#f0eedc] rounded-md ambient-shadow border border-surface-variant/50 overflow-hidden relative">
+                                                <div class="tape" style="top: 0; left: 10px; transform: none; width: 30px; height: 15px;"></div>
+                                                <summary
+                                                        class="flex justify-between items-center cursor-pointer p-md font-handwritten text-2xl text-on-surface list-none pl-12">
+                                                        Posso cancelar ou remarcar uma sessão?
+                                                        <span class="material-symbols-outlined transition-transform group-open:rotate-180 text-primary">expand_more</span>
+                                                </summary>
+                                                <div class="p-md pt-0 font-typewriter text-sm text-on-surface-variant pl-12">
+                                                        <p class="mb-2">Sim, desde que comunicado com <strong>antecedência mínima de 24 horas</strong>. Cancelamentos de última hora ou faltas sem aviso prejudicam o processo terapêutico e a disponibilidade de horários para outros pacientes.</p>
+                                                        <p class="mb-2">Para remarcar, entre em contato pelo WhatsApp o quanto antes para encontrarmos um novo horário compatível.</p>
+                                                        <p>A política de cancelamento será formalizada no contrato de prestação de serviços no início do acompanhamento.</p>
+                                                </div>
+                                        </details>
+                                        <!-- Accordion Item 8 -->
+                                        <details
+                                                class="group bg-[#f0eedc] rounded-md ambient-shadow border border-surface-variant/50 overflow-hidden relative">
+                                                <div class="tape" style="top: 0; left: 10px; transform: none; width: 30px; height: 15px;"></div>
+                                                <summary
+                                                        class="flex justify-between items-center cursor-pointer p-md font-handwritten text-2xl text-on-surface list-none pl-12">
+                                                        É garantido o sigilo profissional?
+                                                        <span class="material-symbols-outlined transition-transform group-open:rotate-180 text-primary">expand_more</span>
+                                                </summary>
+                                                <div class="p-md pt-0 font-typewriter text-sm text-on-surface-variant pl-12">
+                                                        <p class="mb-2"><strong>Sim, absolutamente.</strong> O sigilo é um dever ético e legal do psicólogo, resguardado pelo Código de Ética Profissional do Psicólogo e pela Lei Geral de Proteção de Dados (LGPD).</p>
+                                                        <p class="mb-2">Tudo o que é compartilhado nas sessões permanece estritamente confidencial. Nenhuma informação será divulgada sem sua autorização expressa, exceto em casos previstos em lei (risco iminente à vida).</p>
+                                                        <p>Seus dados pessoais são protegidos e nunca serão compartilhados com terceiros.</p>
+                                                </div>
+                                        </details>
+                                        <!-- Accordion Item 9 -->
+                                        <details
+                                                class="group bg-[#f0eedc] rounded-md ambient-shadow border border-surface-variant/50 overflow-hidden relative">
+                                                <div class="tape" style="top: 0; left: 10px; transform: none; width: 30px; height: 15px;"></div>
+                                                <summary
+                                                        class="flex justify-between items-center cursor-pointer p-md font-handwritten text-2xl text-on-surface list-none pl-12">
+                                                        Preciso de encaminhamento médico?
+                                                        <span class="material-symbols-outlined transition-transform group-open:rotate-180 text-primary">expand_more</span>
+                                                </summary>
+                                                <div class="p-md pt-0 font-typewriter text-sm text-on-surface-variant pl-12">
+                                                        <p class="mb-2"><strong>Não.</strong> Para iniciar a terapia psicológica, não é necessário encaminhamento médico. Você pode buscar atendimento psicológico diretamente, por iniciativa própria.</p>
+                                                        <p class="mb-2">No entanto, em alguns casos, o trabalho em conjunto com outros profissionais de saúde (psiquiatra, por exemplo) pode ser indicado. Nesses situações, orientamos sobre o melhor caminho.</p>
+                                                        <p>O atendimento psicológico é autônomo e não depende de prescrição médica para seu início.</p>
+                                                </div>
+                                        </details>
+                                        <!-- Accordion Item 10 -->
+                                        <details
+                                                class="group bg-[#f0eedc] rounded-md ambient-shadow border border-surface-variant/50 overflow-hidden relative">
+                                                <div class="tape" style="top: 0; left: 10px; transform: none; width: 30px; height: 15px;"></div>
+                                                <summary
+                                                        class="flex justify-between items-center cursor-pointer p-md font-handwritten text-2xl text-on-surface list-none pl-12">
+                                                        Atende crianças ou adolescentes?
+                                                        <span class="material-symbols-outlined transition-transform group-open:rotate-180 text-primary">expand_more</span>
+                                                </summary>
+                                                <div class="p-md pt-0 font-typewriter text-sm text-on-surface-variant pl-12">
+                                                        <p class="mb-2">O atendimento é focado em <strong>adolescentes a partir de 16 anos e adultos</strong>. Para crianças menores, recomendo buscar um profissional especializado em psicologia infantojuvenil.</p>
+                                                        <p class="mb-2">Para adolescentes a partir de 16 anos, o atendimento pode ser iniciado com autorização dos responsáveis legais, respeitando as particularidades de cada caso.</p>
+                                                        <p>Em caso de dúvidas, entre em contato para avaliarmos juntos a melhor conduta.</p>
+                                                </div>
+                                        </details>
+                                        <!-- Accordion Item 11 -->
+                                        <details
+                                                class="group bg-[#f0eedc] rounded-md ambient-shadow border border-surface-variant/50 overflow-hidden relative">
+                                                <div class="tape" style="top: 0; left: 10px; transform: none; width: 30px; height: 15px;"></div>
+                                                <summary
+                                                        class="flex justify-between items-center cursor-pointer p-md font-handwritten text-2xl text-on-surface list-none pl-12">
+                                                        Como funciona a lista de espera?
+                                                        <span class="material-symbols-outlined transition-transform group-open:rotate-180 text-primary">expand_more</span>
+                                                </summary>
+                                                <div class="p-md pt-0 font-typewriter text-sm text-on-surface-variant pl-12">
+                                                        <p class="mb-2">Caso não encontre um horário disponível que se encaixe na sua rotina, você pode entrar na <strong>lista de espera</strong>. Assim que uma vaga se abrir, você será contatado(a) diretamente.</p>
+                                                        <p class="mb-2">Para entrar na lista, preencha o formulário na seção "Lista de Espera e Contato" ou envie uma mensagem pelo WhatsApp com seu nome e preferência de horário.</p>
+                                                        <p>A prioridade é respeitada por ordem de chegada e compatibilidade de horário.</p>
+                                                </div>
+                                        </details>
+                                        <!-- Accordion Item 12 -->
+                                        <details
+                                                class="group bg-[#f0eedc] rounded-md ambient-shadow border border-surface-variant/50 overflow-hidden relative">
+                                                <div class="tape" style="top: 0; left: 10px; transform: none; width: 30px; height: 15px;"></div>
+                                                <summary
+                                                        class="flex justify-between items-center cursor-pointer p-md font-handwritten text-2xl text-on-surface list-none pl-12">
+                                                        O que é a LINA e como ela pode me ajudar?
+                                                        <span class="material-symbols-outlined transition-transform group-open:rotate-180 text-primary">expand_more</span>
+                                                </summary>
+                                                <div class="p-md pt-0 font-typewriter text-sm text-on-surface-variant pl-12">
+                                                        <p class="mb-2">A <strong>LINA</strong> é nossa assistente virtual inteligente, disponível no canto inferior direito do site. Ela pode ajudar com:</p>
+                                                        <ul class="list-disc pl-5 mb-2 space-y-1">
+                                                                <li>Informações sobre valores e modalidades de atendimento</li>
+                                                                <li>Agendamento de consultas</li>
+                                                                <li>Dúvidas sobre o processo terapêutico</li>
+                                                                <li>Orientações sobre localização e horários</li>
+                                                        </ul>
+                                                        <p>A LINA é uma IA treinada especificamente para o consultório da Dra. Ester e responde de forma sigilosa e profissional. Para assuntos mais pessoais, fale diretamente com a Dra. Ester.</p>
                                                 </div>
                                         </details>
                                 </div>
@@ -1438,7 +1804,7 @@
                                 href="#lista-espera">Contato</a>
                 </div>
                 <div class="text-secondary dark:text-secondary-fixed font-typewriter text-xs text-center mt-md">
-                        © 2024 Ester Figueiredo - Psicóloga Clínica. Todos os direitos reservados.
+                        © 2026 Ester Figueiredo - Psicóloga Clínica. Todos os direitos reservados.
                 </div>
         </footer>
         <!-- Emergency Exit FAB (Fixed) -->
@@ -1446,6 +1812,13 @@
                 <span class="material-symbols-outlined text-sm">emergency</span>
                 Precisa de ajuda agora?
         </a>
+
+        <!-- Back to Top Button -->
+        <button id="back-to-top" aria-label="Voltar ao topo"
+                class="fixed bottom-6 left-6 bg-primary text-on-primary w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-primary/90 transition-all opacity-0 pointer-events-none z-50 hover:scale-110 active:scale-95"
+                onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+                <span class="material-symbols-outlined text-xl">keyboard_arrow_up</span>
+        </button>
 
         <!-- Mobile Navigation Drawer -->
         <div id="mobile-menu"
@@ -1466,15 +1839,17 @@
                                 <a class="text-on-surface hover:text-primary transition-colors py-2 border-b border-surface-variant/30"
                                         href="#diferenciais">Diferenciais</a>
                                 <a class="text-on-surface hover:text-primary transition-colors py-2 border-b border-surface-variant/30"
+                                        href="#depoimentos">Depoimentos</a>
+                                <a class="text-on-surface hover:text-primary transition-colors py-2 border-b border-surface-variant/30"
                                         href="#valores">Valores</a>
                                 <a class="text-on-surface hover:text-primary transition-colors py-2 border-b border-surface-variant/30"
                                         href="#blog">Blog</a>
                                 <a class="text-on-surface hover:text-primary transition-colors py-2 border-b border-surface-variant/30"
                                         href="#faq">FAQ</a>
                                 <a class="text-on-surface hover:text-primary transition-colors py-2 border-b border-surface-variant/30"
-                                        href="#lista-espera">Lista de Espera & Contato</a>
+                                        href="#lista-espera">Contato</a>
                         </div>
-                        <a href="#agendar-consulta" class="mt-auto inline-flex items-center justify-center px-md py-sm bg-secondary text-on-secondary font-label-md text-label-md rounded-full hover:opacity-90 transition-all cursor-pointer">
+                        <a href="#" class="mt-auto inline-flex items-center justify-center px-md py-sm bg-secondary text-on-secondary font-label-md text-label-md rounded-full hover:opacity-90 transition-all cursor-pointer" onclick="event.preventDefault(); closeMobileMenu(); document.getElementById('chat-toggle').click();">
                                                 Agendar Consulta
                         </a>
                 </div>
@@ -1774,1464 +2149,30 @@
                 </div>
         </div>
 
-        <!-- Site Scripts -->
+        <!-- Google Analytics 4 -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
         <script>
-                // ==========================================
-                // LOGGER & DIAGNOSTIC SYSTEM
-                // ==========================================
-                const Logger = {
-                        styles: {
-                                error: 'background: #F44336; color: white; padding: 2px 6px; border-radius: 3px; font-weight: bold; font-family: monospace;',
-                                warn: 'background: #FF9800; color: white; padding: 2px 6px; border-radius: 3px; font-weight: bold; font-family: monospace;',
-                                info: 'background: #2196F3; color: white; padding: 2px 6px; border-radius: 3px; font-weight: bold; font-family: monospace;',
-                                success: 'background: #4CAF50; color: white; padding: 2px 6px; border-radius: 3px; font-weight: bold; font-family: monospace;',
-                                system: 'background: #795548; color: white; padding: 2px 6px; border-radius: 3px; font-weight: bold; font-family: monospace;'
-                        },
-
-                        log(level, message, details = null) {
-                                const timestamp = new Date().toLocaleTimeString();
-                                const style = this.styles[level] || this.styles.system;
-
-                                console.groupCollapsed(`%c${level.toUpperCase()}%c [${timestamp}] ${message}`, style, 'color: inherit; font-weight: normal;');
-                                if (details) {
-                                        console.log('Detalhes:', details);
-                                }
-                                console.log('Stack Trace:', new Error().stack);
-                                console.groupEnd();
-
-                                this.saveToCache({ level, message, details, timestamp });
-                        },
-
-                        saveToCache(entry) {
-                                try {
-                                        let logs = JSON.parse(sessionStorage.getItem('site_logs') || '[]');
-                                        logs.push(entry);
-                                        if (logs.length > 50) logs.shift(); // Max 50 logs
-                                        sessionStorage.setItem('site_logs', JSON.stringify(logs));
-
-                                        if (typeof refreshDiagnosticPanel === 'function') {
-                                                refreshDiagnosticPanel();
-                                        }
-                                } catch (e) {
-                                        // Ignore storage error
-                                }
-                        },
-
-                        error(message, details = null) {
-                                this.log('error', message, details);
-                        },
-
-                        warn(message, details = null) {
-                                this.log('warn', message, details);
-                        },
-
-                        info(message, details = null) {
-                                this.log('info', message, details);
-                        },
-
-                        success(message, details = null) {
-                                this.log('success', message, details);
-                        }
-                };
-
-                // Catch uncaught script errors
-                window.addEventListener('error', (event) => {
-                        const filename = event.filename || '';
-                        const isExtension = filename.includes('chrome-extension://') || filename.includes('moz-extension://') || !filename;
-                        const message = event.message || 'Erro de script desconhecido';
-
-                        const details = {
-                                url: event.filename,
-                                linha: event.lineno,
-                                coluna: event.coleno,
-                                tipo: event.type,
-                                origem: isExtension ? 'Extensão do Navegador / Script Externo' : 'Código Nativo do Site',
-                                stack: event.error ? event.error.stack : null
-                        };
-
-                        if (isExtension) {
-                                Logger.warn(`[Extensão/Script Externo] ${message}`, details);
-                        } else {
-                                Logger.error(`[Erro de Código] ${message}`, details);
-                        }
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'G-XXXXXXXXXX', {
+                        page_title: 'Ester Figueiredo - Psicóloga Clínica',
+                        custom_map: { dimension1: 'user_type' }
                 });
-
-                // Catch uncaught Promise rejections
-                window.addEventListener('unhandledrejection', (event) => {
-                        const reason = event.reason;
-                        const details = {
-                                mensagem: reason instanceof Error ? reason.message : reason,
-                                stack: reason instanceof Error ? reason.stack : null
-                        };
-                        Logger.error('Promessa rejeitada não tratada (Promise Rejection)', details);
-                });
-
-                // Diagnostic Panel UI Implementation
-                function openDiagnosticPanel() {
-                        let panel = document.getElementById('diagnostic-panel');
-                        if (panel) return;
-
-                        panel = document.createElement('div');
-                        panel.id = 'diagnostic-panel';
-                        panel.className = 'fixed inset-0 z-[200] bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 font-typewriter';
-
-                        panel.innerHTML = `
-                                <div class="bg-surface border border-outline-variant rounded-lg max-w-3xl w-full max-h-[85vh] shadow-2xl flex flex-col relative overflow-hidden text-on-surface notebook-paper">
-                                        <div class="tape top-0"></div>
-                                        <div class="p-6 border-b border-outline-variant/30 flex justify-between items-center mt-4">
-                                                <div>
-                                                        <h3 class="font-handwritten text-3xl text-primary mb-1">Painel de Diagnóstico</h3>
-                                                        <p class="text-xs text-on-surface-variant">Monitore logs, erros de rede e integridade local</p>
-                                                </div>
-                                                <button onclick="closeDiagnosticPanel()" class="text-on-surface-variant hover:text-primary transition-colors p-2">
-                                                        <span class="material-symbols-outlined text-2xl">close</span>
-                                                </button>
-                                        </div>
-                                        
-                                        <div class="p-6 overflow-y-auto flex-grow space-y-6 text-sm">
-                                                <!-- System Info -->
-                                                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 border-b border-outline-variant/20 pb-4">
-                                                        <div class="bg-surface-container-low p-3 rounded border border-outline-variant/10 text-left">
-                                                                <span class="text-xs text-on-surface-variant block uppercase tracking-wider">Status de Conexão</span>
-                                                                <span class="font-bold flex items-center gap-2 mt-1">
-                                                                        <span class="w-3 h-3 rounded-full ${navigator.onLine ? 'bg-green-500' : 'bg-red-500'}"></span>
-                                                                        ${navigator.onLine ? 'Conectado (Online)' : 'Desconectado (Offline)'}
-                                                                </span>
-                                                        </div>
-                                                        <div class="bg-surface-container-low p-3 rounded border border-outline-variant/10 text-left">
-                                                                <span class="text-xs text-on-surface-variant block uppercase tracking-wider">Backup Local (Submissões)</span>
-                                                                <span id="diagnostic-backup-count" class="font-bold block mt-1">Carregando...</span>
-                                                        </div>
-                                                        <div class="bg-surface-container-low p-3 rounded border border-outline-variant/10 text-left">
-                                                                <span class="text-xs text-on-surface-variant block uppercase tracking-wider">Dispositivo / Resolução</span>
-                                                                <span class="text-xs font-bold block mt-1 truncate">${navigator.userAgent.split(' ').slice(-2).join(' ')} (${window.innerWidth}x${window.innerHeight})</span>
-                                                        </div>
-                                                </div>
-
-                                                <!-- Log Lists -->
-                                                <div>
-                                                        <div class="flex justify-between items-center mb-3">
-                                                                <h4 class="font-bold uppercase tracking-wider text-xs text-primary">Logs Recentes do Sistema</h4>
-                                                                <div class="flex gap-2">
-                                                                        <button onclick="clearDiagnosticLogs()" class="text-xs border border-outline-variant/30 hover:bg-surface-variant px-3 py-1 rounded transition-all">Limpar Logs</button>
-                                                                        <button onclick="copyDiagnosticLogs()" class="text-xs bg-primary text-on-primary hover:opacity-90 px-3 py-1 rounded transition-all shadow-sm">Copiar Tudo</button>
-                                                                </div>
-                                                        </div>
-                                                        <div id="diagnostic-logs-container" class="bg-surface-container-lowest border border-outline-variant/20 rounded p-3 font-mono text-xs max-h-[40vh] overflow-y-auto space-y-2 select-text">
-                                                                <!-- Logs dynamically injected -->
-                                                        </div>
-                                                </div>
-                                        </div>
-                                </div>
-                        `;
-
-                        document.body.appendChild(panel);
-                        refreshDiagnosticPanel();
-                }
-
-                function closeDiagnosticPanel() {
-                        const panel = document.getElementById('diagnostic-panel');
-                        if (panel) panel.remove();
-                }
-
-                function refreshDiagnosticPanel() {
-                        const container = document.getElementById('diagnostic-logs-container');
-                        const backupCount = document.getElementById('diagnostic-backup-count');
-                        if (!container) return;
-
-                        // 1. Get backup count
-                        try {
-                                const saved = localStorage.getItem('waitlist_submissions');
-                                const count = saved ? JSON.parse(saved).length : 0;
-                                backupCount.textContent = `${count} lead(s) salvo(s)`;
-                        } catch (e) {
-                                backupCount.textContent = 'Erro ao ler';
-                        }
-
-                        // 2. Load logs
-                        try {
-                                const logs = JSON.parse(sessionStorage.getItem('site_logs') || '[]');
-                                if (logs.length === 0) {
-                                        container.innerHTML = '<div class="text-on-surface-variant italic text-center py-4">Nenhum log registrado ainda. Envie o formulário ou pressione Ctrl+Shift+D para reabrir este painel.</div>';
-                                        return;
-                                }
-
-                                container.innerHTML = logs.map(log => {
-                                        let colorClass = 'text-blue-500';
-                                        let bgClass = 'bg-blue-500/10 border-blue-500/20';
-                                        if (log.level === 'error') {
-                                                colorClass = 'text-red-500 font-bold';
-                                                bgClass = 'bg-red-500/10 border-red-500/20';
-                                        } else if (log.level === 'warn') {
-                                                colorClass = 'text-yellow-600 font-bold';
-                                                bgClass = 'bg-yellow-500/10 border-yellow-500/20';
-                                        } else if (log.level === 'success') {
-                                                colorClass = 'text-green-600 font-bold';
-                                                bgClass = 'bg-green-500/10 border-green-500/20';
-                                        }
-
-                                        let detailsStr = '';
-                                        if (log.details) {
-                                                detailsStr = `<pre class="mt-1 p-2 bg-black/5 text-on-surface-variant rounded text-[10px] overflow-x-auto max-w-full white-space-pre-wrap">${JSON.stringify(log.details, null, 2)}</pre>`;
-                                        }
-
-                                        return `
-                                                <div class="p-2 border rounded ${bgClass} flex flex-col gap-1 text-left font-mono">
-                                                        <div class="flex justify-between items-start">
-                                                                <span class="font-bold ${colorClass}">[${log.level.toUpperCase()}]</span>
-                                                                <span class="text-[10px] text-on-surface-variant">${log.timestamp}</span>
-                                                        </div>
-                                                        <div class="text-on-surface leading-tight font-sans text-xs">${log.message}</div>
-                                                        ${detailsStr}
-                                                </div>
-                                        `;
-                                }).reverse().join('');
-                        } catch (e) {
-                                container.innerHTML = `<div class="text-red-500 italic">Falha ao carregar logs: ${e.message}</div>`;
-                        }
-                }
-
-                function clearDiagnosticLogs() {
-                        try {
-                                sessionStorage.setItem('site_logs', '[]');
-                                refreshDiagnosticPanel();
-                                Logger.info('Logs limpos pelo usuário.');
-                        } catch (e) { }
-                }
-
-                function copyDiagnosticLogs() {
-                        try {
-                                const logs = sessionStorage.getItem('site_logs') || '[]';
-                                navigator.clipboard.writeText(logs);
-                                showToast("Todos os logs foram copiados para a área de transferência!", "check_circle");
-                        } catch (e) {
-                                showToast("Erro ao copiar logs.", "error");
-                        }
-                }
-
-                // Attach to global window
-                window.openDiagnosticPanel = openDiagnosticPanel;
-                window.closeDiagnosticPanel = closeDiagnosticPanel;
-                window.refreshDiagnosticPanel = refreshDiagnosticPanel;
-                window.clearDiagnosticLogs = clearDiagnosticLogs;
-                window.copyDiagnosticLogs = copyDiagnosticLogs;
-
-                // Listen for Ctrl+Shift+D or Ctrl+Shift+L to open panel
-                document.addEventListener('keydown', (e) => {
-                        if (e.ctrlKey && e.shiftKey && (e.key === 'D' || e.key === 'd' || e.key === 'L' || e.key === 'l')) {
-                                e.preventDefault();
-                                openDiagnosticPanel();
-                        }
-                });
-
-                Logger.info('Sistema de Logs e Diagnóstico ativado. Pressione Ctrl+Shift+D para abrir o Painel de Diagnóstico.');
-                // System Data
-                const blogArticles = {
-                        "1": {
-                                title: "Recomendações de Leitura e Decoração",
-                                category: "Curadoria",
-                                content: `<p class="mb-4">A curadoria de um consultório psicológico ou de um espaço de estudos vai muito além da estética: trata-se de criar um ambiente que estimule o foco e evoque a sensação de calma. A escolha de cores neutras e terrosas, iluminação difusa (como luminárias de luz amarela quente) e plantas ajudam a reduzir os níveis de ansiedade e batimentos cardíacos.</p>
-                      <p class="mb-4">Para leituras inspiradoras, recomendamos obras que aproximam a psicologia clínica da experiência humana cotidiana:</p>
-                      <ul class="list-decimal pl-6 mb-4 space-y-2">
-                          <li><strong>Talvez você deva conversar com alguém</strong> (Lori Gottlieb) — Uma reflexão sensível sobre o processo de terapia tanto da perspectiva do terapeuta quanto do paciente.</li>
-                          <li><strong>A coragem de ser imperfeito</strong> (Brené Brown) — Um estudo essencial sobre vulnerabilidade, vergonha e aceitação.</li>
-                          <li><strong>O obstáculo é o caminho</strong> (Ryan Holiday) — Filosofia estoica aplicada ao cotidiano para o desenvolvimento de resiliência.</li>
-                      </ul>
-                      <p>Experimente incluir pequenos elementos táteis na sua mesa, como um bloco de notas de papel texturizado e uma caneta confortável, estimulando a presença física no momento presente.</p>`
-                        },
-                        "2": {
-                                title: "Lidando com a Sobrecarga",
-                                category: "Saúde Mental",
-                                content: `<p class="mb-4">No ritmo acelerado da vida moderna, a exaustão mental (ou sobrecarga cognitiva) muitas vezes se instala de maneira silenciosa. Identificar os primeiros sinais é fundamental para evitar o esgotamento completo. Sintomas comuns incluem irritabilidade por motivos pequenos, dificuldade de concentração, alterações no sono e a sensação constante de que "o tempo nunca é suficiente".</p>
-                      <p class="mb-4">Estratégias práticas para lidar com a sobrecarga:</p>
-                      <ul class="list-disc pl-6 mb-4 space-y-2">
-                          <li><strong>Pausas Ativas:</strong> Afaste-se das telas por 5 minutos a cada 1 hora de trabalho. Faça alongamentos leves ou respire profundamente olhando pela janela.</li>
-                          <li><strong>Definição de Limites:</strong> Dizer "não" é uma habilidade de preservação da saúde mental. Avalie quais compromissos são realmente essenciais e quais podem ser delegados ou adiados.</li>
-                          <li><strong>Desconexão Digital:</strong> Crie uma barreira entre o trabalho e o descanso. Desative as notificações de aplicativos de trabalho após o expediente.</li>
-                      </ul>
-                      <p>Lembre-se: descansar não é uma recompensa pela produtividade, mas uma necessidade fisiológica e psicológica básica.</p>`
-                        },
-                        "3": {
-                                title: "O Poder da Escrita Terapêutica",
-                                category: "Reflexões",
-                                content: `<p class="mb-4">A escrita terapêutica (ou journaling) é uma ferramenta simples e cientificamente validada para a organização emocional. Quando colocamos em palavras o que sentimos, traduzimos sensações difusas do cérebro em estruturas lineares e compreensíveis, o que reduz a ruminação mental.</p>
-                      <p class="mb-4">Como começar a praticar:</p>
-                      <ul class="list-disc pl-6 mb-4 space-y-2">
-                          <li><strong>Sem Julgamentos:</strong> Não se preocupe com gramática, caligrafia ou coerência. Escreva exatamente o que vier à mente.</li>
-                          <li><strong>O Método do Desabafo:</strong> Escreva por 10 minutos seguidos sobre uma situação difícil ou um sentimento incômodo. Se preferir, descarte o papel depois — o benefício está no ato físico de escrever.</li>
-                          <li><strong>Diário de Gratidão:</strong> Registre 3 pequenas coisas pelas quais você se sente grata no dia. Isso ajuda a reinar o cérebro para identificar aspectos positivos da rotina.</li>
-                      </ul>
-                      <p>Ao externalizar seus pensamentos no papel, você cria um distanciamento saudável de suas emoções, permitindo olhá-las com mais clareza e autocompaixão.</p>`
-                        }
-                };
-
-                const legalContent = {
-                        terms: {
-                                title: "Termos de Uso",
-                                content: `<h4 class="font-bold text-lg mb-2">1. Aceitação dos Termos</h4>
-                      <p class="mb-4">Ao acessar o site de Ester Figueiredo, você concorda em cumprir estes termos de serviço e todas as leis aplicáveis.</p>
-                      <h4 class="font-bold text-lg mb-2">2. Finalidade Informativa</h4>
-                      <p class="mb-4">O conteúdo deste site (textos, artigos, curadorias) possui caráter estritamente educativo e informativo. Não substitui consulta, diagnóstico ou acompanhamento psicológico profissional.</p>
-                      <h4 class="font-bold text-lg mb-2">3. Vínculo Profissional</h4>
-                      <p class="mb-4">A navegação pelo site ou envio de dados no formulário de lista de espera não estabelece relação terapêutica formal. O início do processo clínico será formalizado em contrato de prestação de serviços psicológicos.</p>
-                      <h4 class="font-bold text-lg mb-2">4. Links para Terceiros</h4>
-                      <p>Nosso site possui links externos (como WhatsApp e CVV). Não exercemos controle sobre o conteúdo ou práticas de sites de terceiros e não podemos assumir responsabilidade por suas respectivas políticas.</p>`
-                        },
-                        privacy: {
-                                title: "Política de Privacidade",
-                                content: `<h4 class="font-bold text-lg mb-2">1. Coleta de Informações</h4>
-                      <p class="mb-4">Coletamos apenas as informações inseridas voluntariamente por você no formulário de Lista de Espera (Nome Completo, Idade, WhatsApp e Cidade/Estado).</p>
-                      <h4 class="font-bold text-lg mb-2">2. Uso das Informações</h4>
-                      <p class="mb-4">Estes dados são utilizados unicamente para entrar em contato com você sobre a disponibilidade de horários para atendimento clínico.</p>
-                      <h4 class="font-bold text-lg mb-2">3. Segurança dos Dados</h4>
-                      <p class="mb-4">Adotamos medidas de segurança técnicas para proteger os seus dados contra acessos não autorizados. Seus dados nunca serão compartilhados, vendidos ou repassados a terceiros.</p>
-                      <h4 class="font-bold text-lg mb-2">4. Direitos do Usuário (LGPD)</h4>
-                      <p class="mb-4">Você possui direito de acessar, atualizar, corrigir ou solicitar a exclusão definitiva de seus dados de nossa lista de espera a qualquer momento por meio do e-mail <strong>psiesterfigueiredo@gmail.com</strong>.</p>
-                      <h4 class="font-bold text-lg mb-2">5. Sigilo Clínico</h4>
-                      <p>O sigilo sobre quaisquer conteúdos abordados nos contatos diretos e sessões é resguardado estritamente conforme o Código de Ética do Psicólogo estabelecido pelo Conselho Federal de Psicologia.</p>`
-                        }
-                };
-
-                // DOM Elements
-                const mobileMenu = document.getElementById('mobile-menu');
-                const mobileMenuDrawer = document.getElementById('mobile-menu-drawer');
-                const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-                const mobileMenuClose = document.getElementById('mobile-menu-close');
-
-                const customModal = document.getElementById('custom-modal');
-                const customModalDialog = document.getElementById('custom-modal-dialog');
-                const modalCloseBtn = document.getElementById('modal-close-btn');
-                const modalContentArea = document.getElementById('modal-content-area');
-
-                const successModal = document.getElementById('success-modal');
-                const successModalDialog = document.getElementById('success-modal-dialog');
-                const successModalClose = document.getElementById('success-modal-close');
-
-                const toast = document.getElementById('toast');
-                const toastIcon = document.getElementById('toast-icon');
-                const toastMessage = document.getElementById('toast-message');
-
-                const waitlistSubmit = document.getElementById('waitlist-submit');
-
-                // 1. Mobile Menu Logic
-                function openMobileMenu() {
-                        mobileMenu.classList.remove('pointer-events-none', 'opacity-0');
-                        mobileMenu.classList.add('opacity-100');
-                        mobileMenuDrawer.classList.remove('translate-x-full');
-                        mobileMenuDrawer.classList.add('translate-x-0');
-                        document.body.style.overflow = 'hidden';
-                }
-
-                function closeMobileMenu() {
-                        mobileMenu.classList.add('pointer-events-none', 'opacity-0');
-                        mobileMenu.classList.remove('opacity-100');
-                        mobileMenuDrawer.classList.add('translate-x-full');
-                        mobileMenuDrawer.classList.remove('translate-x-0');
-                        document.body.style.overflow = '';
-                }
-
-                mobileMenuBtn.addEventListener('click', openMobileMenu);
-                mobileMenuClose.addEventListener('click', closeMobileMenu);
-                mobileMenu.addEventListener('click', (e) => {
-                        if (e.target === mobileMenu) closeMobileMenu();
-                });
-
-                // Close mobile menu on anchor link clicks
-                document.querySelectorAll('#mobile-menu-drawer a').forEach(link => {
-                        link.addEventListener('click', () => {
-                                closeMobileMenu();
-                        });
-                });
-
-                // 2. Toast System
-                let toastTimeout;
-                function showToast(message, icon = 'info') {
-                        clearTimeout(toastTimeout);
-                        toastIcon.textContent = icon;
-                        toastMessage.textContent = message;
-
-                        toast.classList.remove('pointer-events-none', 'opacity-0', 'translate-y-12');
-                        toast.classList.add('opacity-100', 'translate-y-0');
-
-                        toastTimeout = setTimeout(() => {
-                                toast.classList.add('pointer-events-none', 'opacity-0', 'translate-y-12');
-                                toast.classList.remove('opacity-100', 'translate-y-0');
-                        }, 3000);
-                }
-
-                // 3. General Modals Logic
-                function openModal(htmlContent) {
-                        modalContentArea.innerHTML = htmlContent;
-                        customModal.classList.remove('pointer-events-none', 'opacity-0');
-                        customModal.classList.add('opacity-100');
-                        customModalDialog.classList.remove('scale-95');
-                        customModalDialog.classList.add('scale-100');
-                        document.body.style.overflow = 'hidden';
-                }
-
-                function closeModal() {
-                        customModal.classList.add('pointer-events-none', 'opacity-0');
-                        customModal.classList.remove('opacity-100');
-                        customModalDialog.classList.add('scale-95');
-                        customModalDialog.classList.remove('scale-100');
-                        if (!successModal.classList.contains('opacity-100')) {
-                                document.body.style.overflow = '';
-                        }
-                }
-
-                modalCloseBtn.addEventListener('click', closeModal);
-                customModal.addEventListener('click', (e) => {
-                        if (e.target === customModal) closeModal();
-                });
-
-                // 4. Success Modal for Waitlist
-                function openSuccessModal() {
-                        successModal.classList.remove('pointer-events-none', 'opacity-0');
-                        successModal.classList.add('opacity-100');
-                        successModalDialog.classList.remove('scale-95');
-                        successModalDialog.classList.add('scale-100');
-                        document.body.style.overflow = 'hidden';
-                }
-
-                function closeSuccessModal() {
-                        successModal.classList.add('pointer-events-none', 'opacity-0');
-                        successModal.classList.remove('opacity-100');
-                        successModalDialog.classList.add('scale-95');
-                        successModalDialog.classList.remove('scale-100');
-                        document.body.style.overflow = '';
-                }
-
-                successModalClose.addEventListener('click', closeSuccessModal);
-                successModal.addEventListener('click', (e) => {
-                        if (e.target === successModal) closeSuccessModal();
-                });
-
-                // Esc key closes all active modals/menu
-                document.addEventListener('keydown', (e) => {
-                        if (e.key === 'Escape') {
-                                closeMobileMenu();
-                                closeModal();
-                                closeSuccessModal();
-                        }
-                });
-
-                // 5. Connect Elements & Triggers
-                // Blog article click
-                document.querySelectorAll('.read-article-btn').forEach(btn => {
-                        btn.addEventListener('click', () => {
-                                const articleId = btn.getAttribute('data-id');
-                                const article = blogArticles[articleId];
-                                if (article) {
-                                        const html = `
-                    <span class="text-xs font-typewriter text-primary mb-2 uppercase tracking-wider block">${article.category}</span>
-                    <h3 class="font-handwritten text-4xl text-on-surface mb-6 border-b border-primary/20 pb-4">${article.title}</h3>
-                    <div class="font-typewriter text-on-surface-variant leading-relaxed text-base space-y-4">
-                        ${article.content}
-                    </div>
-                `;
-                                        openModal(html);
-                                }
-                        });
-                });
-
-                // Blog "See all" click
-                document.querySelectorAll('.blog-see-all').forEach(btn => {
-                        btn.addEventListener('click', () => {
-                                showToast("A curadoria de artigos estará disponível em breve com materiais exclusivos!", "menu_book");
-                        });
-                });
-
-                // Terms and Privacy links click
-                document.getElementById('terms-link').addEventListener('click', () => {
-                        const terms = legalContent.terms;
-                        const html = `
-            <h3 class="font-handwritten text-4xl text-on-surface mb-6 border-b border-primary/20 pb-4">${terms.title}</h3>
-            <div class="font-typewriter text-on-surface-variant leading-relaxed text-sm space-y-4">
-                ${terms.content}
-            </div>
-        `;
-                        openModal(html);
-                });
-
-                document.getElementById('privacy-link').addEventListener('click', () => {
-                        const privacy = legalContent.privacy;
-                        const html = `
-            <h3 class="font-handwritten text-4xl text-on-surface mb-6 border-b border-primary/20 pb-4">${privacy.title}</h3>
-            <div class="font-typewriter text-on-surface-variant leading-relaxed text-sm space-y-4">
-                ${privacy.content}
-            </div>
-        `;
-                        openModal(html);
-                });
-
-                // Emergency button click
-                document.getElementById('emergency-btn').addEventListener('click', () => {
-                        const html = `
-            <h3 class="font-handwritten text-4xl text-on-surface mb-6 border-b border-primary/20 pb-4">Apoio Emocional Imediato</h3>
-            <div class="font-typewriter text-on-surface-variant leading-relaxed text-sm space-y-4">
-                <p>Se você está passando por um momento difícil, saiba que não está só. Existem canais de apoio gratuitos, sigilosos e disponíveis para te acolher agora mesmo.</p>
-                
-                <div class="p-4 bg-primary-fixed text-on-primary-fixed-variant rounded-lg border border-primary/10 shadow-sm space-y-3">
-                    <h4 class="font-bold text-base flex items-center gap-2">
-                        <span class="material-symbols-outlined text-lg">chat</span>
-                        Atendimento via Chat (CVV)
-                    </h4>
-                    <p>Você pode conversar com um voluntário do CVV (Centro de Valorização da Vida) diretamente pelo navegador.</p>
-                    <p class="text-xs"><strong>Horários do Chat do CVV:</strong><br>
-                    • Domingo: 17h às 01h<br>
-                    • Segunda a Quinta: 09h às 01h<br>
-                    • Sexta-feira: 15h às 23h<br>
-                    • Sábado: 16h à meia-noite</p>
-                    <a href="https://cvv.org.br/chat/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 bg-secondary text-on-secondary rounded-full text-xs font-bold hover:bg-secondary/90 transition-colors shadow-sm mt-1">
-                        Acessar Chat do CVV
-                        <span class="material-symbols-outlined text-xs">open_in_new</span>
-                    </a>
-                </div>
-
-                <div class="p-4 bg-surface-container-highest text-on-surface-variant rounded-lg border border-outline-variant/30 space-y-3">
-                    <h4 class="font-bold text-base flex items-center gap-2">
-                        <span class="material-symbols-outlined text-lg">call</span>
-                        Ligação para o CVV - 188
-                    </h4>
-                    <p>O atendimento telefônico pelo <strong>188</strong> é gratuito, confidencial e funciona <strong>24 horas por dia, todos os dias do ano</strong>.</p>
-                    
-                    <div id="mobile-call-container">
-                        <a href="tel:188" id="call-188-btn" class="inline-flex md:hidden items-center gap-2 px-4 py-2 bg-primary text-on-primary rounded-full text-xs font-bold hover:bg-primary/95 transition-colors shadow-sm">
-                            <span class="material-symbols-outlined text-xs">call</span>
-                            Ligar 188 (Celular)
-                        </a>
-                        <div class="hidden md:block text-xs text-on-surface-variant/80 italic flex items-center gap-1.5 mt-2">
-                            <span class="material-symbols-outlined text-sm text-amber-600">info</span>
-                            Dica: Se estiver acessando de um celular, você pode tocar para ligar diretamente. No computador, disque 188 do seu telefone fixo ou móvel.
-                        </div>
-                    </div>
-                </div>
-            </div>
-        `;
-                        openModal(html);
-                });
-
-                // Phone input mask (WhatsApp)
-                const phoneInputEl = document.getElementById('whatsapp');
-                phoneInputEl.addEventListener('input', (e) => {
-                        let value = e.target.value.replace(/\D/g, '');
-                        if (value.length > 11) value = value.slice(0, 11);
-
-                        if (value.length > 10) {
-                                e.target.value = `(${value.slice(0, 2)}) ${value.slice(2, 7)}-${value.slice(7)}`;
-                        } else if (value.length > 6) {
-                                e.target.value = `(${value.slice(0, 2)}) ${value.slice(2, 6)}-${value.slice(6)}`;
-                        } else if (value.length > 2) {
-                                e.target.value = `(${value.slice(0, 2)}) ${value.slice(2)}`;
-                        } else if (value.length > 0) {
-                                e.target.value = `(${value}`;
-                        } else {
-                                e.target.value = '';
-                        }
-                });
-
-                // 6. Waitlist Form Validation and Submission
-                waitlistSubmit.addEventListener('click', () => {
-                        // ENDPOINT DE ENVIO - FormSubmit.co direciona para o e-mail da psicóloga de forma gratuita e imediata
-                        const FORM_ENDPOINT = 'https://formsubmit.co/ajax/psiesterfigueiredo@gmail.com';
-
-                        const nameInput = document.getElementById('name');
-                        const emailInput = document.getElementById('email');
-                        const ageInput = document.getElementById('age');
-                        const whatsappInput = document.getElementById('whatsapp');
-                        const locationInput = document.getElementById('location');
-                        const messageInput = document.getElementById('user-message');
-
-                        // Reset error styling
-                        const inputs = [nameInput, emailInput, ageInput, whatsappInput, locationInput, messageInput];
-                        inputs.forEach(input => {
-                                if (input) {
-                                        input.classList.remove('border-red-500');
-                                        input.classList.add('border-outline-variant');
-                                }
-                        });
-
-                        // Validation checks
-                        let hasError = false;
-                        if (!nameInput.value.trim()) {
-                                nameInput.classList.remove('border-outline-variant');
-                                nameInput.classList.add('border-red-500');
-                                hasError = true;
-                        }
-                        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                        if (!emailInput.value.trim() || !emailRegex.test(emailInput.value.trim())) {
-                                emailInput.classList.remove('border-outline-variant');
-                                emailInput.classList.add('border-red-500');
-                                hasError = true;
-                        }
-                        if (!ageInput.value || parseInt(ageInput.value) <= 0) {
-                                ageInput.classList.remove('border-outline-variant');
-                                ageInput.classList.add('border-red-500');
-                                hasError = true;
-                        }
-                        const phoneDigits = whatsappInput.value.replace(/\D/g, '');
-                        if (phoneDigits.length < 10 || phoneDigits.length > 11) {
-                                whatsappInput.classList.remove('border-outline-variant');
-                                whatsappInput.classList.add('border-red-500');
-                                hasError = true;
-                        }
-                        if (!locationInput.value.trim()) {
-                                locationInput.classList.remove('border-outline-variant');
-                                locationInput.classList.add('border-red-500');
-                                hasError = true;
-                        }
-
-                        if (hasError) {
-                                showToast("Por favor, preencha todos os campos obrigatórios corretamente.", "warning");
-                                return;
-                        }
-
-                        // Prepare payload
-                        const payload = {
-                                Nome: nameInput.value.trim(),
-                                Email: emailInput.value.trim(),
-                                Idade: parseInt(ageInput.value),
-                                WhatsApp: whatsappInput.value.trim(),
-                                Localizacao: locationInput.value.trim(),
-                                Mensagem: messageInput ? messageInput.value.trim() : "",
-                                timestamp: new Date().toISOString()
-                        };
-
-                        // Save data to localStorage (local backup)
-                        let currentSubmissions = [];
-                        try {
-                                const saved = localStorage.getItem('waitlist_submissions');
-                                if (saved) {
-                                        currentSubmissions = JSON.parse(saved);
-                                }
-                        } catch (e) {
-                                Logger.error("Erro ao ler lista de espera local", e);
-                        }
-                        currentSubmissions.push(payload);
-                        localStorage.setItem('waitlist_submissions', JSON.stringify(currentSubmissions));
-
-                        // Visual feedback: disable button and show loading text
-                        const originalBtnText = waitlistSubmit.textContent;
-                        waitlistSubmit.disabled = true;
-                        waitlistSubmit.textContent = 'Enviando...';
-
-                        // Send request
-                        fetch(FORM_ENDPOINT, {
-                                method: 'POST',
-                                headers: {
-                                        'Content-Type': 'application/json',
-                                        'Accept': 'application/json'
-                                },
-                                body: JSON.stringify(payload)
-                        })
-                                .then(response => {
-                                        if (response.ok) {
-                                                // Reset inputs and show success modal
-                                                inputs.forEach(input => input.value = '');
-                                                openSuccessModal();
-                                                // A primeira submissão exige uma ativação no e-mail
-                                                showToast("Dados enviados! Verifique se há um e-mail de ativação do FormSubmit na sua caixa de entrada.", "info");
-                                                Logger.success("Formulário da lista de espera enviado com sucesso.", { status: response.status, payload });
-                                        } else {
-                                                showToast("Houve um problema ao enviar. Seus dados foram salvos localmente.", "warning");
-                                                openSuccessModal(); // fallback visual
-                                                Logger.error("FormSubmit retornou resposta de erro no envio do formulário.", { status: response.status, statusText: response.statusText });
-                                        }
-                                })
-                                .catch(error => {
-                                        Logger.error("Erro de rede durante o envio do formulário.", { erro: error.message, stack: error.stack });
-                                        showToast("Sem conexão. Seus dados foram salvos no dispositivo.", "wifi_off");
-                                        openSuccessModal(); // fallback visual
-                                })
-                                .finally(() => {
-                                        waitlistSubmit.disabled = false;
-                                        waitlistSubmit.textContent = originalBtnText;
-                                });
-                });
-
-                // ==========================================
-                // BOOKING DATA SYSTEM (Used by LINA Chat)
-                // ==========================================
-                const API_BASE_URL = "http://127.0.0.1:8000/api";
-                let allBookings = [];
-
-                // Load my booking IDs from localStorage (private client state)
-                function getMyBookingIds() {
-                        try {
-                                return JSON.parse(localStorage.getItem('my_booking_ids') || '[]');
-                        } catch (e) {
-                                return [];
-                        }
-                }
-
-                function addMyBookingId(id) {
-                        try {
-                                const ids = getMyBookingIds();
-                                if (!ids.includes(id)) {
-                                        ids.push(id);
-                                        localStorage.setItem('my_booking_ids', JSON.stringify(ids));
-                                }
-                        } catch (e) {
-                                Logger.error("Erro ao salvar ID de agendamento local", e);
-                        }
-                }
-
-                function removeMyBookingId(id) {
-                        try {
-                                let ids = getMyBookingIds();
-                                ids = ids.filter(i => i !== id);
-                                localStorage.setItem('my_booking_ids', JSON.stringify(ids));
-                        } catch (e) {
-                                Logger.error("Erro ao remover ID de agendamento local", e);
-                        }
-                }
-
-                // Return all bookings for checking occupied slots
-                function getBookings() {
-                        return allBookings;
-                }
-
-                // Fetch all bookings from backend
-                async function fetchBookingsFromSupabase() {
-                        try {
-                                const response = await fetch(`${API_BASE_URL}/appointments`, {
-                                        method: 'GET',
-                                        headers: {
-                                                'Content-Type': 'application/json'
-                                        }
-                                });
-                                if (response.ok) {
-                                        allBookings = await response.json();
-                                } else {
-                                        Logger.error("Failed to fetch bookings from backend", response.statusText);
-                                }
-                        } catch (e) {
-                                Logger.error("Error fetching bookings from backend", e);
-                        }
-                }
-
-                // Save bookings (used as a fallback or directly by IA/legacy calls)
-                async function saveBookings(bookings) {
-                        try {
-                                localStorage.setItem('user_appointments', JSON.stringify(bookings));
-                                
-                                // Find any booking in bookings that is not in allBookings
-                                const newBookings = bookings.filter(b => !allBookings.some(ab => ab.id === b.id));
-                                for (const nb of newBookings) {
-                                        const response = await fetch(`${API_BASE_URL}/appointments`, {
-                                                method: 'POST',
-                                                headers: {
-                                                        'Content-Type': 'application/json'
-                                                },
-                                                body: JSON.stringify({
-                                                        name: nb.name,
-                                                        email: nb.email,
-                                                        whatsapp: nb.whatsapp || '(Agendado via IA)',
-                                                        date: nb.date,
-                                                        time: nb.time
-                                                })
-                                        });
-                                        if (response.ok) {
-                                                const savedBooking = await response.json();
-                                                addMyBookingId(savedBooking.id);
-                                        }
-                                }
-                                await fetchBookingsFromSupabase();
-                        } catch (e) {
-                                Logger.error("Erro ao salvar agendamentos", e);
-                        }
-                }
-
-                // Initial load of bookings from Supabase
-                fetchBookingsFromSupabase();
-
-                // ==========================================
-                // AI CHATBOT SYSTEM
-                // ==========================================
-                const chatToggle = document.getElementById('chat-toggle');
-                const chatWindow = document.getElementById('chat-window');
-                const chatClose = document.getElementById('chat-close');
-                const chatInput = document.getElementById('chat-input');
-                const chatSend = document.getElementById('chat-send');
-                const chatMessages = document.getElementById('chat-messages');
-
-                let isChatOpen = false;
-
-                // Histórico da conversa inicializado com a mensagem de saudação
-                let chatHistory = [
-                        {
-                                role: 'assistant',
-                                content: 'Olá! Sou a Lina, assistente virtual da Dra. Ester. Como posso te ajudar a entender sobre o processo terapêutico, ansiedade, depressão, localização ou valores hoje?'
-                        }
-                ];
-
-                function toggleChat() {
-                        isChatOpen = !isChatOpen;
-                        if (isChatOpen) {
-                                chatWindow.classList.remove('opacity-0', 'translate-y-10', 'pointer-events-none');
-                                chatWindow.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
-                                chatInput.focus();
-                                chatToggle.classList.add('rotate-90');
-                                Logger.info("Widget de chat aberto pelo usuário.");
-                        } else {
-                                chatWindow.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
-                                chatWindow.classList.add('opacity-0', 'translate-y-10', 'pointer-events-none');
-                                chatToggle.classList.remove('rotate-90');
-                                Logger.info("Widget de chat fechado pelo usuário.");
-                        }
-                }
-
-                chatToggle.addEventListener('click', toggleChat);
-                chatClose.addEventListener('click', toggleChat);
-
-                async function sendChatMessage() {
-                        const text = chatInput.value.trim();
-                        if (!text) return;
-
-                        appendChatMessage(text, 'user');
-                        chatInput.value = '';
-
-                        // Adiciona a mensagem do usuário ao histórico local
-                        chatHistory.push({ role: 'user', content: text });
-
-                        const loadingBubble = appendChatMessage('Escrevendo...', 'bot', true);
-                        Logger.info("Enviando pergunta ao assistente virtual...", { text });
-
-                        try {
-                                let userIdentifier = localStorage.getItem('chat_user_identifier');
-                                if (!userIdentifier) {
-                                        userIdentifier = 'user_' + Math.random().toString(36).substring(2, 9) + '_' + Date.now();
-                                        localStorage.setItem('chat_user_identifier', userIdentifier);
-                                }
-
-                                const response = await fetch('http://127.0.0.1:8000/api/chat', {
-                                        method: 'POST',
-                                        headers: {
-                                                'Content-Type': 'application/json'
-                                        },
-                                        body: JSON.stringify({ 
-                                                user_identifier: userIdentifier,
-                                                message: text
-                                        })
-                                });
-
-                                if (!response.ok) {
-                                        throw new Error(`HTTP error! status: ${response.status}`);
-                                }
-
-                                const data = await response.json();
-                                loadingBubble.remove();
-
-                                const botResponse = data.response || "Desculpe, tive um problema ao processar a resposta.";
-                                
-                                // Salva a resposta original no histórico para manter o contexto da IA
-                                chatHistory.push({ role: 'assistant', content: botResponse });
-
-                                // Processa comandos especiais como o [SCHEDULE: Nome | Email | YYYY-MM-DD | HH:MM]
-                                const scheduleRegex = /\[SCHEDULE:\s*([^|]+?)\s*\|\s*([^|]+?)\s*\|\s*([^|]+?)\s*\|\s*([^\]]+?)\s*\]/i;
-                                const match = botResponse.match(scheduleRegex);
-                                let cleanedResponse = botResponse;
-
-                                if (match) {
-                                        cleanedResponse = botResponse.replace(scheduleRegex, '').trim();
-                                        const name = match[1].trim();
-                                        const email = match[2].trim();
-                                        const date = match[3].trim();
-                                        const time = match[4].trim();
-
-                                        try {
-                                                const currentBookings = getBookings();
-                                                const isOcupado = currentBookings.some(b => b.date === date && b.time === time);
-
-                                                if (isOcupado) {
-                                                        Logger.warn("IA tentou agendar horário ocupado:", { date, time });
-                                                        appendChatMessage("Nota: O horário " + time + " no dia " + date + " já está ocupado. Por favor, tente escolher outro horário.", "bot");
-                                                } else {
-                                                        const newBooking = {
-                                                                id: 'booking-' + Date.now(),
-                                                                name,
-                                                                email,
-                                                                whatsapp: '(Agendado via IA)',
-                                                                date,
-                                                                time,
-                                                                timestamp: new Date().toISOString()
-                                                        };
-                                                        currentBookings.push(newBooking);
-                                                        saveBookings(currentBookings);
-
-                                                        showToast("Sessão agendada com sucesso via Assistente Virtual!", "check_circle");
-                                                        Logger.success("Novo agendamento realizado via Assistente IA.", newBooking);
-                                                }
-                                        } catch (e) {
-                                                Logger.error("Erro ao persistir agendamento do chat", e);
-                                        }
-                                }
-
-                                appendChatMessage(cleanedResponse, 'bot');
-                                Logger.success("Resposta recebida com sucesso do assistente virtual.");
-                        } catch (error) {
-                                Logger.error("Erro ao chamar o proxy da Cloudflare no chat.", { erro: error.message });
-                                loadingBubble.remove();
-                                appendChatMessage("Desculpe, estou com instabilidade de conexão agora. Por favor, tente novamente mais tarde ou fale diretamente comigo pelo WhatsApp!", 'error');
-                        }
-                }
-
-                function appendChatMessage(text, sender, isLoading = false) {
-                        const bubbleWrapper = document.createElement('div');
-                        bubbleWrapper.className = `flex w-full gap-2 items-end ${sender === 'user' ? 'justify-end' : 'justify-start'}`;
-
-                        if (sender === 'bot') {
-                                const avatar = document.createElement('img');
-                                avatar.src = "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=100&h=100";
-                                avatar.alt = "Lina";
-                                avatar.className = "w-7 h-7 rounded-full object-cover border border-primary/10 flex-shrink-0 mb-1";
-                                bubbleWrapper.appendChild(avatar);
-                        }
-
-                        const bubble = document.createElement('div');
-                        if (sender === 'user') {
-                                bubble.className = "bg-secondary text-on-secondary p-3 rounded-lg max-w-[80%] border border-secondary/10 shadow-sm leading-relaxed text-left font-caption";
-                        } else if (sender === 'bot') {
-                                bubble.className = "bg-primary-fixed text-on-primary-fixed-variant p-3 rounded-lg max-w-[80%] border border-primary/10 shadow-sm leading-relaxed font-caption";
-                                if (isLoading) {
-                                        bubble.classList.add('animate-pulse', 'italic', 'opacity-70');
-                                }
-                        } else {
-                                bubble.className = "bg-red-100 text-red-800 p-2.5 rounded text-xs text-center border border-red-200/40 w-full";
-                        }
-
-                        if (sender !== 'error') {
-                                bubble.innerHTML = text.replace(/\n/g, '<br>');
-                        } else {
-                                bubble.innerText = text;
-                        }
-
-                        bubbleWrapper.appendChild(bubble);
-                        chatMessages.appendChild(bubbleWrapper);
-                        chatMessages.scrollTop = chatMessages.scrollHeight;
-
-                        return bubbleWrapper;
-                }
-
-                chatSend.addEventListener('click', sendChatMessage);
-                chatInput.addEventListener('keypress', (e) => {
-                        if (e.key === 'Enter') {
-                                sendChatMessage();
-                        }
-                });
-
-                function openChatWithBooking() {
-                        if (typeof closeMobileMenu === 'function') {
-                                closeMobileMenu();
-                        }
-                        if (!isChatOpen) {
-                                toggleChat();
-                        }
-                        chatInput.value = "Olá! Gostaria de agendar uma consulta. Qual é o primeiro dia e horário disponível na agenda?";
-                        sendChatMessage();
-                }
-
-                // Intercept clicks on scheduling buttons
-                document.querySelectorAll('a[href="#agendar-consulta"]').forEach(btn => {
-                        btn.addEventListener('click', (e) => {
-                                e.preventDefault();
-                                openChatWithBooking();
-                        });
-                });
-
-                // ==========================================
-                // ADMIN & PDF SALES SYSTEM SCRIPT
-                // ==========================================
-                const adminModal = document.getElementById('admin-modal');
-                const adminModalDialog = document.getElementById('admin-modal-dialog');
-                const adminModalClose = document.getElementById('admin-modal-close');
-                const adminLoginPanel = document.getElementById('admin-login-panel');
-                const adminDashboardPanel = document.getElementById('admin-dashboard-panel');
-                const adminPasswordInput = document.getElementById('admin-password-input');
-                const adminLoginBtn = document.getElementById('admin-login-btn');
-                const adminTabBtns = document.querySelectorAll('.admin-tab-btn');
-                const adminTabContents = document.querySelectorAll('.admin-tab-content');
-
-                // Site Content inputs
-                const adminContentHeroTitle = document.getElementById('admin-content-hero-title');
-                const adminContentHeroDesc = document.getElementById('admin-content-hero-desc');
-                const adminContentAboutTitle = document.getElementById('admin-content-about-title');
-                const adminContentAboutImg = document.getElementById('admin-content-about-img');
-                const adminContentAboutContent = document.getElementById('admin-content-about-content');
-                const adminContentAboutFooter = document.getElementById('admin-content-about-footer');
-                const adminSaveContentBtn = document.getElementById('admin-save-content-btn');
-
-                // PDF Products admin inputs & list
-                const adminAddPdfBtn = document.getElementById('admin-add-pdf-btn');
-                const adminPdfFormContainer = document.getElementById('admin-pdf-form-container');
-                const adminPdfFormTitle = document.getElementById('admin-pdf-form-title');
-                const adminPdfIdInput = document.getElementById('admin-pdf-id');
-                const adminPdfTitleInput = document.getElementById('admin-pdf-title');
-                const adminPdfPriceInput = document.getElementById('admin-pdf-price');
-                const adminPdfDescInput = document.getElementById('admin-pdf-desc');
-                const adminPdfPaymentLinkInput = document.getElementById('admin-pdf-payment-link');
-                const adminPdfDownloadUrlInput = document.getElementById('admin-pdf-download-url');
-                const adminPdfCancelBtn = document.getElementById('admin-pdf-cancel-btn');
-                const adminPdfSaveBtn = document.getElementById('admin-pdf-save-btn');
-                const adminPdfListContainer = document.getElementById('admin-pdf-list');
-
-                // Sales history list
-                const adminPurchasesTableBody = document.getElementById('admin-purchases-table-body');
-
-                // Public PDF elements
-                const pdfProductsGrid = document.getElementById('pdf-products-grid');
-                const pdfPurchaseModal = document.getElementById('pdf-purchase-modal');
-                const pdfPurchaseModalDialog = document.getElementById('pdf-purchase-modal-dialog');
-                const pdfPurchaseModalClose = document.getElementById('pdf-purchase-modal-close');
-                const pdfPurchaseProductTitle = document.getElementById('pdf-purchase-product-title');
-                const pdfPurchaseProductPrice = document.getElementById('pdf-purchase-product-price');
-                const pdfBuyerEmailInput = document.getElementById('pdf-buyer-email');
-                const pdfPurchaseConfirmBtn = document.getElementById('pdf-purchase-confirm-btn');
-
-                let adminToken = null;
-                let activePurchaseProductId = null;
-
-                // 1. Load Dynamic Site Content & Render PDFs
-                async function loadSiteData() {
-                        try {
-                                // Fetch public site content
-                                const contentRes = await fetch(`${API_BASE_URL}/admin/site-content`);
-                                if (contentRes.ok) {
-                                        const contents = await contentRes.json();
-                                        if (contents.hero_title) document.getElementById('hero-title').innerText = contents.hero_title;
-                                        if (contents.hero_desc) document.getElementById('hero-desc').innerText = contents.hero_desc;
-                                        if (contents.about_title) document.getElementById('about-title').innerText = contents.about_title;
-                                        if (contents.about_img) document.getElementById('about-img').src = contents.about_img;
-                                        if (contents.about_content) document.getElementById('about-content').innerHTML = contents.about_content;
-                                        if (contents.about_footer) document.getElementById('about-footer').innerText = contents.about_footer;
-                                }
-
-                                // Fetch active PDF products
-                                const productsRes = await fetch(`${API_BASE_URL}/admin/pdf-products`);
-                                if (productsRes.ok) {
-                                        const products = await productsRes.json();
-                                        renderPublicPDFs(products);
-                                }
-                        } catch (e) {
-                                Logger.error("Erro ao carregar dados dinâmicos do site", e);
-                        }
-                }
-
-                // Render E-books in grid
-                function renderPublicPDFs(products) {
-                        const activeProducts = products.filter(p => p.is_active);
-                        if (activeProducts.length === 0) {
-                                pdfProductsGrid.innerHTML = `
-                                        <div class="col-span-full text-center py-8 text-on-surface-variant italic font-typewriter">
-                                                Nenhum e-book ou material disponível no momento. Fique atento às novidades!
-                                        </div>
-                                `;
-                                return;
-                        }
-
-                        pdfProductsGrid.innerHTML = activeProducts.map(p => `
-                                <article class="polaroid hover-lift flex flex-col h-full bg-white relative">
-                                        <div class="tape top-0"></div>
-                                        <div class="pt-4 flex flex-col flex-grow font-typewriter">
-                                                <span class="text-xs font-typewriter text-secondary font-bold mb-1 uppercase tracking-wider">PDF DIGITAL</span>
-                                                <h3 class="font-handwritten text-3xl text-on-surface mb-2 leading-tight">${p.title}</h3>
-                                                <p class="font-body text-on-surface-variant text-sm mb-4 flex-grow">${p.description}</p>
-                                                <div class="flex items-center justify-between mt-auto pt-4 border-t border-outline-variant/30">
-                                                        <span class="text-lg font-bold text-primary font-typewriter">R$ ${p.price.toFixed(2)}</span>
-                                                        <button class="px-4 py-2 bg-secondary text-on-secondary rounded-full text-xs font-bold hover:bg-secondary/90 transition-colors shadow-sm buy-pdf-btn cursor-pointer" data-id="${p.id}" data-title="${p.title}" data-price="${p.price.toFixed(2)}">
-                                                                Adquirir
-                                                        </button>
-                                                </div>
-                                        </div>
-                                </article>
-                        `).join('');
-
-                        // Bind buy buttons
-                        document.querySelectorAll('.buy-pdf-btn').forEach(btn => {
-                                btn.addEventListener('click', (e) => {
-                                        activePurchaseProductId = btn.getAttribute('data-id');
-                                        pdfPurchaseProductTitle.innerText = btn.getAttribute('data-title');
-                                        pdfPurchaseProductPrice.innerText = `Valor: R$ ${btn.getAttribute('data-price')}`;
-                                        openPurchaseModal();
+        </script>
+
+        <!-- Site Scripts -->
+        <script src="/app.js"></script>
+        <script>
+                if ('serviceWorker' in navigator) {
+                        window.addEventListener('load', () => {
+                                navigator.serviceWorker.register('/sw.js').then((reg) => {
+                                        console.log('SW registered:', reg.scope);
+                                }).catch((err) => {
+                                        console.warn('SW registration failed:', err);
                                 });
                         });
                 }
-
-                // 2. Hotkey to open Admin Login (`Ctrl + Alt + Shift + A`)
-                document.addEventListener('keydown', (e) => {
-                        if (e.ctrlKey && e.altKey && e.shiftKey && (e.key === 'A' || e.key === 'a')) {
-                                e.preventDefault();
-                                openAdminModal();
-                        }
-                });
-
-                function openAdminModal() {
-                        adminModal.classList.remove('pointer-events-none', 'opacity-0');
-                        adminModal.classList.add('opacity-100');
-                        adminModalDialog.classList.remove('scale-95');
-                        adminModalDialog.classList.add('scale-100');
-                        document.body.style.overflow = 'hidden';
-                        adminPasswordInput.focus();
-                }
-
-                function closeAdminModal() {
-                        adminModal.classList.add('pointer-events-none', 'opacity-0');
-                        adminModal.classList.remove('opacity-100');
-                        adminModalDialog.classList.add('scale-95');
-                        adminModalDialog.classList.remove('scale-100');
-                        document.body.style.overflow = '';
-                        adminPasswordInput.value = '';
-                }
-
-                adminModalClose.addEventListener('click', closeAdminModal);
-
-                // 3. Admin Authentication
-                adminLoginBtn.addEventListener('click', handleAdminLogin);
-                adminPasswordInput.addEventListener('keypress', (e) => {
-                        if (e.key === 'Enter') handleAdminLogin();
-                });
-
-                async function handleAdminLogin() {
-                        const password = adminPasswordInput.value;
-                        if (!password) return;
-
-                        try {
-                                const response = await fetch(`${API_BASE_URL}/admin/login`, {
-                                        method: 'POST',
-                                        headers: { 'Content-Type': 'application/json' },
-                                        body: JSON.stringify({ password })
-                                });
-
-                                if (response.ok) {
-                                        const data = await response.json();
-                                        adminToken = password; // we send the password in the Authorization header
-                                        adminLoginPanel.classList.add('hidden');
-                                        adminDashboardPanel.classList.remove('hidden');
-                                        showToast("Login administrativo realizado com sucesso!", "check_circle");
-                                        loadAdminDashboardData();
-                                } else {
-                                        showToast("Senha incorreta. Tente novamente.", "error");
-                                }
-                        } catch (e) {
-                                Logger.error("Erro ao autenticar administrador", e);
-                                showToast("Erro de conexão com o servidor.", "wifi_off");
-                        }
-                }
-
-                // 4. Admin Dashboard Tabs
-                adminTabBtns.forEach(btn => {
-                        btn.addEventListener('click', () => {
-                                const targetTab = btn.getAttribute('data-tab');
-                                
-                                // Reset active tab styling
-                                adminTabBtns.forEach(b => {
-                                        b.classList.remove('active', 'text-primary', 'border-primary');
-                                        b.classList.add('text-on-surface-variant', 'border-transparent');
-                                });
-                                btn.classList.remove('text-on-surface-variant', 'border-transparent');
-                                btn.classList.add('active', 'text-primary', 'border-primary');
-
-                                // Toggle content views
-                                adminTabContents.forEach(c => c.classList.add('hidden'));
-                                document.getElementById(`admin-tab-${targetTab}`).classList.remove('hidden');
-                        });
-                });
-
-                // Load all admin data
-                async function loadAdminDashboardData() {
-                        if (!adminToken) return;
-
-                        try {
-                                const headers = { 'Authorization': `Bearer ${adminToken}` };
-
-                                // Load Content Tab Inputs
-                                const contentRes = await fetch(`${API_BASE_URL}/admin/site-content`);
-                                if (contentRes.ok) {
-                                        const c = await contentRes.json();
-                                        adminContentHeroTitle.value = c.hero_title || "Criando caminhos de leveza e propósito.";
-                                        adminContentHeroDesc.value = c.hero_desc || "";
-                                        adminContentAboutTitle.value = c.about_title || "Muito prazer!";
-                                        adminContentAboutImg.value = c.about_img || "";
-                                        adminContentAboutContent.value = c.about_content || "";
-                                        adminContentAboutFooter.value = c.about_footer || "";
-                                }
-
-                                // Load PDF products for Tab 2
-                                loadAdminPDFList();
-
-                                // Load Purchases list for Tab 3
-                                loadAdminPurchasesList();
-
-                        } catch (e) {
-                                Logger.error("Erro ao carregar painel de administração", e);
-                        }
-                }
-
-                // 5. Admin Content Updates
-                adminSaveContentBtn.addEventListener('click', async () => {
-                        const payload = [
-                                { key: "hero_title", value: adminContentHeroTitle.value },
-                                { key: "hero_desc", value: adminContentHeroDesc.value },
-                                { key: "about_title", value: adminContentAboutTitle.value },
-                                { key: "about_img", value: adminContentAboutImg.value },
-                                { key: "about_content", value: adminContentAboutContent.value },
-                                { key: "about_footer", value: adminContentAboutFooter.value }
-                        ];
-
-                        try {
-                                const res = await fetch(`${API_BASE_URL}/admin/site-content`, {
-                                        method: 'POST',
-                                        headers: {
-                                                'Content-Type': 'application/json',
-                                                'Authorization': `Bearer ${adminToken}`
-                                        },
-                                        body: JSON.stringify(payload)
-                                });
-
-                                if (res.ok) {
-                                        showToast("Conteúdo atualizado com sucesso!", "check_circle");
-                                        loadSiteData(); // refresh live site layout
-                                } else {
-                                        showToast("Erro ao salvar alterações.", "error");
-                                }
-                        } catch (e) {
-                                showToast("Erro de conexão.", "wifi_off");
-                        }
-                });
-
-                // TAB 2: PDF Management
-                async function loadAdminPDFList() {
-                        const res = await fetch(`${API_BASE_URL}/admin/pdf-products`);
-                        if (res.ok) {
-                                const products = await res.json();
-                                renderAdminPDFList(products);
-                        }
-                }
-
-                function renderAdminPDFList(products) {
-                        if (products.length === 0) {
-                                adminPdfListContainer.innerHTML = `<p class="italic text-on-surface-variant text-sm py-4">Nenhum PDF cadastrado ainda.</p>`;
-                                return;
-                        }
-
-                        adminPdfListContainer.innerHTML = products.map(p => `
-                                <div class="p-4 bg-surface-container rounded-lg border border-outline-variant/30 flex justify-between items-center mb-3">
-                                        <div>
-                                                <h5 class="font-bold text-sm text-on-surface">${p.title}</h5>
-                                                <p class="text-xs text-on-surface-variant line-clamp-1">${p.description}</p>
-                                                <p class="text-xs text-primary font-bold mt-1">R$ ${p.price.toFixed(2)} | Status: ${p.is_active ? 'Ativo' : 'Inativo'}</p>
-                                        </div>
-                                        <div class="flex gap-2">
-                                                <button class="px-3 py-1 bg-primary text-on-primary rounded text-xs edit-pdf-btn" data-p='${JSON.stringify(p)}'>Editar</button>
-                                                <button class="px-3 py-1 bg-red-600 text-white rounded text-xs delete-pdf-btn" data-id="${p.id}">Excluir</button>
-                                        </div>
-                                </div>
-                        `).join('');
-
-                        // Bind list edit/delete buttons
-                        document.querySelectorAll('.edit-pdf-btn').forEach(btn => {
-                                btn.addEventListener('click', () => {
-                                        const p = JSON.parse(btn.getAttribute('data-p'));
-                                        adminPdfFormContainer.classList.remove('hidden');
-                                        adminPdfFormTitle.innerText = "Editar Material";
-                                        adminPdfIdInput.value = p.id;
-                                        adminPdfTitleInput.value = p.title;
-                                        adminPdfPriceInput.value = p.price;
-                                        adminPdfDescInput.value = p.description;
-                                        adminPdfPaymentLinkInput.value = p.payment_link;
-                                        adminPdfDownloadUrlInput.value = p.download_url;
-                                });
-                        });
-
-                        document.querySelectorAll('.delete-pdf-btn').forEach(btn => {
-                                btn.addEventListener('click', async () => {
-                                        const id = btn.getAttribute('data-id');
-                                        if (confirm("Deseja realmente excluir este material?")) {
-                                                const res = await fetch(`${API_BASE_URL}/admin/pdf-products/${id}`, {
-                                                        method: 'DELETE',
-                                                        headers: { 'Authorization': `Bearer ${adminToken}` }
-                                                });
-                                                if (res.ok) {
-                                                        showToast("PDF excluído com sucesso!", "check_circle");
-                                                        loadAdminPDFList();
-                                                        loadSiteData();
-                                                }
-                                        }
-                                });
-                        });
-                }
-
-                adminAddPdfBtn.addEventListener('click', () => {
-                        adminPdfFormContainer.classList.remove('hidden');
-                        adminPdfFormTitle.innerText = "Adicionar Novo PDF";
-                        adminPdfIdInput.value = "";
-                        adminPdfTitleInput.value = "";
-                        adminPdfPriceInput.value = "";
-                        adminPdfDescInput.value = "";
-                        adminPdfPaymentLinkInput.value = "";
-                        adminPdfDownloadUrlInput.value = "";
-                });
-
-                adminPdfCancelBtn.addEventListener('click', () => {
-                        adminPdfFormContainer.classList.add('hidden');
-                });
-
-                adminPdfSaveBtn.addEventListener('click', async () => {
-                        const id = adminPdfIdInput.value;
-                        const payload = {
-                                title: adminPdfTitleInput.value,
-                                description: adminPdfDescInput.value,
-                                price: parseFloat(adminPdfPriceInput.value),
-                                payment_link: adminPdfPaymentLinkInput.value,
-                                download_url: adminPdfDownloadUrlInput.value,
-                                is_active: true
-                        };
-
-                        if (!payload.title || !payload.price || !payload.payment_link || !payload.download_url) {
-                                showToast("Por favor, preencha todos os campos obrigatórios.", "warning");
-                                return;
-                        }
-
-                        const url = id ? `${API_BASE_URL}/admin/pdf-products/${id}` : `${API_BASE_URL}/admin/pdf-products`;
-                        const method = id ? 'PUT' : 'POST';
-
-                        try {
-                                const res = await fetch(url, {
-                                        method: method,
-                                        headers: {
-                                                'Content-Type': 'application/json',
-                                                'Authorization': `Bearer ${adminToken}`
-                                        },
-                                        body: JSON.stringify(payload)
-                                });
-
-                                if (res.ok) {
-                                        showToast("PDF salvo com sucesso!", "check_circle");
-                                        adminPdfFormContainer.classList.add('hidden');
-                                        loadAdminPDFList();
-                                        loadSiteData();
-                                } else {
-                                        showToast("Erro ao salvar o material.", "error");
-                                }
-                        } catch (e) {
-                                showToast("Erro de rede.", "wifi_off");
-                        }
-                });
-
-                // TAB 3: Purchases
-                async function loadAdminPurchasesList() {
-                        const res = await fetch(`${API_BASE_URL}/admin/purchases`, {
-                                headers: { 'Authorization': `Bearer ${adminToken}` }
-                        });
-                        if (res.ok) {
-                                const purchases = await res.json();
-                                renderAdminPurchasesList(purchases);
-                        }
-                }
-
-                function renderAdminPurchasesList(purchases) {
-                        if (purchases.length === 0) {
-                                adminPurchasesTableBody.innerHTML = `<tr><td colspan="5" class="p-4 text-center italic text-on-surface-variant">Nenhuma compra registrada ainda.</td></tr>`;
-                                return;
-                        }
-
-                        adminPurchasesTableBody.innerHTML = purchases.map(p => `
-                                <tr class="border-b border-outline-variant/30 hover:bg-surface-container-low">
-                                        <td class="p-3 text-on-surface font-bold">${p.product_title}</td>
-                                        <td class="p-3 text-on-surface-variant">${p.email}</td>
-                                        <td class="p-3">
-                                                <span class="px-2 py-0.5 rounded text-xs font-bold ${p.status === 'paid' ? 'bg-green-100 text-green-800' : 'bg-amber-100 text-amber-800'}">
-                                                        ${p.status === 'paid' ? 'Pago' : 'Pendente'}
-                                                </span>
-                                        </td>
-                                        <td class="p-3 text-xs text-on-surface-variant">${new Date(p.created_at).toLocaleDateString()}</td>
-                                        <td class="p-3 text-right">
-                                                ${p.status === 'pending' ? `
-                                                        <button class="px-3 py-1 bg-secondary text-on-secondary rounded text-xs font-bold confirm-purchase-btn cursor-pointer" data-id="${p.id}">
-                                                                Confirmar Pagamento
-                                                        </button>
-                                                ` : '<span class="text-xs text-green-700 italic font-bold">E-mail Enviado</span>'}
-                                        </td>
-                                </tr>
-                        `).join('');
-
-                        // Bind payment confirmation simulation buttons
-                        document.querySelectorAll('.confirm-purchase-btn').forEach(btn => {
-                                btn.addEventListener('click', async () => {
-                                        const id = btn.getAttribute('data-id');
-                                        const res = await fetch(`${API_BASE_URL}/purchases/${id}/confirm`, { method: 'POST' });
-                                        if (res.ok) {
-                                                const data = await res.json();
-                                                showToast("Pagamento confirmado! Link enviado por e-mail.", "check_circle");
-                                                loadAdminPurchasesList();
-                                        }
-                                });
-                        });
-                }
-
-                // 6. Public Purchase Flow
-                function openPurchaseModal() {
-                        pdfPurchaseModal.classList.remove('pointer-events-none', 'opacity-0');
-                        pdfPurchaseModal.classList.add('opacity-100');
-                        pdfPurchaseModalDialog.classList.remove('scale-95');
-                        pdfPurchaseModalDialog.classList.add('scale-100');
-                        document.body.style.overflow = 'hidden';
-                        pdfBuyerEmailInput.focus();
-                }
-
-                function closePurchaseModal() {
-                        pdfPurchaseModal.classList.add('pointer-events-none', 'opacity-0');
-                        pdfPurchaseModal.classList.remove('opacity-100');
-                        pdfPurchaseModalDialog.classList.add('scale-95');
-                        pdfPurchaseModalDialog.classList.remove('scale-100');
-                        document.body.style.overflow = '';
-                        pdfBuyerEmailInput.value = '';
-                        activePurchaseProductId = null;
-                }
-
-                pdfPurchaseModalClose.addEventListener('click', closePurchaseModal);
-
-                pdfPurchaseConfirmBtn.addEventListener('click', async () => {
-                        const email = pdfBuyerEmailInput.value.trim();
-                        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                        if (!email || !emailRegex.test(email)) {
-                                showToast("Por favor, insira um e-mail válido.", "warning");
-                                return;
-                        }
-
-                        try {
-                                const response = await fetch(`${API_BASE_URL}/purchases`, {
-                                        method: 'POST',
-                                        headers: { 'Content-Type': 'application/json' },
-                                        body: JSON.stringify({
-                                                product_id: activePurchaseProductId,
-                                                email: email
-                                        })
-                                });
-
-                                if (response.ok) {
-                                        const data = await response.json();
-                                        closePurchaseModal();
-                                        showToast("Redirecionando para a página de pagamento...", "info");
-                                        
-                                        // Open payment link in a new tab
-                                        window.open(data.payment_link, '_blank', 'noopener,noreferrer');
-                                        
-                                        // In a real application, the webhook would trigger automatically.
-                                        // Since this is a local project, we inform the user they can simulate this.
-                                        Logger.success("Intenção de compra registrada. ID do pedido:", data.purchase_id);
-                                } else {
-                                        showToast("Erro ao processar compra.", "error");
-                                }
-                        } catch (e) {
-                                showToast("Erro de conexão.", "wifi_off");
-                        }
-                });
-
-                // Load live data on initialization
-                loadSiteData();
-
-                // Cal.com embed removido para priorizar agendamento local integrado com a IA.
         </script>
 </body>
 

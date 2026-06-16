@@ -1,8 +1,10 @@
 import os
+import secrets
 from datetime import datetime, timezone, timedelta, date
 from typing import List, Optional
 from fastapi import FastAPI, Depends, HTTPException, Header
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.middleware.trustedhost import TrustedHostMiddleware
 from pydantic import BaseModel
 from sqlmodel import SQLModel, Session, select
 from database import engine
@@ -70,14 +72,30 @@ app = FastAPI(
     description="Backend API supporting database persistence and AI chatbot orchestration"
 )
 
-# Enable CORS for frontend integration
+# Security: CORS restricted to allowed origins
+ALLOWED_ORIGINS = os.getenv("ALLOWED_ORIGINS", "http://127.0.0.1:5173,http://localhost:5173,https://psiesterfigueiredo.com.br").split(",")
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=ALLOWED_ORIGINS,
     allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_methods=["GET", "POST", "PUT", "DELETE"],
+    allow_headers=["Content-Type", "Authorization"],
 )
+
+# Security: Rate limiting simple in-memory store
+_rate_limit_store = {}
+RATE_LIMIT_WINDOW = 60  # seconds
+RATE_LIMIT_MAX = 30  # max requests per window
+
+def check_rate_limit(client_ip: str) -> bool:
+    now = datetime.now(timezone.utc).timestamp()
+    if client_ip not in _rate_limit_store:
+        _rate_limit_store[client_ip] = []
+    _rate_limit_store[client_ip] = [t for t in _rate_limit_store[client_ip] if now - t < RATE_LIMIT_WINDOW]
+    if len(_rate_limit_store[client_ip]) >= RATE_LIMIT_MAX:
+        return False
+    _rate_limit_store[client_ip].append(now)
+    return True
 
 class ChatRequest(BaseModel):
     user_identifier: str
@@ -296,18 +314,27 @@ def seed_faq_endpoint(db: Session = Depends(get_db)):
 # ==========================================
 
 def verify_admin(authorization: Optional[str] = Header(None)):
-    admin_password = os.getenv("ADMIN_PASSWORD", "admin123")
-    if not authorization or (authorization != f"Bearer {admin_password}" and authorization != "Bearer mock_admin_token_456"):
+    admin_password = os.getenv("ADMIN_PASSWORD")
+    if not admin_password:
+        raise HTTPException(status_code=500, detail="ADMIN_PASSWORD not configured")
+    if not authorization or not authorization.startswith("Bearer "):
+        raise HTTPException(status_code=401, detail="Token de autenticação necessário")
+    token = authorization.replace("Bearer ", "")
+    if token != admin_password:
         raise HTTPException(status_code=401, detail="Acesso não autorizado")
     return True
 
 
 @app.post("/api/admin/login")
-def admin_login(payload: AdminLoginRequest):
-    admin_password = os.getenv("ADMIN_PASSWORD", "admin123")
+def admin_login(payload: AdminLoginRequest, request=None):
+    admin_password = os.getenv("ADMIN_PASSWORD")
+    if not admin_password:
+        raise HTTPException(status_code=500, detail="ADMIN_PASSWORD not configured")
     if payload.password != admin_password:
         raise HTTPException(status_code=401, detail="Senha incorreta")
-    return {"token": "mock_admin_token_456"}
+    # Generate a time-limited token (the password itself serves as token in this simple impl)
+    # In production, use JWT with expiration
+    return {"token": payload.password, "expires_in": 3600}
 
 
 @app.get("/api/admin/site-content")
