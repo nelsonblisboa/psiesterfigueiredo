@@ -724,7 +724,7 @@
                 // ==========================================
                 const API_BASE_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
                         ? `http://${window.location.hostname}:8000/api`
-                        : `${window.location.protocol}//${window.location.hostname}/api`;
+                        : `https://psiesterfigueiredo.eu.pythonanywhere.com/api`;
                 let allBookings = [];
 
                 // Load my booking IDs from localStorage (private client state)

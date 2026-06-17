@@ -38,6 +38,10 @@ self.addEventListener('activate', (event) => {
 self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET') return;
 
+  // Ignore non-http/https requests (e.g. chrome-extension://)
+  const url = new URL(event.request.url);
+  if (!url.protocol.startsWith('http')) return;
+
   event.respondWith(
     caches.match(event.request).then((cached) => {
       if (cached) return cached;

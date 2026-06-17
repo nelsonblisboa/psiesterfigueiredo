@@ -1,0 +1,8 @@
+fastapi
+pydantic
+sqlmodel
+uvicorn
+a2wsgi
+psycopg2-binary
+openai
+python-dotenv

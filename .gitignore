@@ -8,4 +8,10 @@ dist-ssr/
 
 # Agent skills and references
 .agent/
+.agents/
+skills-lock.json
 references/
+__pycache__/
+*.pyc
+
+
