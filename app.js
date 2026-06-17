@@ -1152,6 +1152,7 @@
                         if (c.about_img && el('about-img')) el('about-img').src = c.about_img;
                         if (c.about_content && el('about-content')) el('about-content').innerHTML = c.about_content;
                         if (c.about_footer && el('about-footer')) el('about-footer').innerText = c.about_footer;
+                        renderSiteTestimonials();
                 }
 
                 // Load globals
@@ -1225,13 +1226,24 @@
                         });
                 }
 
-                // Load Testimonials from localStorage
+                // Default testimonials from current site
+                const defaultTestimonials = [
+                        { name: "Ana M.", time: "Paciente há 8 meses", text: "A Dra. Ester mudou minha vida. Através da TCC aprendi a lidar com a ansiedade de uma forma que nunca imaginei possível. O atendimento é extremamente acolhedor e profissional.", type: "Terapia Online" },
+                        { name: "Patrícia M.", time: "Paciente há 1 ano", text: "O processo terapêutico com a Dra. Ester foi transformador. Ela tem uma capacidade incrível de criar um espaço seguro onde me sinto à vontade para falar sobre tudo. Depois de muito tempo, finalmente encontrei uma profissional que me entende de verdade.", type: "Terapia Presencial em Nova Iguaçu" },
+                        { name: "Mariana S.", time: "Paciente há 6 meses", text: "Comecei a terapia para lidar com luto e foi a melhor decisão que tomei. A Dra. Ester me ajudou a ressignificar minhas experiências com muito cuidado e empatia.", type: "Terapia Online" },
+                        { name: "Fernanda L.", time: "Paciente há 3 meses", text: "A flexibilidade do atendimento online foi essencial para mim. Consigo conciliar com a rotina de trabalho e a Dra. Ester faz com que cada sessão seja produtiva e acolhedora.", type: "Terapia Online" }
+                ];
+
                 function loadTestimonials() {
-                        return JSON.parse(localStorage.getItem('site_testimonials') || '[]');
+                        const stored = localStorage.getItem('site_testimonials');
+                        if (stored) return JSON.parse(stored);
+                        localStorage.setItem('site_testimonials', JSON.stringify(defaultTestimonials));
+                        return [...defaultTestimonials];
                 }
 
                 function saveTestimonials(items) {
                         localStorage.setItem('site_testimonials', JSON.stringify(items));
+                        renderSiteTestimonials();
                 }
 
                 function renderTestimonialsList() {
@@ -1243,18 +1255,109 @@
                         }
                         adminTestimonialsList.innerHTML = items.map((t, i) => `
                                 <div class="p-3 bg-white rounded border border-outline-variant/30 flex justify-between items-center text-sm">
-                                        <div><strong>${t.name}</strong> — <span class="text-on-surface-variant">${t.text.substring(0, 60)}...</span></div>
-                                        <button class="px-2 py-1 bg-red-600 text-white rounded text-xs delete-testimonial-btn" data-idx="${i}">X</button>
+                                        <div class="min-w-0">
+                                                <p class="font-bold text-xs text-on-surface truncate">${t.name} <span class="font-normal text-on-surface-variant">— ${t.time}</span></p>
+                                                <p class="text-xs text-on-surface-variant truncate">"${t.text.substring(0, 50)}..."</p>
+                                        </div>
+                                        <div class="flex gap-1 flex-shrink-0 ml-2">
+                                                <button class="px-2 py-1 bg-primary text-on-primary rounded text-xs edit-testimonial-btn" data-idx="${i}">Editar</button>
+                                                <button class="px-2 py-1 bg-red-600 text-white rounded text-xs delete-testimonial-btn" data-idx="${i}">X</button>
+                                        </div>
                                 </div>
                         `).join('');
+
+                        document.querySelectorAll('.edit-testimonial-btn').forEach(btn => {
+                                btn.addEventListener('click', () => {
+                                        const idx = parseInt(btn.getAttribute('data-idx'));
+                                        const t = items[idx];
+                                        document.getElementById('admin-test-id').value = idx;
+                                        document.getElementById('admin-test-name').value = t.name;
+                                        document.getElementById('admin-test-time').value = t.time;
+                                        document.getElementById('admin-test-text').value = t.text;
+                                        document.getElementById('admin-test-type').value = t.type || 'Terapia Online';
+                                        document.getElementById('admin-testimonial-form').classList.remove('hidden');
+                                });
+                        });
+
                         document.querySelectorAll('.delete-testimonial-btn').forEach(btn => {
                                 btn.addEventListener('click', () => {
                                         const idx = parseInt(btn.getAttribute('data-idx'));
-                                        items.splice(idx, 1);
-                                        saveTestimonials(items);
-                                        renderTestimonialsList();
+                                        if (confirm('Excluir este depoimento?')) {
+                                                items.splice(idx, 1);
+                                                saveTestimonials(items);
+                                                renderTestimonialsList();
+                                        }
                                 });
                         });
+                }
+
+                // Testimonial form handlers
+                document.getElementById('admin-add-testimonial-btn')?.addEventListener('click', () => {
+                        document.getElementById('admin-test-id').value = '';
+                        document.getElementById('admin-test-name').value = '';
+                        document.getElementById('admin-test-time').value = '';
+                        document.getElementById('admin-test-text').value = '';
+                        document.getElementById('admin-test-type').value = 'Terapia Online';
+                        document.getElementById('admin-testimonial-form').classList.remove('hidden');
+                });
+
+                document.getElementById('admin-test-cancel-btn')?.addEventListener('click', () => {
+                        document.getElementById('admin-testimonial-form').classList.add('hidden');
+                });
+
+                document.getElementById('admin-test-save-btn')?.addEventListener('click', () => {
+                        const id = document.getElementById('admin-test-id').value;
+                        const t = {
+                                name: document.getElementById('admin-test-name').value,
+                                time: document.getElementById('admin-test-time').value,
+                                text: document.getElementById('admin-test-text').value,
+                                type: document.getElementById('admin-test-type').value
+                        };
+                        if (!t.name || !t.text) { showToast('Nome e depoimento são obrigatórios.', 'warning'); return; }
+                        let items = loadTestimonials();
+                        if (id !== '') { items[parseInt(id)] = t; } else { items.push(t); }
+                        saveTestimonials(items);
+                        renderTestimonialsList();
+                        document.getElementById('admin-testimonial-form').classList.add('hidden');
+                        showToast('Depoimento salvo!', 'check_circle');
+                });
+
+                // Render testimonials on the live site
+                function renderSiteTestimonials() {
+                        const container = document.querySelector('#depoimentos .grid');
+                        if (!container) return;
+                        const items = loadTestimonials();
+                        const rotations = ['-1deg', '2deg', '1deg', '-2deg'];
+                        const colors = ['bg-primary-fixed', 'bg-secondary-fixed', 'bg-tertiary-fixed', 'bg-primary-fixed'];
+                        const iconColors = ['text-on-primary-fixed-variant', 'text-on-secondary-fixed-variant', 'text-on-tertiary-fixed-variant', 'text-on-primary-fixed-variant'];
+                        const clipStyles = ['', 'left: auto; right: 15px;', '', 'left: 50%; transform: translateX(-50%);'];
+
+                        container.innerHTML = items.map((t, i) => `
+                                <div class="polaroid hover-lift bg-white p-6 relative" style="transform: rotate(${rotations[i % 4]});">
+                                        ${i % 2 === 0 ? `<div class="tape" style="top: -8px; left: ${20 + (i * 10)}px; transform: rotate(${-3 + i}deg); width: ${50 + (i * 5)}px;"></div>` : `<div class="paper-clip" style="${clipStyles[i % 4]}"></div>`}
+                                        <div class="flex items-center gap-3 mb-4">
+                                                <div class="w-12 h-12 rounded-full ${colors[i % 4]} flex items-center justify-center">
+                                                        <span class="material-symbols-outlined ${iconColors[i % 4]} text-xl">person</span>
+                                                </div>
+                                                <div>
+                                                        <p class="font-typewriter text-sm font-bold text-on-surface">${t.name}</p>
+                                                        <p class="font-typewriter text-xs text-on-surface-variant">${t.time}</p>
+                                                </div>
+                                        </div>
+                                        <div class="flex gap-1 mb-3">
+                                                ${'<span class="material-symbols-outlined text-secondary text-sm filled-icon">star</span>'.repeat(5)}
+                                        </div>
+                                        <p class="font-handwritten text-lg text-on-surface leading-relaxed">
+                                                "${t.text}"
+                                        </p>
+                                        <div class="mt-4 pt-3 border-t border-outline-variant/30">
+                                                <p class="font-typewriter text-xs text-primary flex items-center gap-1">
+                                                        <span class="material-symbols-outlined text-xs">verified</span>
+                                                        ${t.type}
+                                                </p>
+                                        </div>
+                                </div>
+                        `).join('');
                 }
 
                 // Load FAQ from localStorage

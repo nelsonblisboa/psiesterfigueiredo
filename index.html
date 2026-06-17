@@ -2258,11 +2258,45 @@
 
                                                 <!-- Depoimentos -->
                                                 <div class="p-4 bg-surface-container rounded-lg border border-outline-variant/30 space-y-4">
-                                                        <h5 class="font-bold text-sm text-primary">Depoimentos</h5>
-                                                        <div id="admin-testimonials-list" class="space-y-3"></div>
-                                                        <button id="admin-add-testimonial-btn" class="px-4 py-1.5 bg-secondary text-on-secondary rounded-full text-xs font-bold hover:bg-secondary/95 shadow flex items-center gap-1">
-                                                                <span class="material-symbols-outlined text-xs">add</span> Novo Depoimento
-                                                        </button>
+                                                        <div class="flex justify-between items-center">
+                                                                <h5 class="font-bold text-sm text-primary">Depoimentos</h5>
+                                                                <button id="admin-add-testimonial-btn" class="px-3 py-1 bg-secondary text-on-secondary rounded-full text-xs font-bold hover:bg-secondary/95 shadow flex items-center gap-1">
+                                                                        <span class="material-symbols-outlined text-xs">add</span> Novo
+                                                                </button>
+                                                        </div>
+
+                                                        <!-- Form -->
+                                                        <div id="admin-testimonial-form" class="hidden p-4 bg-white rounded-lg border border-outline-variant/30 space-y-3">
+                                                                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                                                                        <div>
+                                                                                <label class="block text-[10px] font-bold uppercase text-on-surface-variant mb-1">Nome</label>
+                                                                                <input type="text" id="admin-test-name" class="w-full bg-surface border border-outline-variant rounded p-2 text-sm" placeholder="Ex: Ana M." />
+                                                                        </div>
+                                                                        <div>
+                                                                                <label class="block text-[10px] font-bold uppercase text-on-surface-variant mb-1">Tempo de Tratamento</label>
+                                                                                <input type="text" id="admin-test-time" class="w-full bg-surface border border-outline-variant rounded p-2 text-sm" placeholder="Ex: Paciente há 8 meses" />
+                                                                        </div>
+                                                                </div>
+                                                                <div>
+                                                                        <label class="block text-[10px] font-bold uppercase text-on-surface-variant mb-1">Depoimento</label>
+                                                                        <textarea id="admin-test-text" rows="3" class="w-full bg-surface border border-outline-variant rounded p-2 text-sm" placeholder="Texto do depoimento..."></textarea>
+                                                                </div>
+                                                                <div>
+                                                                        <label class="block text-[10px] font-bold uppercase text-on-surface-variant mb-1">Tipo de Atendimento</label>
+                                                                        <select id="admin-test-type" class="w-full bg-surface border border-outline-variant rounded p-2 text-sm">
+                                                                                <option value="Terapia Online">Terapia Online</option>
+                                                                                <option value="Terapia Presencial em Nova Iguaçu">Terapia Presencial</option>
+                                                                        </select>
+                                                                </div>
+                                                                <input type="hidden" id="admin-test-id" />
+                                                                <div class="flex gap-2 justify-end">
+                                                                        <button id="admin-test-cancel-btn" class="px-3 py-1.5 bg-surface border border-outline-variant rounded-full text-xs hover:bg-surface-container-high">Cancelar</button>
+                                                                        <button id="admin-test-save-btn" class="px-3 py-1.5 bg-primary text-on-primary rounded-full text-xs font-bold hover:bg-primary/95 shadow">Salvar</button>
+                                                                </div>
+                                                        </div>
+
+                                                        <!-- List -->
+                                                        <div id="admin-testimonials-list" class="space-y-2"></div>
                                                 </div>
 
                                                 <!-- FAQ -->
