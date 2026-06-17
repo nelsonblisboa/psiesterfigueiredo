@@ -1123,25 +1123,35 @@
 
                 // 1. Load Dynamic Site Content
                 async function loadSiteData() {
-                        let c = {};
+                        const d = {
+                                hero_title: "Criando caminhos de leveza e propósito.",
+                                hero_desc: "Um espaço seguro e acolhedor para o seu processo terapêutico. Atendimento online para todo o Brasil e brasileiros no exterior.",
+                                hero_img: "assets/ester-hero.jpg",
+                                about_title: "Muito prazer!",
+                                about_img: "https://lh3.googleusercontent.com/aida-public/AB6AXuA0Cy4cegf_snE5C1lWCj6vZyxTWNruYAHk1UnxpSUYuTd0l9nVbA4BCI-a9DppeiXPivkhUuaA3ed1CGoTad1anEbbQ1TOiYfI7Ak2SQ6TQP5Kz22exuTCIn2FI85DzQC5A4z54pAcLDneiPXUBM9C9pw_AdaLdVfGpHbgQYEp60Bj8QWOEQ4HgvDXUy9woCAV6nP-8GEmE3lP8g5ZcynTdtK4XlFCSKFcnwVkkvmuEyY8emuRVEnroSI1X33fdPPbOfxMjTnkHe8",
+                                about_content: "<p class=\"\">Sou psicóloga, mas não só isso. Minha bagagem também passa pela comunicação, mídias sociais e pela paixão por processos criativos.</p><p class=\"\">Tenho prática clínica e na saúde, com mulheres e público 60+.</p><p class=\"\">Acredito que viver é um percurso em construção. Que nenhuma história é reta, nenhuma dor é definitiva e nenhum caminho é percorrido sozinho. Que transformar não é apagar marcas, mas ressignificá-las.</p><p class=\"\">Escolho uma psicologia que não encaixa pessoas em moldes, mas as convida a florescer no próprio ritmo. Meu propósito é criar caminhos de leveza, onde cada passo, mesmo difícil, possa carregar sentido, presença e esperança.</p>",
+                                about_footer: "Formada pela Faculdade Estácio de Sá • Pós-graduanda"
+                        };
+                        let c = { ...d };
                         try {
                                 const contentRes = await fetch(`${API_BASE_URL}/admin/site-content`);
-                                if (contentRes.ok) c = await contentRes.json();
-                        } catch (e) {
-                                Logger.error("Erro ao carregar dados dinâmicos do site", e);
-                        }
-                        // Supplement with localStorage
-                        ['hero_title','hero_desc','hero_img','about_title','about_img','about_content','about_footer','como_img','dif_img','valor_sessao','valor_mensal','valores_img'].forEach(key => {
-                                if (!c[key]) { const v = localStorage.getItem(`site_content_${key}`); if (v) c[key] = v; }
+                                if (contentRes.ok) Object.assign(c, await contentRes.json());
+                        } catch (e) {}
+                        Object.keys(d).forEach(key => {
+                                if (!c[key] || c[key] === '') {
+                                        const v = localStorage.getItem(`site_content_${key}`);
+                                        if (v) c[key] = v;
+                                }
                         });
 
-                        if (c.hero_title) { const el = document.getElementById('hero-title'); if(el) el.innerText = c.hero_title; }
-                        if (c.hero_desc) { const el = document.getElementById('hero-desc'); if(el) el.innerText = c.hero_desc; }
-                        if (c.hero_img) { const el = document.querySelector('img[alt="Background banner"]'); if(el) el.src = c.hero_img; }
-                        if (c.about_title) { const el = document.getElementById('about-title'); if(el) el.innerText = c.about_title; }
-                        if (c.about_img) { const el = document.getElementById('about-img'); if(el) el.src = c.about_img; }
-                        if (c.about_content) { const el = document.getElementById('about-content'); if(el) el.innerHTML = c.about_content; }
-                        if (c.about_footer) { const el = document.getElementById('about-footer'); if(el) el.innerText = c.about_footer; }
+                        const el = (id) => document.getElementById(id);
+                        if (c.hero_title && el('hero-title')) el('hero-title').innerText = c.hero_title;
+                        if (c.hero_desc && el('hero-desc')) el('hero-desc').innerText = c.hero_desc;
+                        if (c.hero_img) { const img = document.querySelector('img[alt="Background banner"]'); if(img) img.src = c.hero_img; }
+                        if (c.about_title && el('about-title')) el('about-title').innerText = c.about_title;
+                        if (c.about_img && el('about-img')) el('about-img').src = c.about_img;
+                        if (c.about_content && el('about-content')) el('about-content').innerHTML = c.about_content;
+                        if (c.about_footer && el('about-footer')) el('about-footer').innerText = c.about_footer;
                 }
 
                 // Load globals
@@ -1409,23 +1419,47 @@
                         if (!adminToken) return;
 
                         try {
-                                // Load Content Tab Inputs
-                                const contentRes = await fetch(`${API_BASE_URL}/admin/site-content`);
-                                if (contentRes.ok) {
-                                        const c = await contentRes.json();
-                                        adminContentHeroTitle.value = c.hero_title || "Criando caminhos de leveza e propósito.";
-                                        adminContentHeroDesc.value = c.hero_desc || "";
-                                        setPreview('preview-hero-img', c.hero_img || 'assets/ester-hero.jpg');
-                                        adminContentAboutTitle.value = c.about_title || "Muito prazer!";
-                                        setPreview('preview-about-img', c.about_img || '');
-                                        adminContentAboutContent.value = c.about_content || "";
-                                        adminContentAboutFooter.value = c.about_footer || "";
-                                        setPreview('preview-como-img', c.como_img || '');
-                                        setPreview('preview-dif-img', c.dif_img || '');
-                                        adminContentValorSessao.value = c.valor_sessao || "80,00";
-                                        adminContentValorMensal.value = c.valor_mensal || "300,00";
-                                        setPreview('preview-valores-img', c.valores_img || '');
-                                }
+                                // Default values from current site content
+                                const defaults = {
+                                        hero_title: "Criando caminhos de leveza e propósito.",
+                                        hero_desc: "Um espaço seguro e acolhedor para o seu processo terapêutico. Atendimento online para todo o Brasil e brasileiros no exterior.",
+                                        hero_img: "assets/ester-hero.jpg",
+                                        about_title: "Muito prazer!",
+                                        about_img: "https://lh3.googleusercontent.com/aida-public/AB6AXuA0Cy4cegf_snE5C1lWCj6vZyxTWNruYAHk1UnxpSUYuTd0l9nVbA4BCI-a9DppeiXPivkhUuaA3ed1CGoTad1anEbbQ1TOiYfI7Ak2SQ6TQP5Kz22exuTCIn2FI85DzQC5A4z54pAcLDneiPXUBM9C9pw_AdaLdVfGpHbgQYEp60Bj8QWOEQ4HgvDXUy9woCAV6nP-8GEmE3lP8g5ZcynTdtK4XlFCSKFcnwVkkvmuEyY8emuRVEnroSI1X33fdPPbOfxMjTnkHe8",
+                                        about_content: "<p class=\"\">Sou psicóloga, mas não só isso. Minha bagagem também passa pela comunicação, mídias sociais e pela paixão por processos criativos.</p><p class=\"\">Tenho prática clínica e na saúde, com mulheres e público 60+.</p><p class=\"\">Acredito que viver é um percurso em construção. Que nenhuma história é reta, nenhuma dor é definitiva e nenhum caminho é percorrido sozinho. Que transformar não é apagar marcas, mas ressignificá-las.</p><p class=\"\">Escolho uma psicologia que não encaixa pessoas em moldes, mas as convida a florescer no próprio ritmo. Meu propósito é criar caminhos de leveza, onde cada passo, mesmo difícil, possa carregar sentido, presença e esperança.</p>",
+                                        about_footer: "Formada pela Faculdade Estácio de Sá • Pós-graduanda",
+                                        como_img: "https://lh3.googleusercontent.com/aida-public/AB6AXuD1q1s6Bs0SjJl0vqC0gPmw_KcZVLo4ScjL7_W9K1uYcgYZcAvX0TYhLxRU4yI7vsB20ICCFoDd3kgG1AfZbCH0KVe8UmdCbV2lGCbOGUKj7dW3_W8iIPawUT1LJoiwkNhq7DwZIOmwi0C8aXbJ8Uxd7dEecaSoTRvnbJmB2kBk4YuUVulJe0Da1OV1yRXTGzYIcbqkJuiAYak9u4hDd2olL4CTHwgGGOOCIQtUTRLIylzU1Lt06oEn358IgL6UqzwI1wblqXv4qEg",
+                                        dif_img: "assets/ester-por-que-escolher.jpg",
+                                        valor_sessao: "80,00",
+                                        valor_mensal: "300,00",
+                                        valores_img: "assets/ester-valores.jpg"
+                                };
+
+                                // Load from API, then override with localStorage
+                                let c = {};
+                                try {
+                                        const contentRes = await fetch(`${API_BASE_URL}/admin/site-content`);
+                                        if (contentRes.ok) c = await contentRes.json();
+                                } catch (e) {}
+                                Object.keys(defaults).forEach(key => {
+                                        if (!c[key]) {
+                                                const stored = localStorage.getItem(`site_content_${key}`);
+                                                c[key] = stored || defaults[key];
+                                        }
+                                });
+
+                                adminContentHeroTitle.value = c.hero_title;
+                                adminContentHeroDesc.value = c.hero_desc;
+                                setPreview('preview-hero-img', c.hero_img);
+                                adminContentAboutTitle.value = c.about_title;
+                                setPreview('preview-about-img', c.about_img);
+                                adminContentAboutContent.value = c.about_content;
+                                adminContentAboutFooter.value = c.about_footer;
+                                setPreview('preview-como-img', c.como_img);
+                                setPreview('preview-dif-img', c.dif_img);
+                                adminContentValorSessao.value = c.valor_sessao;
+                                adminContentValorMensal.value = c.valor_mensal;
+                                setPreview('preview-valores-img', c.valores_img);
 
                                 // Load Ebooks for Tab 2
                                 loadAdminPDFList();
