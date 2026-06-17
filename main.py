@@ -360,6 +360,12 @@ def update_site_content(payload: List[SiteContentUpdate], db: Session = Depends(
     return {"status": "success"}
 
 
+@app.get("/api/products")
+def get_public_products(db: Session = Depends(get_db)):
+    stmt = select(PDFProductTable).where(PDFProductTable.is_active == True)
+    return db.exec(stmt).all()
+
+
 @app.get("/api/admin/pdf-products")
 def get_pdf_products(db: Session = Depends(get_db)):
     stmt = select(PDFProductTable)
@@ -491,5 +497,5 @@ def confirm_purchase(purchase_id: str, db: Session = Depends(get_db)):
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run("main:app", host="127.0.0.1", port=8000, reload=True)
+    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
 

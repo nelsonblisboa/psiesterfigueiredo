@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html class="light scroll-smooth" lang="pt-BR">
+
+<head>
+        <meta charset="utf-8" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <title>Blog | Ester Figueiredo - Psicóloga Clínica</title>
+        <meta name="description"
+                content="Artigos, reflexões e curadoria sobre saúde mental, autoconhecimento e bem-estar emocional pela Psicóloga Ester Figueiredo." />
+        <meta name="robots" content="index, follow" />
+        <meta name="theme-color" content="#5F7A6A" />
+        <link rel="canonical" href="https://psiesterfigueiredo.com.br/blog" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Blog | Ester Figueiredo - Psicóloga Clínica" />
+        <meta property="og:description"
+                content="Artigos, reflexões e curadoria sobre saúde mental, autoconhecimento e bem-estar emocional." />
+        <meta property="og:url" content="https://psiesterfigueiredo.com.br/blog" />
+        <meta property="og:image" content="https://psiesterfigueiredo.com.br/assets/ester-blog.jpg" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="apple-touch-icon" href="/favicon.svg" />
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com" rel="preconnect" />
+        <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&amp;display=swap"
+                rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&amp;display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Special+Elite&amp;display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+                rel="stylesheet" />
+        <!-- Tailwind CSS -->
+        <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+        <script>
+                tailwind.config = {
+                        darkMode: "class",
+                        theme: {
+                                extend: {
+                                        "colors": {
+                                                "primary": "#4f6353",
+                                                "on-primary": "#ffffff",
+                                                "primary-container": "#8da290",
+                                                "on-primary-container": "#26382b",
+                                                "secondary": "#8a4f35",
+                                                "on-secondary": "#ffffff",
+                                                "surface": "#fdf9f0",
+                                                "on-surface": "#1c1c16",
+                                                "surface-container": "#f2ede4",
+                                                "surface-container-low": "#f7f3ea",
+                                                "surface-container-lowest": "#ffffff",
+                                                "surface-container-high": "#ece8df",
+                                                "surface-container-highest": "#e6e2d9",
+                                                "surface-dim": "#dedad1",
+                                                "surface-variant": "#e6e2d9",
+                                                "on-surface-variant": "#434843",
+                                                "outline": "#737872",
+                                                "outline-variant": "#c3c8c1",
+                                                "primary-fixed": "#d2e8d4",
+                                                "primary-fixed-dim": "#b6ccb9",
+                                                "on-primary-fixed-variant": "#384b3d",
+                                                "secondary-fixed": "#ffdbcd",
+                                                "secondary-fixed-dim": "#ffb597",
+                                                "on-secondary-fixed-variant": "#6d3820"
+                                        },
+                                        "spacing": {
+                                                "base": "8px",
+                                                "margin-mobile": "16px",
+                                                "gutter": "24px",
+                                                "sm": "12px",
+                                                "md": "24px",
+                                                "lg": "48px",
+                                                "xl": "80px",
+                                                "container-max": "1200px"
+                                        },
+                                        "fontFamily": {
+                                                "caption": ["Plus Jakarta Sans", "sans-serif"],
+                                                "body-md": ["Plus Jakarta Sans", "sans-serif"],
+                                                "title-lg": ["Plus Jakarta Sans", "sans-serif"],
+                                                "label-md": ["Plus Jakarta Sans", "sans-serif"],
+                                                "handwritten": ["Caveat", "cursive"],
+                                                "typewriter": ["Special Elite", "monospace"]
+                                        }
+                                }
+                        }
+                }
+        </script>
+        <style>
+                .material-symbols-outlined {
+                        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+                }
+                .filled-icon {
+                        font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+                }
+                .paper-texture {
+                        background-color: #fdf9f0;
+                        background-image: linear-gradient(rgba(253, 249, 240, 0.95), rgba(253, 249, 240, 0.95)), url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
+                        background-size: auto, 100px;
+                        background-position: center center, center center;
+                        background-repeat: repeat, repeat;
+                        background-attachment: fixed;
+                }
+                .torn-edge-top {
+                        position: relative;
+                }
+                .torn-edge-top::before {
+                        content: '';
+                        position: absolute;
+                        top: -10px;
+                        left: 0;
+                        right: 0;
+                        height: 20px;
+                        background: inherit;
+                        -webkit-mask-image: url("data:image/svg+xml,%3Csvg preserveAspectRatio='none' width='100%25' height='20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,10 Q5,0 10,8 T20,12 T30,7 T40,13 T50,9 T60,11 T70,8 T80,14 T90,9 T100,11 L100,20 L0,20 Z' fill='black'/%3E%3C/svg%3E");
+                        -webkit-mask-size: 100px 20px;
+                        z-index: 1;
+                }
+                .polaroid {
+                        background: white;
+                        padding: 10px 10px 40px 10px;
+                        box-shadow: 2px 4px 15px rgba(0, 0, 0, 0.15);
+                        transition: transform 0.3s;
+                }
+                .polaroid:hover {
+                        transform: rotate(0deg) scale(1.02);
+                        z-index: 10;
+                }
+                .hover-lift {
+                        transition: transform 0.3s ease, box-shadow 0.3s ease;
+                }
+                .hover-lift:hover {
+                        transform: translateY(-4px);
+                        box-shadow: 0 20px 40px -10px rgba(45, 45, 45, 0.08);
+                }
+                .tape {
+                        position: absolute;
+                        background-color: rgba(230, 226, 217, 0.7);
+                        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+                        width: 100px;
+                        height: 25px;
+                        top: -10px;
+                        left: 50%;
+                        transform: translateX(-50%) rotate(-2deg);
+                        z-index: 20;
+                }
+                .notebook-paper {
+                        background-color: #f0eedc;
+                        background-image: linear-gradient(#ccc 1px, transparent 1px);
+                        background-size: 100% 30px;
+                        padding: 20px;
+                        box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+                }
+                .folder-tab {
+                        display: inline-block;
+                        padding: 8px 24px;
+                        background-color: #d8d3b8;
+                        border-radius: 8px 8px 0 0;
+                        font-family: 'Special Elite', monospace;
+                        font-size: 1.2rem;
+                        color: #384b3d;
+                        box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.05);
+                        position: relative;
+                        z-index: 2;
+                }
+                .folder-body {
+                        background-color: #d8d3b8;
+                        border-radius: 0 8px 8px 8px;
+                        padding: 2rem;
+                        box-shadow: 2px 4px 15px rgba(0, 0, 0, 0.1);
+                        position: relative;
+                        z-index: 1;
+                }
+        </style>
+</head>
+
+<body class="paper-texture text-on-surface font-body-md antialiased selection:bg-primary-container selection:text-on-primary-container">
+        <!-- TopNavBar -->
+        <nav class="fixed top-0 left-0 w-full z-50 bg-surface/90 backdrop-blur-md shadow-sm border-b border-surface-variant/50">
+                <div class="max-w-container-max mx-auto flex justify-between items-center px-margin-mobile md:px-xl py-base w-full">
+                        <a href="/" class="flex items-center gap-2">
+                                <div class="font-typewriter text-2xl text-primary flex items-center">
+                                        <img alt="Ester Figueiredo Logo" class="h-12 w-auto object-contain"
+                                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdhN24sqfXGjqhwZEtGYxVtfbEPCNVVGVLEt5ZveaRZeSOSsERZCaWEOkraDJQu6fp6X9NWByfZrjAF4OSMX_N5cjX9U7Oj4Q3TfUH7yFQtijck_H11sQyTZroVCMmY6v8wtQ6GXnumQc1baHLa2o1YM4tKOYutt4diS64IrB6CuCoq5-_IG-pzLNCiLqMAB0Z1rvAT9tIg5dJz6KvId6pwEdK5Ml7fUgZHhQWQ_9S--ZkBHY6AlvUiwqHj2bM4KWzEs1PhqcnId0" />
+                                </div>
+                        </a>
+                        <!-- Desktop Nav -->
+                        <div class="hidden md:flex items-center gap-gutter">
+                                <a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="/">Início</a>
+                                <a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="/#sobre">Sobre</a>
+                                <a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="/#comofunciona">Como Funciona</a>
+                                <a class="text-primary font-bold transition-colors font-label-md text-label-md" href="/#blog">Blog</a>
+                                <a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="/ebooks.html">E-books</a>
+                                <a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="/#faq">FAQ</a>
+                        </div>
+                        <a href="/" class="hidden md:inline-flex items-center justify-center px-md py-sm bg-secondary text-on-secondary font-label-md text-label-md rounded-full hover:opacity-90 transition-all hover:translate-y-[-2px] duration-300 cursor-pointer">
+                                Agendar Online
+                        </a>
+                        <!-- Mobile Menu Button -->
+                        <button onclick="document.getElementById('mobile-menu').classList.remove('opacity-0','pointer-events-none');document.getElementById('mobile-menu-drawer').classList.remove('translate-x-full')" class="md:hidden text-primary p-2">
+                                <span class="material-symbols-outlined">menu</span>
+                        </button>
+                </div>
+        </nav>
+
+        <!-- Mobile Navigation Drawer -->
+        <div id="mobile-menu" class="fixed inset-0 z-[100] bg-black/50 backdrop-blur-sm transition-opacity duration-300 opacity-0 pointer-events-none">
+                <div class="fixed top-0 right-0 h-full w-4/5 max-w-sm bg-surface p-6 shadow-2xl transition-transform duration-300 translate-x-full flex flex-col gap-6" id="mobile-menu-drawer">
+                        <div class="flex justify-between items-center border-b border-surface-variant/50 pb-4">
+                                <span class="font-typewriter text-xl text-primary font-bold">Navegação</span>
+                                <button onclick="document.getElementById('mobile-menu').classList.add('opacity-0','pointer-events-none');document.getElementById('mobile-menu-drawer').classList.add('translate-x-full')" class="text-primary p-2">
+                                        <span class="material-symbols-outlined text-2xl">close</span>
+                                </button>
+                        </div>
+                        <div class="flex flex-col gap-4 font-typewriter text-lg">
+                                <a class="text-on-surface hover:text-primary transition-colors py-2 border-b border-surface-variant/30" href="/">Início</a>
+                                <a class="text-on-surface hover:text-primary transition-colors py-2 border-b border-surface-variant/30" href="/#sobre">Sobre</a>
+                                <a class="text-on-surface hover:text-primary transition-colors py-2 border-b border-surface-variant/30" href="/#comofunciona">Como Funciona</a>
+                                <a class="text-primary font-bold py-2 border-b border-surface-variant/30" href="/#blog">Blog</a>
+                                <a class="text-on-surface hover:text-primary transition-colors py-2 border-b border-surface-variant/30" href="/ebooks.html">E-books</a>
+                                <a class="text-on-surface hover:text-primary transition-colors py-2 border-b border-surface-variant/30" href="/#faq">FAQ</a>
+                                <a class="text-on-surface hover:text-primary transition-colors py-2 border-b border-surface-variant/30" href="/#lista-espera">Contato</a>
+                        </div>
+                        <a href="/" class="mt-auto inline-flex items-center justify-center px-md py-sm bg-secondary text-on-secondary font-label-md text-label-md rounded-full hover:opacity-90 transition-all cursor-pointer">
+                                Agendar Consulta
+                        </a>
+                </div>
+        </div>
+
+        <!-- Hero -->
+        <section class="relative w-full min-h-[320px] md:min-h-[400px] flex items-center overflow-hidden torn-edge-top">
+                <div class="absolute inset-0 z-0">
+                        <img alt="Blog e Curadoria" class="object-cover w-full h-full"
+                                src="assets/ester-blog.jpg" />
+                        <div class="absolute inset-0 bg-primary/80"></div>
+                </div>
+                <div class="relative z-10 max-w-container-max mx-auto px-margin-mobile md:px-xl py-xl text-center w-full">
+                        <h1 class="font-handwritten text-[2.5rem] md:text-[4rem] text-white mb-4 leading-tight drop-shadow-md">
+                                Blog & Curadoria
+                        </h1>
+                        <p class="font-typewriter text-white/90 text-body-md max-w-2xl mx-auto leading-relaxed drop-shadow-sm">
+                                Reflexões, dicas e links úteis para quem busca autoconhecimento, saúde mental e bem-estar emocional. Artigos escritos pela Dra. Ester Figueiredo.
+                        </p>
+                </div>
+        </section>
+
+        <!-- Articles Grid -->
+        <section class="bg-surface py-xl torn-edge-top">
+                <div class="max-w-container-max mx-auto px-margin-mobile md:px-xl">
+                        <!-- Category Filter -->
+                        <div class="flex flex-wrap justify-center gap-3 mb-xl">
+                                <button class="blog-filter active px-5 py-2 rounded-full font-typewriter text-sm transition-all bg-primary text-on-primary shadow-md" data-category="all">
+                                        Todos
+                                </button>
+                                <button class="blog-filter px-5 py-2 rounded-full font-typewriter text-sm transition-all bg-surface-container-highest text-on-surface-variant hover:bg-primary/20 hover:text-primary" data-category="curadoria">
+                                        Curadoria
+                                </button>
+                                <button class="blog-filter px-5 py-2 rounded-full font-typewriter text-sm transition-all bg-surface-container-highest text-on-surface-variant hover:bg-primary/20 hover:text-primary" data-category="saude-mental">
+                                        Saúde Mental
+                                </button>
+                                <button class="blog-filter px-5 py-2 rounded-full font-typewriter text-sm transition-all bg-surface-container-highest text-on-surface-variant hover:bg-primary/20 hover:text-primary" data-category="reflexoes">
+                                        Reflexões
+                                </button>
+                                <button class="blog-filter px-5 py-2 rounded-full font-typewriter text-sm transition-all bg-surface-container-highest text-on-surface-variant hover:bg-primary/20 hover:text-primary" data-category="dicas">
+                                        Dicas Práticas
+                                </button>
+                        </div>
+
+                        <!-- Articles -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                                <!-- Article 1 -->
+                                <article class="polaroid hover-lift flex flex-col h-full bg-white relative" data-category="curadoria" style="transform: rotate(-1deg);">
+                                        <div class="tape" style="top: -8px; left: 20px; transform: rotate(-3deg); width: 60px;"></div>
+                                        <div class="pt-4 flex flex-col flex-grow">
+                                                <div class="flex items-center justify-between mb-3">
+                                                        <span class="text-xs font-typewriter text-primary uppercase tracking-wider font-bold">Curadoria</span>
+                                                        <span class="text-xs font-typewriter text-on-surface-variant">08 Jun 2026</span>
+                                                </div>
+                                                <h2 class="font-handwritten text-3xl text-on-surface mb-3 leading-tight">
+                                                        Recomendações de Leitura e Decoração
+                                                </h2>
+                                                <p class="font-body text-on-surface-variant text-sm mb-4 flex-grow leading-relaxed">
+                                                        Uma seleção especial de livros e itens de decoração para transformar seu ambiente de trabalho ou estudo em um espaço de calma e produtividade.
+                                                </p>
+                                                <div class="border-t border-outline-variant/30 pt-4 mt-auto">
+                                                        <h3 class="font-typewriter text-xs text-on-surface-variant mb-2 uppercase tracking-wider">Neste artigo:</h3>
+                                                        <ul class="list-disc pl-4 text-xs font-typewriter text-on-surface-variant space-y-1">
+                                                                <li>Como o ambiente influencia a saúde mental</li>
+                                                                <li>3 livros recomendados pela Dra. Ester</li>
+                                                                <li>Dicas de decoração para o consultório</li>
+                                                        </ul>
+                                                </div>
+                                                <button class="mt-4 w-full py-3 bg-primary text-on-primary rounded-md font-typewriter text-sm hover:bg-primary/90 transition-colors shadow-md read-article-btn" data-id="1">
+                                                        Ler Artigo Completo
+                                                </button>
+                                        </div>
+                                </article>
+
+                                <!-- Article 2 -->
+                                <article class="polaroid hover-lift flex flex-col h-full bg-white relative" data-category="saude-mental" style="transform: rotate(2deg);">
+                                        <div class="paper-clip" style="left: auto; right: 15px; top: -15px;"></div>
+                                        <div class="pt-4 flex flex-col flex-grow">
+                                                <div class="flex items-center justify-between mb-3">
+                                                        <span class="text-xs font-typewriter text-secondary uppercase tracking-wider font-bold">Saúde Mental</span>
+                                                        <span class="text-xs font-typewriter text-on-surface-variant">08 Jun 2026</span>
+                                                </div>
+                                                <h2 class="font-handwritten text-3xl text-on-surface mb-3 leading-tight">
+                                                        Lidando com a Sobrecarga
+                                                </h2>
+                                                <p class="font-body text-on-surface-variant text-sm mb-4 flex-grow leading-relaxed">
+                                                        Estratégias práticas para reconhecer os sinais de exaustão e encontrar pausas significativas no seu dia a dia.
+                                                </p>
+                                                <div class="border-t border-outline-variant/30 pt-4 mt-auto">
+                                                        <h3 class="font-typewriter text-xs text-on-surface-variant mb-2 uppercase tracking-wider">Neste artigo:</h3>
+                                                        <ul class="list-disc pl-4 text-xs font-typewriter text-on-surface-variant space-y-1">
+                                                                <li>Sinais de sobrecarga cognitiva</li>
+                                                                <li>Pausas ativas e desconexão digital</li>
+                                                                <li>Por que descansar não é preguiça</li>
+                                                        </ul>
+                                                </div>
+                                                <button class="mt-4 w-full py-3 bg-primary text-on-primary rounded-md font-typewriter text-sm hover:bg-primary/90 transition-colors shadow-md read-article-btn" data-id="2">
+                                                        Ler Artigo Completo
+                                                </button>
+                                        </div>
+                                </article>
+
+                                <!-- Article 3 -->
+                                <article class="polaroid hover-lift flex flex-col h-full bg-white relative" data-category="reflexoes" style="transform: rotate(-1deg);">
+                                        <div class="tape" style="top: -8px; right: 20px; left: auto; transform: rotate(5deg); width: 50px;"></div>
+                                        <div class="pt-4 flex flex-col flex-grow">
+                                                <div class="flex items-center justify-between mb-3">
+                                                        <span class="text-xs font-typewriter text-primary uppercase tracking-wider font-bold">Reflexões</span>
+                                                        <span class="text-xs font-typewriter text-on-surface-variant">08 Jun 2026</span>
+                                                </div>
+                                                <h2 class="font-handwritten text-3xl text-on-surface mb-3 leading-tight">
+                                                        O Poder da Escrita Terapêutica
+                                                </h2>
+                                                <p class="font-body text-on-surface-variant text-sm mb-4 flex-grow leading-relaxed">
+                                                        Como colocar seus pensamentos no papel pode ajudar na organização emocional e alívio da ansiedade.
+                                                </p>
+                                                <div class="border-t border-outline-variant/30 pt-4 mt-auto">
+                                                        <h3 class="font-typewriter text-xs text-on-surface-variant mb-2 uppercase tracking-wider">Neste artigo:</h3>
+                                                        <ul class="list-disc pl-4 text-xs font-typewriter text-on-surface-variant space-y-1">
+                                                                <li>O que é journaling terapêutico</li>
+                                                                <li>Método do desabafo por escrito</li>
+                                                                <li>Diário de gratidão: como começar</li>
+                                                        </ul>
+                                                </div>
+                                                <button class="mt-4 w-full py-3 bg-primary text-on-primary rounded-md font-typewriter text-sm hover:bg-primary/90 transition-colors shadow-md read-article-btn" data-id="3">
+                                                        Ler Artigo Completo
+                                                </button>
+                                        </div>
+                                </article>
+
+                                <!-- Article 4 -->
+                                <article class="polaroid hover-lift flex flex-col h-full bg-white relative" data-category="dicas" style="transform: rotate(1deg);">
+                                        <div class="tape" style="top: -8px; left: 50%; transform: translateX(-50%) rotate(-2deg); width: 70px;"></div>
+                                        <div class="pt-4 flex flex-col flex-grow">
+                                                <div class="flex items-center justify-between mb-3">
+                                                        <span class="text-xs font-typewriter text-secondary uppercase tracking-wider font-bold">Dicas Práticas</span>
+                                                        <span class="text-xs font-typewriter text-on-surface-variant">Em breve</span>
+                                                </div>
+                                                <h2 class="font-handwritten text-3xl text-on-surface mb-3 leading-tight">
+                                                        Rotinas para uma Noite de Sono Melhor
+                                                </h2>
+                                                <p class="font-body text-on-surface-variant text-sm mb-4 flex-grow leading-relaxed">
+                                                        Pequenas mudanças na rotina noturna que podem transformar drasticamente a qualidade do seu sono e da sua saúde mental.
+                                                </p>
+                                                <div class="border-t border-outline-variant/30 pt-4 mt-auto">
+                                                        <p class="font-typewriter text-xs text-on-surface-variant italic text-center py-4">
+                                                                Artigo em produção. Volte em breve!
+                                                        </p>
+                                                </div>
+                                                <button class="mt-4 w-full py-3 bg-surface-container-highest text-on-surface-variant rounded-md font-typewriter text-sm cursor-not-allowed" disabled>
+                                                        Em Breve
+                                                </button>
+                                        </div>
+                                </article>
+
+                                <!-- Article 5 -->
+                                <article class="polaroid hover-lift flex flex-col h-full bg-white relative" data-category="saude-mental" style="transform: rotate(-2deg);">
+                                        <div class="tape" style="top: -8px; left: 10px; transform: rotate(3deg); width: 55px;"></div>
+                                        <div class="pt-4 flex flex-col flex-grow">
+                                                <div class="flex items-center justify-between mb-3">
+                                                        <span class="text-xs font-typewriter text-secondary uppercase tracking-wider font-bold">Saúde Mental</span>
+                                                        <span class="text-xs font-typewriter text-on-surface-variant">Em breve</span>
+                                                </div>
+                                                <h2 class="font-handwritten text-3xl text-on-surface mb-3 leading-tight">
+                                                        Ansiedade: Quando Procurar Ajuda Profissional
+                                                </h2>
+                                                <p class="font-body text-on-surface-variant text-sm mb-4 flex-grow leading-relaxed">
+                                                        Entenda a diferença entre ansiedade normal e ansiedade clínica, e saiba quando é hora de buscar acompanhamento especializado.
+                                                </p>
+                                                <div class="border-t border-outline-variant/30 pt-4 mt-auto">
+                                                        <p class="font-typewriter text-xs text-on-surface-variant italic text-center py-4">
+                                                                Artigo em produção. Volte em breve!
+                                                        </p>
+                                                </div>
+                                                <button class="mt-4 w-full py-3 bg-surface-container-highest text-on-surface-variant rounded-md font-typewriter text-sm cursor-not-allowed" disabled>
+                                                        Em Breve
+                                                </button>
+                                        </div>
+                                </article>
+
+                                <!-- Article 6 -->
+                                <article class="polaroid hover-lift flex flex-col h-full bg-white relative" data-category="reflexoes" style="transform: rotate(1deg);">
+                                        <div class="paper-clip" style="left: 15px; top: -15px;"></div>
+                                        <div class="pt-4 flex flex-col flex-grow">
+                                                <div class="flex items-center justify-between mb-3">
+                                                        <span class="text-xs font-typewriter text-primary uppercase tracking-wider font-bold">Reflexões</span>
+                                                        <span class="text-xs font-typewriter text-on-surface-variant">Em breve</span>
+                                                </div>
+                                                <h2 class="font-handwritten text-3xl text-on-surface mb-3 leading-tight">
+                                                        A Importância do Autoperdão
+                                                </h2>
+                                                <p class="font-body text-on-surface-variant text-sm mb-4 flex-grow leading-relaxed">
+                                                        Como perdoar a si mesmo é um passo essencial para o autoconhecimento e a saúde emocional.
+                                                </p>
+                                                <div class="border-t border-outline-variant/30 pt-4 mt-auto">
+                                                        <p class="font-typewriter text-xs text-on-surface-variant italic text-center py-4">
+                                                                Artigo em produção. Volte em breve!
+                                                        </p>
+                                                </div>
+                                                <button class="mt-4 w-full py-3 bg-surface-container-highest text-on-surface-variant rounded-md font-typewriter text-sm cursor-not-allowed" disabled>
+                                                        Em Breve
+                                                </button>
+                                        </div>
+                                </article>
+
+                        </div>
+                </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="bg-surface-container-low py-xl torn-edge-top">
+                <div class="max-w-3xl mx-auto px-margin-mobile md:px-xl text-center">
+                        <h2 class="font-handwritten text-3xl md:text-4xl text-primary mb-4">
+                            Precisa de ajuda profissional?
+                        </h2>
+                        <p class="font-typewriter text-on-surface-variant mb-6 max-w-xl mx-auto">
+                            Se algo neste artigo ressoou com você, saiba que a terapia pode ser um espaço seguro para explorar essas questões com profundidade.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                                <a href="/" class="inline-flex items-center justify-center px-md py-sm bg-secondary text-on-secondary font-label-md rounded-full hover:opacity-90 transition-all shadow-md">
+                                        <span class="material-symbols-outlined mr-2">calendar_month</span>
+                                        Agendar Consulta
+                                </a>
+                                <a href="https://wa.me/5521988489341" target="_blank" rel="noopener noreferrer"
+                                        class="inline-flex items-center justify-center px-md py-sm bg-primary text-on-primary font-label-md rounded-full hover:opacity-90 transition-all shadow-md">
+                                        <span class="material-symbols-outlined mr-2">chat</span>
+                                        Falar no WhatsApp
+                                </a>
+                        </div>
+                </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="w-full bg-surface-container-low pt-12 pb-8 px-margin-mobile md:px-xl flex flex-col items-center gap-md relative">
+                <div class="text-2xl font-typewriter text-primary">
+                        <img alt="Ester Figueiredo Logo" class="h-14 w-auto object-contain mx-auto"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdhN24sqfXGjqhwZEtGYxVtfbEPCNVVGVLEt5ZveaRZeSOSsERZCaWEOkraDJQu6fp6X9NWByfZrjAF4OSMX_N5cjX9U7Oj4Q3TfUH7yFQtijck_H11sQyTZroVCMmY6v8wtQ6GXnumQc1baHLa2o1YM4tKOYutt4diS64IrB6CuCoq5-_IG-pzLNCiLqMAB0Z1rvAT9tIg5dJz6KvId6pwEdK5Ml7fUgZHhQWQ_9S--ZkBHY6AlvUiwqHj2bM4KWzEs1PhqcnId0" />
+                </div>
+                <div class="flex flex-col md:flex-row items-center gap-4 text-on-surface-variant font-typewriter text-sm mb-4">
+                        <a class="hover:text-primary transition-colors flex items-center gap-1"
+                                href="https://instagram.com/psiesterfigueiredo" rel="noopener noreferrer" target="_blank">
+                                <span class="material-symbols-outlined text-sm">photo_camera</span> @psiesterfigueiredo
+                        </a>
+                        <span class="hidden md:inline">&bull;</span>
+                        <a class="hover:text-primary transition-colors flex items-center gap-1"
+                                href="mailto:psiesterfigueiredo@gmail.com">
+                                <span class="material-symbols-outlined text-sm">mail</span> psiesterfigueiredo@gmail.com
+                        </a>
+                        <span class="hidden md:inline">&bull;</span>
+                        <a class="hover:text-primary transition-colors flex items-center gap-1"
+                                href="https://wa.me/5521988489341" rel="noopener noreferrer" target="_blank">
+                                <span class="material-symbols-outlined text-sm">call</span> +55 21 98848-9341
+                        </a>
+                </div>
+                <div class="text-secondary font-typewriter text-xs text-center mt-4">
+                        &copy; 2026 Ester Figueiredo - Psicóloga Clínica. Todos os direitos reservados.
+                </div>
+        </footer>
+
+        <!-- Article Modal -->
+        <div id="article-modal"
+                class="fixed inset-0 z-[110] bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 transition-opacity duration-300 opacity-0 pointer-events-none">
+                <div class="bg-surface rounded-lg max-w-2xl w-full max-h-[85vh] overflow-y-auto shadow-2xl transition-all duration-300 scale-95 flex flex-col relative notebook-paper"
+                        id="article-modal-dialog">
+                        <div class="tape top-0 z-10"></div>
+                        <button id="article-modal-close" aria-label="Fechar artigo"
+                                class="absolute top-4 right-4 text-on-surface-variant hover:text-primary transition-colors z-20 p-2">
+                                <span class="material-symbols-outlined text-2xl">close</span>
+                        </button>
+                        <div class="p-8 mt-4" id="article-modal-content">
+                                <!-- Loaded dynamically -->
+                        </div>
+                </div>
+        </div>
+
+        <script>
+                // Blog Articles Data
+                const blogArticles = {
+                        "1": {
+                                title: "Recomendações de Leitura e Decoração",
+                                category: "Curadoria",
+                                date: "08 Jun 2026",
+                                content: `
+                                        <p class="mb-4">A curadoria de um consultório psicológico ou de um espaço de estudos vai muito além da estética: trata-se de criar um ambiente que estimule o foco e evoque a sensação de calma. A escolha de cores neutras e terrosas, iluminação difusa (como luminárias de luz amarela quente) e plantas ajudam a reduzir os níveis de ansiedade e batimentos cardíacos.</p>
+                                        <p class="mb-4">Para leituras inspiradoras, recomendamos obras que aproximam a psicologia clínica da experiência humana cotidiana:</p>
+                                        <ul class="list-decimal pl-6 mb-4 space-y-2">
+                                                <li><strong>Talvez você deva conversar com alguém</strong> (Lori Gottlieb) — Uma reflexão sensível sobre o processo de terapia tanto da perspectiva do terapeuta quanto do paciente.</li>
+                                                <li><strong>A coragem de ser imperfeito</strong> (Brené Brown) — Um estudo essencial sobre vulnerabilidade, vergonha e aceitação.</li>
+                                                <li><strong>O obstáculo é o caminho</strong> (Ryan Holiday) — Filosofia estoica aplicada ao cotidiano para o desenvolvimento de resiliência.</li>
+                                        </ul>
+                                        <p>Experimente incluir pequenos elementos táteis na sua mesa, como um bloco de notas de papel texturizado e uma caneta confortável, estimulando a presença física no momento presente.</p>`
+                        },
+                        "2": {
+                                title: "Lidando com a Sobrecarga",
+                                category: "Saúde Mental",
+                                date: "08 Jun 2026",
+                                content: `
+                                        <p class="mb-4">No ritmo acelerado da vida moderna, a exaustão mental (ou sobrecarga cognitiva) muitas vezes se instala de maneira silenciosa. Identificar os primeiros sinais é fundamental para evitar o esgotamento completo. Sintomas comuns incluem irritabilidade por motivos pequenos, dificuldade de concentração, alterações no sono e a sensação constante de que "o tempo nunca é suficiente".</p>
+                                        <p class="mb-4">Estratégias práticas para lidar com a sobrecarga:</p>
+                                        <ul class="list-disc pl-6 mb-4 space-y-2">
+                                                <li><strong>Pausas Ativas:</strong> Afaste-se das telas por 5 minutos a cada 1 hora de trabalho. Faça alongamentos leves ou respire profundamente olhando pela janela.</li>
+                                                <li><strong>Definição de Limites:</strong> Dizer "não" é uma habilidade de preservação da saúde mental. Avalie quais compromissos são realmente essenciais e quais podem ser delegados ou adiados.</li>
+                                                <li><strong>Desconexão Digital:</strong> Crie uma barreira entre o trabalho e o descanso. Desative as notificações de aplicativos de trabalho após o expediente.</li>
+                                        </ul>
+                                        <p>Lembre-se: descansar não é uma recompensa pela produtividade, mas uma necessidade fisiológica e psicológica básica.</p>`
+                        },
+                        "3": {
+                                title: "O Poder da Escrita Terapêutica",
+                                category: "Reflexões",
+                                date: "08 Jun 2026",
+                                content: `
+                                        <p class="mb-4">A escrita terapêutica (ou journaling) é uma ferramenta simples e cientificamente validada para a organização emocional. Quando colocamos em palavras o que sentimos, traduzimos sensações difusas do cérebro em estruturas lineares e compreensíveis, o que reduz a ruminação mental.</p>
+                                        <p class="mb-4">Como começar a praticar:</p>
+                                        <ul class="list-disc pl-6 mb-4 space-y-2">
+                                                <li><strong>Sem Julgamentos:</strong> Não se preocupe com gramática, caligrafia ou coerência. Escreva exatamente o que vier à mente.</li>
+                                                <li><strong>O Método do Desabafo:</strong> Escreva por 10 minutos seguidos sobre uma situação difícil ou um sentimento incômodo. Se preferir, descarte o papel depois — o benefício está no ato físico de escrever.</li>
+                                                <li><strong>Diário de Gratidão:</strong> Registre 3 pequenas coisas pelas quais você se sente grata no dia. Isso ajuda a reinar o cérebro para identificar aspectos positivos da rotina.</li>
+                                        </ul>
+                                        <p>Ao externalizar seus pensamentos no papel, você cria um distanciamento saudável de suas emoções, permitindo olhá-las com mais clareza e autocompaixão.</p>`
+                        }
+                };
+
+                // DOM Elements
+                const articleModal = document.getElementById('article-modal');
+                const articleModalDialog = document.getElementById('article-modal-dialog');
+                const articleModalClose = document.getElementById('article-modal-close');
+                const articleModalContent = document.getElementById('article-modal-content');
+
+                // Open article modal
+                function openArticleModal(html) {
+                        articleModalContent.innerHTML = html;
+                        articleModal.classList.remove('pointer-events-none', 'opacity-0');
+                        articleModal.classList.add('opacity-100');
+                        articleModalDialog.classList.remove('scale-95');
+                        articleModalDialog.classList.add('scale-100');
+                        document.body.style.overflow = 'hidden';
+                }
+
+                // Close article modal
+                function closeArticleModal() {
+                        articleModal.classList.add('pointer-events-none', 'opacity-0');
+                        articleModal.classList.remove('opacity-100');
+                        articleModalDialog.classList.add('scale-95');
+                        articleModalDialog.classList.remove('scale-100');
+                        document.body.style.overflow = '';
+                }
+
+                articleModalClose.addEventListener('click', closeArticleModal);
+                articleModal.addEventListener('click', (e) => {
+                        if (e.target === articleModal) closeArticleModal();
+                });
+
+                document.addEventListener('keydown', (e) => {
+                        if (e.key === 'Escape') closeArticleModal();
+                });
+
+                // Read article buttons
+                document.querySelectorAll('.read-article-btn').forEach(btn => {
+                        btn.addEventListener('click', () => {
+                                const articleId = btn.getAttribute('data-id');
+                                const article = blogArticles[articleId];
+                                if (article) {
+                                        const html = `
+                                                <span class="text-xs font-typewriter text-primary mb-2 uppercase tracking-wider block">${article.category} &bull; ${article.date}</span>
+                                                <h2 class="font-handwritten text-4xl text-on-surface mb-6 border-b border-primary/20 pb-4">${article.title}</h2>
+                                                <div class="font-typewriter text-on-surface-variant leading-relaxed text-base space-y-4">
+                                                        ${article.content}
+                                                </div>
+                                                <div class="mt-8 pt-4 border-t border-outline-variant/30 text-center">
+                                                        <p class="font-typewriter text-xs text-on-surface-variant mb-4">Escrito por <strong>Dra. Ester Figueiredo</strong> — Psicóloga Clínica (CRP 05/87164)</p>
+                                                        <a href="/" class="inline-flex items-center justify-center px-md py-sm bg-primary text-on-primary font-label-md rounded-full hover:opacity-90 transition-all shadow-md text-sm">
+                                                                <span class="material-symbols-outlined mr-1 text-sm">arrow_back</span>
+                                                                Voltar ao Site
+                                                        </a>
+                                                </div>
+                                        `;
+                                        openArticleModal(html);
+                                }
+                        });
+                });
+
+                // Category filter
+                const filterBtns = document.querySelectorAll('.blog-filter');
+                const articles = document.querySelectorAll('article[data-category]');
+
+                filterBtns.forEach(btn => {
+                        btn.addEventListener('click', () => {
+                                const category = btn.getAttribute('data-category');
+
+                                filterBtns.forEach(b => {
+                                        b.classList.remove('active', 'bg-primary', 'text-on-primary', 'shadow-md');
+                                        b.classList.add('bg-surface-container-highest', 'text-on-surface-variant');
+                                });
+                                btn.classList.remove('bg-surface-container-highest', 'text-on-surface-variant');
+                                btn.classList.add('active', 'bg-primary', 'text-on-primary', 'shadow-md');
+
+                                articles.forEach(article => {
+                                        if (category === 'all' || article.getAttribute('data-category') === category) {
+                                                article.style.display = '';
+                                        } else {
+                                                article.style.display = 'none';
+                                        }
+                                });
+                        });
+                });
+        </script>
+</body>
+
+</html>

@@ -1,4 +1,4 @@
-﻿                // ==========================================
+                // ==========================================
                 // LOGGER & DIAGNOSTIC SYSTEM
                 // ==========================================
                 const Logger = {
@@ -508,13 +508,6 @@
                         });
                 });
 
-                // Blog "See all" click
-                document.querySelectorAll('.blog-see-all').forEach(btn => {
-                        btn.addEventListener('click', () => {
-                                showToast("A curadoria de artigos estarÃ¡ disponÃ­vel em breve com materiais exclusivos!", "menu_book");
-                        });
-                });
-
                 // Terms and Privacy links click
                 document.getElementById('terms-link').addEventListener('click', () => {
                         const terms = legalContent.terms;
@@ -730,7 +723,7 @@
                 // BOOKING DATA SYSTEM (Used by LINA Chat)
                 // ==========================================
                 const API_BASE_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
-                        ? "http://127.0.0.1:8000/api"
+                        ? `http://${window.location.hostname}:8000/api`
                         : `${window.location.protocol}//${window.location.hostname}/api`;
                 let allBookings = [];
 
@@ -1037,13 +1030,19 @@
                 // Site Content inputs
                 const adminContentHeroTitle = document.getElementById('admin-content-hero-title');
                 const adminContentHeroDesc = document.getElementById('admin-content-hero-desc');
+                const adminContentHeroImg = document.getElementById('admin-content-hero-img');
                 const adminContentAboutTitle = document.getElementById('admin-content-about-title');
                 const adminContentAboutImg = document.getElementById('admin-content-about-img');
                 const adminContentAboutContent = document.getElementById('admin-content-about-content');
                 const adminContentAboutFooter = document.getElementById('admin-content-about-footer');
+                const adminContentComoImg = document.getElementById('admin-content-como-img');
+                const adminContentDifImg = document.getElementById('admin-content-dif-img');
+                const adminContentValorSessao = document.getElementById('admin-content-valor-sessao');
+                const adminContentValorMensal = document.getElementById('admin-content-valor-mensal');
+                const adminContentValoresImg = document.getElementById('admin-content-valores-img');
                 const adminSaveContentBtn = document.getElementById('admin-save-content-btn');
 
-                // PDF Products admin inputs & list
+                // PDF/Ebooks admin inputs & list
                 const adminAddPdfBtn = document.getElementById('admin-add-pdf-btn');
                 const adminPdfFormContainer = document.getElementById('admin-pdf-form-container');
                 const adminPdfFormTitle = document.getElementById('admin-pdf-form-title');
@@ -1051,33 +1050,277 @@
                 const adminPdfTitleInput = document.getElementById('admin-pdf-title');
                 const adminPdfPriceInput = document.getElementById('admin-pdf-price');
                 const adminPdfDescInput = document.getElementById('admin-pdf-desc');
+                const adminPdfIconInput = document.getElementById('admin-pdf-icon');
                 const adminPdfPaymentLinkInput = document.getElementById('admin-pdf-payment-link');
-                const adminPdfDownloadUrlInput = document.getElementById('admin-pdf-download-url');
                 const adminPdfCancelBtn = document.getElementById('admin-pdf-cancel-btn');
                 const adminPdfSaveBtn = document.getElementById('admin-pdf-save-btn');
                 const adminPdfListContainer = document.getElementById('admin-pdf-list');
 
-                // Sales history list
-                const adminPurchasesTableBody = document.getElementById('admin-purchases-table-body');
+                // Blog admin
+                const adminAddBlogBtn = document.getElementById('admin-add-blog-btn');
+                const adminBlogFormContainer = document.getElementById('admin-blog-form-container');
+                const adminBlogFormTitle = document.getElementById('admin-blog-form-title');
+                const adminBlogIdInput = document.getElementById('admin-blog-id');
+                const adminBlogTitleInput = document.getElementById('admin-blog-title');
+                const adminBlogCategoryInput = document.getElementById('admin-blog-category');
+                const adminBlogDateInput = document.getElementById('admin-blog-date');
+                const adminBlogExcerptInput = document.getElementById('admin-blog-excerpt');
+                const adminBlogContentInput = document.getElementById('admin-blog-content');
+                const adminBlogImageInput = document.getElementById('admin-blog-image');
+                const adminBlogCancelBtn = document.getElementById('admin-blog-cancel-btn');
+                const adminBlogSaveBtn = document.getElementById('admin-blog-save-btn');
+                const adminBlogListContainer = document.getElementById('admin-blog-list');
 
-                // Public PDF elements (removed - products now on Orbita)
+                // Pages admin
+                const adminTestimonialsList = document.getElementById('admin-testimonials-list');
+                const adminAddTestimonialBtn = document.getElementById('admin-add-testimonial-btn');
+                const adminFaqList = document.getElementById('admin-faq-list');
+                const adminAddFaqBtn = document.getElementById('admin-add-faq-btn');
+                const adminSavePagesBtn = document.getElementById('admin-save-pages-btn');
+
+                // Globals admin
+                const adminGlobalWhatsapp = document.getElementById('admin-global-whatsapp');
+                const adminGlobalEmail = document.getElementById('admin-global-email');
+                const adminGlobalPhone = document.getElementById('admin-global-phone');
+                const adminGlobalAddress = document.getElementById('admin-global-address');
+                const adminGlobalInstagram = document.getElementById('admin-global-instagram');
+                const adminGlobalOtherSocial = document.getElementById('admin-global-other-social');
+                const adminGlobalLogo = document.getElementById('admin-global-logo');
+                const adminGlobalEbooksCtaText = document.getElementById('admin-global-ebooks-cta-text');
+                const adminSaveGlobalsBtn = document.getElementById('admin-save-globals-btn');
+
                 let adminToken = null;
+
+                // Image upload preview helper
+                function adminPreviewImage(input, previewId) {
+                        if (input.files && input.files[0]) {
+                                const reader = new FileReader();
+                                reader.onload = function(e) {
+                                        const img = document.getElementById(previewId);
+                                        if (img) img.src = e.target.result;
+                                };
+                                reader.readAsDataURL(input.files[0]);
+                        }
+                }
+
+                function setPreview(previewId, src) {
+                        const img = document.getElementById(previewId);
+                        if (img && src) img.src = src;
+                }
+
+                function getFileFromInput(inputId) {
+                        return new Promise((resolve) => {
+                                const input = document.getElementById(inputId);
+                                if (input && input.files && input.files[0]) {
+                                        const reader = new FileReader();
+                                        reader.onload = (e) => resolve(e.target.result);
+                                        reader.readAsDataURL(input.files[0]);
+                                } else {
+                                        resolve(null);
+                                }
+                        });
+                }
 
                 // 1. Load Dynamic Site Content
                 async function loadSiteData() {
+                        let c = {};
                         try {
                                 const contentRes = await fetch(`${API_BASE_URL}/admin/site-content`);
-                                if (contentRes.ok) {
-                                        const contents = await contentRes.json();
-                                        if (contents.hero_title) document.getElementById('hero-title').innerText = contents.hero_title;
-                                        if (contents.hero_desc) document.getElementById('hero-desc').innerText = contents.hero_desc;
-                                        if (contents.about_title) document.getElementById('about-title').innerText = contents.about_title;
-                                        if (contents.about_img) document.getElementById('about-img').src = contents.about_img;
-                                        if (contents.about_content) document.getElementById('about-content').innerHTML = contents.about_content;
-                                        if (contents.about_footer) document.getElementById('about-footer').innerText = contents.about_footer;
-                                }
+                                if (contentRes.ok) c = await contentRes.json();
                         } catch (e) {
-                                Logger.error("Erro ao carregar dados dinÃ¢micos do site", e);
+                                Logger.error("Erro ao carregar dados dinâmicos do site", e);
+                        }
+                        // Supplement with localStorage
+                        ['hero_title','hero_desc','hero_img','about_title','about_img','about_content','about_footer','como_img','dif_img','valor_sessao','valor_mensal','valores_img'].forEach(key => {
+                                if (!c[key]) { const v = localStorage.getItem(`site_content_${key}`); if (v) c[key] = v; }
+                        });
+
+                        if (c.hero_title) { const el = document.getElementById('hero-title'); if(el) el.innerText = c.hero_title; }
+                        if (c.hero_desc) { const el = document.getElementById('hero-desc'); if(el) el.innerText = c.hero_desc; }
+                        if (c.hero_img) { const el = document.querySelector('img[alt="Background banner"]'); if(el) el.src = c.hero_img; }
+                        if (c.about_title) { const el = document.getElementById('about-title'); if(el) el.innerText = c.about_title; }
+                        if (c.about_img) { const el = document.getElementById('about-img'); if(el) el.src = c.about_img; }
+                        if (c.about_content) { const el = document.getElementById('about-content'); if(el) el.innerHTML = c.about_content; }
+                        if (c.about_footer) { const el = document.getElementById('about-footer'); if(el) el.innerText = c.about_footer; }
+                }
+
+                // Load globals
+                function loadGlobals() {
+                        const g = JSON.parse(localStorage.getItem('site_globals') || '{}');
+                        if (adminGlobalWhatsapp) adminGlobalWhatsapp.value = g.whatsapp || '5521988489341';
+                        if (adminGlobalEmail) adminGlobalEmail.value = g.email || 'psiesterfigueiredo@gmail.com';
+                        if (adminGlobalPhone) adminGlobalPhone.value = g.phone || '+55 21 98848-9341';
+                        if (adminGlobalAddress) adminGlobalAddress.value = g.address || 'Nova Iguaçu, RJ';
+                        if (adminGlobalInstagram) adminGlobalInstagram.value = g.instagram || 'https://instagram.com/psiesterfigueiredo';
+                        if (adminGlobalOtherSocial) adminGlobalOtherSocial.value = g.other_social || '';
+                        if (adminGlobalLogo) adminGlobalLogo.value = g.logo || '';
+                        if (adminGlobalEbooksCtaText) adminGlobalEbooksCtaText.value = g.ebooks_cta_text || 'Conteúdos exclusivos criados pela Dra. Ester Figueiredo para apoiar seu journey de autoconhecimento e saúde mental.';
+                }
+
+                // Load Blog Posts from localStorage
+                function loadBlogPosts() {
+                        return JSON.parse(localStorage.getItem('site_blog_posts') || '[]');
+                }
+
+                function saveBlogPosts(posts) {
+                        localStorage.setItem('site_blog_posts', JSON.stringify(posts));
+                }
+
+                function renderBlogList() {
+                        const posts = loadBlogPosts();
+                        if (!adminBlogListContainer) return;
+                        if (posts.length === 0) {
+                                adminBlogListContainer.innerHTML = '<p class="italic text-on-surface-variant text-sm py-4">Nenhum artigo publicado ainda.</p>';
+                                return;
+                        }
+                        adminBlogListContainer.innerHTML = posts.map((p, i) => `
+                                <div class="p-4 bg-surface-container rounded-lg border border-outline-variant/30 flex justify-between items-center">
+                                        <div>
+                                                <h5 class="font-bold text-sm text-on-surface">${p.title}</h5>
+                                                <p class="text-xs text-on-surface-variant">${p.category} • ${p.date}</p>
+                                        </div>
+                                        <div class="flex gap-2">
+                                                <button class="px-3 py-1 bg-primary text-on-primary rounded text-xs edit-blog-btn" data-idx="${i}">Editar</button>
+                                                <button class="px-3 py-1 bg-red-600 text-white rounded text-xs delete-blog-btn" data-idx="${i}">Excluir</button>
+                                        </div>
+                                </div>
+                        `).join('');
+
+                        document.querySelectorAll('.edit-blog-btn').forEach(btn => {
+                                btn.addEventListener('click', () => {
+                                        const idx = parseInt(btn.getAttribute('data-idx'));
+                                        const p = posts[idx];
+                                        adminBlogFormContainer.classList.remove('hidden');
+                                        adminBlogFormTitle.innerText = 'Editar Artigo';
+                                        adminBlogIdInput.value = idx;
+                                        adminBlogTitleInput.value = p.title;
+                                        adminBlogCategoryInput.value = p.category_key || 'curadoria';
+                                        adminBlogDateInput.value = p.date || '';
+                                        adminBlogExcerptInput.value = p.excerpt || '';
+                                        adminBlogContentInput.value = p.content || '';
+                                        setPreview('preview-blog-image', p.image || 'assets/ester-blog.jpg');
+                                });
+                        });
+
+                        document.querySelectorAll('.delete-blog-btn').forEach(btn => {
+                                btn.addEventListener('click', () => {
+                                        const idx = parseInt(btn.getAttribute('data-idx'));
+                                        if (confirm('Excluir este artigo?')) {
+                                                posts.splice(idx, 1);
+                                                saveBlogPosts(posts);
+                                                renderBlogList();
+                                                showToast('Artigo excluído!', 'check_circle');
+                                        }
+                                });
+                        });
+                }
+
+                // Load Testimonials from localStorage
+                function loadTestimonials() {
+                        return JSON.parse(localStorage.getItem('site_testimonials') || '[]');
+                }
+
+                function saveTestimonials(items) {
+                        localStorage.setItem('site_testimonials', JSON.stringify(items));
+                }
+
+                function renderTestimonialsList() {
+                        const items = loadTestimonials();
+                        if (!adminTestimonialsList) return;
+                        if (items.length === 0) {
+                                adminTestimonialsList.innerHTML = '<p class="italic text-on-surface-variant text-sm py-4">Nenhum depoimento cadastrado.</p>';
+                                return;
+                        }
+                        adminTestimonialsList.innerHTML = items.map((t, i) => `
+                                <div class="p-3 bg-white rounded border border-outline-variant/30 flex justify-between items-center text-sm">
+                                        <div><strong>${t.name}</strong> — <span class="text-on-surface-variant">${t.text.substring(0, 60)}...</span></div>
+                                        <button class="px-2 py-1 bg-red-600 text-white rounded text-xs delete-testimonial-btn" data-idx="${i}">X</button>
+                                </div>
+                        `).join('');
+                        document.querySelectorAll('.delete-testimonial-btn').forEach(btn => {
+                                btn.addEventListener('click', () => {
+                                        const idx = parseInt(btn.getAttribute('data-idx'));
+                                        items.splice(idx, 1);
+                                        saveTestimonials(items);
+                                        renderTestimonialsList();
+                                });
+                        });
+                }
+
+                // Load FAQ from localStorage
+                function loadFaq() {
+                        return JSON.parse(localStorage.getItem('site_faq') || '[]');
+                }
+
+                function saveFaq(items) {
+                        localStorage.setItem('site_faq', JSON.stringify(items));
+                }
+
+                function renderFaqList() {
+                        const items = loadFaq();
+                        if (!adminFaqList) return;
+                        if (items.length === 0) {
+                                adminFaqList.innerHTML = '<p class="italic text-on-surface-variant text-sm py-4">Nenhuma pergunta cadastrada.</p>';
+                                return;
+                        }
+                        adminFaqList.innerHTML = items.map((f, i) => `
+                                <div class="p-3 bg-white rounded border border-outline-variant/30 flex justify-between items-center text-sm">
+                                        <div><strong>${f.question}</strong></div>
+                                        <button class="px-2 py-1 bg-red-600 text-white rounded text-xs delete-faq-btn" data-idx="${i}">X</button>
+                                </div>
+                        `).join('');
+                        document.querySelectorAll('.delete-faq-btn').forEach(btn => {
+                                btn.addEventListener('click', () => {
+                                        const idx = parseInt(btn.getAttribute('data-idx'));
+                                        items.splice(idx, 1);
+                                        saveFaq(items);
+                                        renderFaqList();
+                                });
+                        });
+                }
+
+                // 1b. Load Public Products for showcase
+                async function loadProducts() {
+                        const grid = document.getElementById('products-grid');
+                        const loading = document.getElementById('products-loading');
+                        const empty = document.getElementById('products-empty');
+                        if (!grid) return;
+                        try {
+                                const res = await fetch(`${API_BASE_URL}/products`);
+                                if (!res.ok) throw new Error('Failed to fetch products');
+                                const products = await res.json();
+                                if (loading) loading.remove();
+                                if (!products || products.length === 0) {
+                                        if (empty) empty.classList.remove('hidden');
+                                        return;
+                                }
+                                if (empty) empty.classList.add('hidden');
+                                grid.innerHTML = products.map(p => `
+                                        <div class="notebook-paper relative group">
+                                                <div class="absolute top-2 right-2 z-20">
+                                                        <span class="material-symbols-outlined text-primary text-lg">auto_stories</span>
+                                                </div>
+                                                <div class="p-5 flex flex-col h-full">
+                                                        <div class="flex items-center gap-2 mb-3">
+                                                                <span class="material-symbols-outlined text-secondary text-xl">picture_as_pdf</span>
+                                                                <span class="font-label-sm text-primary uppercase tracking-wide">PDF</span>
+                                                        </div>
+                                                        <h4 class="font-handwritten text-xl text-on-surface mb-2 leading-snug">${p.title}</h4>
+                                                        <p class="font-typewriter text-sm text-on-surface-variant mb-4 flex-1 leading-relaxed">${p.description || ''}</p>
+                                                        <div class="flex items-center justify-between mt-auto pt-3 border-t border-outline-variant/30">
+                                                                <span class="font-label-lg text-secondary font-bold">R$ ${p.price.toFixed(2).replace('.', ',')}</span>
+                                                                <a href="${p.payment_link}" target="_blank" rel="noopener noreferrer"
+                                                                        class="inline-flex items-center gap-1.5 px-4 py-2 bg-secondary text-on-secondary text-sm font-medium rounded-full hover:opacity-90 transition-all hover:translate-y-[-1px] shadow-sm cursor-pointer">
+                                                                        <span class="material-symbols-outlined text-base">shopping_cart</span>
+                                                                        Adquirir
+                                                                </a>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                `).join('');
+                        } catch (e) {
+                                Logger.error("Erro ao carregar produtos", e);
+                                if (loading) loading.innerHTML = '<p class="font-typewriter text-on-surface-variant text-sm">Não foi possível carregar os materiais no momento.</p>';
                         }
                 }
 
@@ -1166,40 +1409,75 @@
                         if (!adminToken) return;
 
                         try {
-                                const headers = { 'Authorization': `Bearer ${adminToken}` };
-
                                 // Load Content Tab Inputs
                                 const contentRes = await fetch(`${API_BASE_URL}/admin/site-content`);
                                 if (contentRes.ok) {
                                         const c = await contentRes.json();
-                                        adminContentHeroTitle.value = c.hero_title || "Criando caminhos de leveza e propÃ³sito.";
+                                        adminContentHeroTitle.value = c.hero_title || "Criando caminhos de leveza e propósito.";
                                         adminContentHeroDesc.value = c.hero_desc || "";
+                                        setPreview('preview-hero-img', c.hero_img || 'assets/ester-hero.jpg');
                                         adminContentAboutTitle.value = c.about_title || "Muito prazer!";
-                                        adminContentAboutImg.value = c.about_img || "";
+                                        setPreview('preview-about-img', c.about_img || '');
                                         adminContentAboutContent.value = c.about_content || "";
                                         adminContentAboutFooter.value = c.about_footer || "";
+                                        setPreview('preview-como-img', c.como_img || '');
+                                        setPreview('preview-dif-img', c.dif_img || '');
+                                        adminContentValorSessao.value = c.valor_sessao || "80,00";
+                                        adminContentValorMensal.value = c.valor_mensal || "300,00";
+                                        setPreview('preview-valores-img', c.valores_img || '');
                                 }
 
-                                // Load PDF products for Tab 2
+                                // Load Ebooks for Tab 2
                                 loadAdminPDFList();
 
-                                // Load Purchases list for Tab 3
-                                loadAdminPurchasesList();
+                                // Load Blog for Tab 3
+                                renderBlogList();
+
+                                // Load Pages for Tab 4
+                                renderTestimonialsList();
+                                renderFaqList();
+
+                                // Load Globals for Tab 5
+                                loadGlobals();
 
                         } catch (e) {
-                                Logger.error("Erro ao carregar painel de administraÃ§Ã£o", e);
+                                Logger.error("Erro ao carregar painel de administração", e);
                         }
+                        // Always load from localStorage as supplement
+                        renderBlogList();
+                        renderTestimonialsList();
+                        renderFaqList();
+                        loadGlobals();
+                        // Load image previews from localStorage
+                        ['hero-img','about-img','como-img','dif-img','valores-img'].forEach(key => {
+                                const stored = localStorage.getItem(`site_content_${key}`);
+                                if (stored) setPreview(`preview-${key}`, stored);
+                        });
                 }
 
-                // 5. Admin Content Updates
+                // 5. Admin Content Updates (reads uploaded files as base64)
                 adminSaveContentBtn.addEventListener('click', async () => {
+                        const [heroImg, aboutImg, comoImg, difImg, valoresImg] = await Promise.all([
+                                getFileFromInput('admin-content-hero-img'),
+                                getFileFromInput('admin-content-about-img'),
+                                getFileFromInput('admin-content-como-img'),
+                                getFileFromInput('admin-content-dif-img'),
+                                getFileFromInput('admin-content-valores-img')
+                        ]);
+
                         const payload = [
                                 { key: "hero_title", value: adminContentHeroTitle.value },
                                 { key: "hero_desc", value: adminContentHeroDesc.value },
+                                { key: "hero_img", value: heroImg || document.getElementById('preview-hero-img')?.src || '' },
                                 { key: "about_title", value: adminContentAboutTitle.value },
-                                { key: "about_img", value: adminContentAboutImg.value },
+                                { key: "about_img", value: aboutImg || document.getElementById('preview-about-img')?.src || '' },
                                 { key: "about_content", value: adminContentAboutContent.value },
-                                { key: "about_footer", value: adminContentAboutFooter.value }
+                                { key: "about_footer", value: adminContentAboutFooter.value },
+                                { key: "como_img", value: comoImg || document.getElementById('preview-como-img')?.src || '' },
+                                { key: "dif_img", value: difImg || document.getElementById('preview-dif-img')?.src || '' },
+                                { key: "valor_sessao", value: adminContentValorSessao.value },
+                                { key: "valor_mensal", value: adminContentValorMensal.value },
+                                { key: "valores_img", value: valoresImg || document.getElementById('preview-valores-img')?.src || '' }
                         ];
 
                         try {
@@ -1213,28 +1491,36 @@
                                 });
 
                                 if (res.ok) {
-                                        showToast("ConteÃºdo atualizado com sucesso!", "check_circle");
-                                        loadSiteData(); // refresh live site layout
+                                        showToast("Conteúdo atualizado com sucesso!", "check_circle");
                                 } else {
-                                        showToast("Erro ao salvar alteraÃ§Ãµes.", "error");
+                                        payload.forEach(p => localStorage.setItem(`site_content_${p.key}`, p.value));
+                                        showToast("Salvo localmente!", "check_circle");
                                 }
                         } catch (e) {
-                                showToast("Erro de conexÃ£o.", "wifi_off");
+                                payload.forEach(p => localStorage.setItem(`site_content_${p.key}`, p.value));
+                                showToast("Salvo localmente!", "check_circle");
                         }
+                        loadSiteData();
                 });
 
-                // TAB 2: PDF Management
+                // TAB 2: PDF/Ebooks Management
                 async function loadAdminPDFList() {
-                        const res = await fetch(`${API_BASE_URL}/admin/pdf-products`);
-                        if (res.ok) {
-                                const products = await res.json();
-                                renderAdminPDFList(products);
-                        }
+                        try {
+                                const res = await fetch(`${API_BASE_URL}/admin/pdf-products`);
+                                if (res.ok) {
+                                        const products = await res.json();
+                                        renderAdminPDFList(products);
+                                        return;
+                                }
+                        } catch (e) {}
+                        // Fallback: localStorage
+                        const products = JSON.parse(localStorage.getItem('site_products') || '[]');
+                        renderAdminPDFList(products);
                 }
 
                 function renderAdminPDFList(products) {
                         if (products.length === 0) {
-                                adminPdfListContainer.innerHTML = `<p class="italic text-on-surface-variant text-sm py-4">Nenhum PDF cadastrado ainda.</p>`;
+                                adminPdfListContainer.innerHTML = `<p class="italic text-on-surface-variant text-sm py-4">Nenhum material cadastrado ainda.</p>`;
                                 return;
                         }
 
@@ -1242,11 +1528,11 @@
                                 <div class="p-4 bg-surface-container rounded-lg border border-outline-variant/30 flex justify-between items-center mb-3">
                                         <div>
                                                 <h5 class="font-bold text-sm text-on-surface">${p.title}</h5>
-                                                <p class="text-xs text-on-surface-variant line-clamp-1">${p.description}</p>
-                                                <p class="text-xs text-primary font-bold mt-1">R$ ${p.price.toFixed(2)} | Status: ${p.is_active ? 'Ativo' : 'Inativo'}</p>
+                                                <p class="text-xs text-on-surface-variant line-clamp-1">${p.description || ''}</p>
+                                                <p class="text-xs text-primary font-bold mt-1">R$ ${p.price.toFixed(2)} | Link: ${p.payment_link ? 'Definido' : 'Não definido'}</p>
                                         </div>
                                         <div class="flex gap-2">
-                                                <button class="px-3 py-1 bg-primary text-on-primary rounded text-xs edit-pdf-btn" data-p='${JSON.stringify(p)}'>Editar</button>
+                                                <button class="px-3 py-1 bg-primary text-on-primary rounded text-xs edit-pdf-btn" data-p='${JSON.stringify(p).replace(/'/g, "&#39;")}'>Editar</button>
                                                 <button class="px-3 py-1 bg-red-600 text-white rounded text-xs delete-pdf-btn" data-id="${p.id}">Excluir</button>
                                         </div>
                                 </div>
@@ -1263,7 +1549,7 @@
                                         adminPdfPriceInput.value = p.price;
                                         adminPdfDescInput.value = p.description;
                                         adminPdfPaymentLinkInput.value = p.payment_link;
-                                        adminPdfDownloadUrlInput.value = p.download_url;
+                                        if (adminPdfIconInput) adminPdfIconInput.value = p.icon || 'auto_stories';
                                 });
                         });
 
@@ -1271,15 +1557,23 @@
                                 btn.addEventListener('click', async () => {
                                         const id = btn.getAttribute('data-id');
                                         if (confirm("Deseja realmente excluir este material?")) {
-                                                const res = await fetch(`${API_BASE_URL}/admin/pdf-products/${id}`, {
-                                                        method: 'DELETE',
-                                                        headers: { 'Authorization': `Bearer ${adminToken}` }
-                                                });
-                                                if (res.ok) {
-                                                        showToast("PDF excluÃ­do com sucesso!", "check_circle");
-                                                        loadAdminPDFList();
-                                                        loadSiteData();
-                                                }
+                                                try {
+                                                        const res = await fetch(`${API_BASE_URL}/admin/pdf-products/${id}`, {
+                                                                method: 'DELETE',
+                                                                headers: { 'Authorization': `Bearer ${adminToken}` }
+                                                        });
+                                                        if (res.ok) {
+                                                                showToast("Material excluído!", "check_circle");
+                                                                loadAdminPDFList();
+                                                                return;
+                                                        }
+                                                } catch (e) {}
+                                                // Fallback: localStorage
+                                                let products = JSON.parse(localStorage.getItem('site_products') || '[]');
+                                                products = products.filter(p => p.id != id);
+                                                localStorage.setItem('site_products', JSON.stringify(products));
+                                                showToast("Material excluído!", "check_circle");
+                                                loadAdminPDFList();
                                         }
                                 });
                         });
@@ -1287,13 +1581,13 @@
 
                 adminAddPdfBtn.addEventListener('click', () => {
                         adminPdfFormContainer.classList.remove('hidden');
-                        adminPdfFormTitle.innerText = "Adicionar Novo PDF";
+                        adminPdfFormTitle.innerText = "Adicionar Novo Material";
                         adminPdfIdInput.value = "";
                         adminPdfTitleInput.value = "";
                         adminPdfPriceInput.value = "";
                         adminPdfDescInput.value = "";
+                        if (adminPdfIconInput) adminPdfIconInput.value = "auto_stories";
                         adminPdfPaymentLinkInput.value = "";
-                        adminPdfDownloadUrlInput.value = "";
                 });
 
                 adminPdfCancelBtn.addEventListener('click', () => {
@@ -1307,12 +1601,12 @@
                                 description: adminPdfDescInput.value,
                                 price: parseFloat(adminPdfPriceInput.value),
                                 payment_link: adminPdfPaymentLinkInput.value,
-                                download_url: adminPdfDownloadUrlInput.value,
+                                icon: adminPdfIconInput ? adminPdfIconInput.value : 'auto_stories',
                                 is_active: true
                         };
 
-                        if (!payload.title || !payload.price || !payload.payment_link || !payload.download_url) {
-                                showToast("Por favor, preencha todos os campos obrigatÃ³rios.", "warning");
+                        if (!payload.title || !payload.price || !payload.payment_link) {
+                                showToast("Preencha título, preço e link de venda.", "warning");
                                 return;
                         }
 
@@ -1330,70 +1624,138 @@
                                 });
 
                                 if (res.ok) {
-                                        showToast("PDF salvo com sucesso!", "check_circle");
-                                        adminPdfFormContainer.classList.add('hidden');
-                                        loadAdminPDFList();
-                                        loadSiteData();
+                                        showToast("Material salvo com sucesso!", "check_circle");
                                 } else {
-                                        showToast("Erro ao salvar o material.", "error");
+                                        // Fallback: save to localStorage
+                                        let products = JSON.parse(localStorage.getItem('site_products') || '[]');
+                                        if (id) {
+                                                const idx = products.findIndex(p => p.id == id);
+                                                if (idx >= 0) products[idx] = { ...products[idx], ...payload };
+                                        } else {
+                                                payload.id = Date.now();
+                                                products.push(payload);
+                                        }
+                                        localStorage.setItem('site_products', JSON.stringify(products));
+                                        showToast("Salvo localmente!", "check_circle");
                                 }
                         } catch (e) {
-                                showToast("Erro de rede.", "wifi_off");
+                                let products = JSON.parse(localStorage.getItem('site_products') || '[]');
+                                if (id) {
+                                        const idx = products.findIndex(p => p.id == id);
+                                        if (idx >= 0) products[idx] = { ...products[idx], ...payload };
+                                } else {
+                                        payload.id = Date.now();
+                                        products.push(payload);
+                                }
+                                localStorage.setItem('site_products', JSON.stringify(products));
+                                showToast("Salvo localmente!", "check_circle");
                         }
+                        adminPdfFormContainer.classList.add('hidden');
+                        loadAdminPDFList();
                 });
 
-                // TAB 3: Purchases
-                async function loadAdminPurchasesList() {
-                        const res = await fetch(`${API_BASE_URL}/admin/purchases`, {
-                                headers: { 'Authorization': `Bearer ${adminToken}` }
-                        });
-                        if (res.ok) {
-                                const purchases = await res.json();
-                                renderAdminPurchasesList(purchases);
-                        }
-                }
+                // ==========================================
+                // BLOG MANAGEMENT
+                // ==========================================
+                adminAddBlogBtn.addEventListener('click', () => {
+                        adminBlogFormContainer.classList.remove('hidden');
+                        adminBlogFormTitle.innerText = 'Novo Artigo';
+                        adminBlogIdInput.value = '';
+                        adminBlogTitleInput.value = '';
+                        adminBlogCategoryInput.value = 'curadoria';
+                        adminBlogDateInput.value = new Date().toISOString().split('T')[0];
+                        adminBlogExcerptInput.value = '';
+                        adminBlogContentInput.value = '';
+                        setPreview('preview-blog-image', 'assets/ester-blog.jpg');
+                        adminBlogImageInput.value = '';
+                });
 
-                function renderAdminPurchasesList(purchases) {
-                        if (purchases.length === 0) {
-                                adminPurchasesTableBody.innerHTML = `<tr><td colspan="5" class="p-4 text-center italic text-on-surface-variant">Nenhuma compra registrada ainda.</td></tr>`;
+                adminBlogCancelBtn.addEventListener('click', () => {
+                        adminBlogFormContainer.classList.add('hidden');
+                });
+
+                adminBlogSaveBtn.addEventListener('click', async () => {
+                        const id = adminBlogIdInput.value;
+                        const blogImg = await getFileFromInput('admin-blog-image');
+                        const post = {
+                                title: adminBlogTitleInput.value,
+                                category: adminBlogCategoryInput.options[adminBlogCategoryInput.selectedIndex].text,
+                                category_key: adminBlogCategoryInput.value,
+                                date: adminBlogDateInput.value,
+                                excerpt: adminBlogExcerptInput.value,
+                                content: adminBlogContentInput.value,
+                                image: blogImg || document.getElementById('preview-blog-image')?.src || 'assets/ester-blog.jpg'
+                        };
+
+                        if (!post.title || !post.content) {
+                                showToast("Título e conteúdo são obrigatórios.", "warning");
                                 return;
                         }
 
-                        adminPurchasesTableBody.innerHTML = purchases.map(p => `
-                                <tr class="border-b border-outline-variant/30 hover:bg-surface-container-low">
-                                        <td class="p-3 text-on-surface font-bold">${p.product_title}</td>
-                                        <td class="p-3 text-on-surface-variant">${p.email}</td>
-                                        <td class="p-3">
-                                                <span class="px-2 py-0.5 rounded text-xs font-bold ${p.status === 'paid' ? 'bg-green-100 text-green-800' : 'bg-amber-100 text-amber-800'}">
-                                                        ${p.status === 'paid' ? 'Pago' : 'Pendente'}
-                                                </span>
-                                        </td>
-                                        <td class="p-3 text-xs text-on-surface-variant">${new Date(p.created_at).toLocaleDateString()}</td>
-                                        <td class="p-3 text-right">
-                                                ${p.status === 'pending' ? `
-                                                        <button class="px-3 py-1 bg-secondary text-on-secondary rounded text-xs font-bold confirm-purchase-btn cursor-pointer" data-id="${p.id}">
-                                                                Confirmar Pagamento
-                                                        </button>
-                                                ` : '<span class="text-xs text-green-700 italic font-bold">E-mail Enviado</span>'}
-                                        </td>
-                                </tr>
-                        `).join('');
+                        let posts = loadBlogPosts();
+                        if (id !== '') {
+                                posts[parseInt(id)] = post;
+                        } else {
+                                posts.push(post);
+                        }
+                        saveBlogPosts(posts);
+                        renderBlogList();
+                        adminBlogFormContainer.classList.add('hidden');
+                        showToast("Artigo salvo com sucesso!", "check_circle");
+                });
 
-                        // Bind payment confirmation simulation buttons
-                        document.querySelectorAll('.confirm-purchase-btn').forEach(btn => {
-                                btn.addEventListener('click', async () => {
-                                        const id = btn.getAttribute('data-id');
-                                        const res = await fetch(`${API_BASE_URL}/purchases/${id}/confirm`, { method: 'POST' });
-                                        if (res.ok) {
-                                                const data = await res.json();
-                                                showToast("Pagamento confirmado! Link enviado por e-mail.", "check_circle");
-                                                loadAdminPurchasesList();
-                                        }
-                                });
-                        });
-                }
+                // ==========================================
+                // PAGES: TESTIMONIALS & FAQ
+                // ==========================================
+                adminAddTestimonialBtn.addEventListener('click', () => {
+                        const name = prompt('Nome do paciente:');
+                        if (!name) return;
+                        const text = prompt('Texto do depoimento:');
+                        if (!text) return;
+                        const type = prompt('Tipo (ex: Terapia Online, Terapia Presencial):', 'Terapia Online');
+                        let items = loadTestimonials();
+                        items.push({ name, text, type: type || 'Terapia Online' });
+                        saveTestimonials(items);
+                        renderTestimonialsList();
+                        showToast('Depoimento adicionado!', 'check_circle');
+                });
+
+                adminAddFaqBtn.addEventListener('click', () => {
+                        const question = prompt('Pergunta:');
+                        if (!question) return;
+                        const answer = prompt('Resposta:');
+                        if (!answer) return;
+                        let items = loadFaq();
+                        items.push({ question, answer });
+                        saveFaq(items);
+                        renderFaqList();
+                        showToast('Pergunta adicionada!', 'check_circle');
+                });
+
+                adminSavePagesBtn.addEventListener('click', () => {
+                        showToast('Depoimentos e FAQ salvos!', 'check_circle');
+                });
+
+                // ==========================================
+                // GLOBALS
+                // ==========================================
+                adminSaveGlobalsBtn.addEventListener('click', () => {
+                        const globals = {
+                                whatsapp: adminGlobalWhatsapp.value,
+                                email: adminGlobalEmail.value,
+                                phone: adminGlobalPhone.value,
+                                address: adminGlobalAddress.value,
+                                instagram: adminGlobalInstagram.value,
+                                other_social: adminGlobalOtherSocial.value,
+                                logo: adminGlobalLogo.value,
+                                ebooks_cta_text: adminGlobalEbooksCtaText.value
+                        };
+                        localStorage.setItem('site_globals', JSON.stringify(globals));
+                        showToast('Configurações globais salvas!', 'check_circle');
+                });
 
                 // Load live data on initialization
                 loadSiteData();
+                loadProducts();
 
                 // Cal.com embed removido para priorizar agendamento local integrado com a IA.
