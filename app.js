@@ -1437,7 +1437,13 @@
                                 renderTestimonialsList();
                                 renderFaqList();
 
-                                // Load Globals for Tab 5
+                                // Load Agendas for Tab 5
+                                renderAdminAgendas();
+
+                                // Load Leads for Tab 6
+                                renderAdminLeads();
+
+                                // Load Globals for Tab 7
                                 loadGlobals();
 
                         } catch (e) {
@@ -1753,6 +1759,129 @@
                         localStorage.setItem('site_globals', JSON.stringify(globals));
                         showToast('Configurações globais salvas!', 'check_circle');
                 });
+
+                // ==========================================
+                // AGENDAS (LINA Appointments)
+                // ==========================================
+                async function renderAdminAgendas() {
+                        let appointments = [];
+                        try {
+                                const res = await fetch(`${API_BASE_URL}/appointments`);
+                                if (res.ok) appointments = await res.json();
+                        } catch (e) {}
+                        // Supplement with localStorage
+                        const local = JSON.parse(localStorage.getItem('user_appointments') || '[]');
+                        local.forEach(a => {
+                                if (!appointments.some(x => x.id === a.id)) appointments.push(a);
+                        });
+
+                        const statsEl = document.getElementById('admin-agendas-stats');
+                        const listEl = document.getElementById('admin-agendas-list');
+                        if (!statsEl || !listEl) return;
+
+                        const total = appointments.length;
+                        const pending = appointments.filter(a => a.status === 'pending' || !a.status).length;
+                        const confirmed = appointments.filter(a => a.status === 'confirmed').length;
+                        const cancelled = appointments.filter(a => a.status === 'cancelled').length;
+
+                        statsEl.innerHTML = `
+                                <div class="p-3 bg-surface-container rounded-lg border border-outline-variant/30 text-center">
+                                        <p class="text-2xl font-bold text-primary">${total}</p>
+                                        <p class="text-[10px] text-on-surface-variant uppercase">Total</p>
+                                </div>
+                                <div class="p-3 bg-amber-50 rounded-lg border border-amber-200 text-center">
+                                        <p class="text-2xl font-bold text-amber-600">${pending}</p>
+                                        <p class="text-[10px] text-amber-600 uppercase">Pendentes</p>
+                                </div>
+                                <div class="p-3 bg-green-50 rounded-lg border border-green-200 text-center">
+                                        <p class="text-2xl font-bold text-green-600">${confirmed}</p>
+                                        <p class="text-[10px] text-green-600 uppercase">Confirmadas</p>
+                                </div>
+                                <div class="p-3 bg-red-50 rounded-lg border border-red-200 text-center">
+                                        <p class="text-2xl font-bold text-red-600">${cancelled}</p>
+                                        <p class="text-[10px] text-red-600 uppercase">Canceladas</p>
+                                </div>
+                        `;
+
+                        if (appointments.length === 0) {
+                                listEl.innerHTML = '<p class="italic text-on-surface-variant text-sm py-4">Nenhuma agenda registrada ainda.</p>';
+                                return;
+                        }
+
+                        listEl.innerHTML = appointments.sort((a, b) => new Date(b.date || b.created_at) - new Date(a.date || a.created_at)).map(a => {
+                                const statusColor = a.status === 'confirmed' ? 'bg-green-100 text-green-800' : a.status === 'cancelled' ? 'bg-red-100 text-red-800' : 'bg-amber-100 text-amber-800';
+                                const statusText = a.status === 'confirmed' ? 'Confirmada' : a.status === 'cancelled' ? 'Cancelada' : 'Pendente';
+                                return `
+                                        <div class="p-4 bg-surface-container rounded-lg border border-outline-variant/30">
+                                                <div class="flex justify-between items-start mb-2">
+                                                        <div>
+                                                                <p class="font-bold text-sm text-on-surface">${a.name || a.patient_name || 'Sem nome'}</p>
+                                                                <p class="text-xs text-on-surface-variant">${a.email || ''} ${a.phone ? '• ' + a.phone : ''}</p>
+                                                        </div>
+                                                        <span class="px-2 py-0.5 rounded text-[10px] font-bold ${statusColor}">${statusText}</span>
+                                                </div>
+                                                <div class="flex flex-wrap gap-3 text-xs text-on-surface-variant">
+                                                        <span class="flex items-center gap-1"><span class="material-symbols-outlined text-xs">calendar_today</span>${a.date || 'Sem data'}</span>
+                                                        <span class="flex items-center gap-1"><span class="material-symbols-outlined text-xs">schedule</span>${a.time || 'Sem horário'}</span>
+                                                        ${a.type ? `<span class="flex items-center gap-1"><span class="material-symbols-outlined text-xs">category</span>${a.type}</span>` : ''}
+                                                </div>
+                                                ${a.message ? `<p class="text-xs text-on-surface-variant mt-2 italic">"${a.message}"</p>` : ''}
+                                        </div>
+                                `;
+                        }).join('');
+                }
+
+                // ==========================================
+                // LEADS (Waitlist + Form Submissions)
+                // ==========================================
+                function renderAdminLeads() {
+                        const leads = JSON.parse(localStorage.getItem('waitlist_submissions') || '[]');
+                        const statsEl = document.getElementById('admin-leads-stats');
+                        const listEl = document.getElementById('admin-leads-list');
+                        if (!statsEl || !listEl) return;
+
+                        const total = leads.length;
+                        const today = new Date().toISOString().split('T')[0];
+                        const todayCount = leads.filter(l => l.date === today || l.submitted_at?.startsWith(today)).length;
+
+                        statsEl.innerHTML = `
+                                <div class="p-3 bg-surface-container rounded-lg border border-outline-variant/30 text-center">
+                                        <p class="text-2xl font-bold text-primary">${total}</p>
+                                        <p class="text-[10px] text-on-surface-variant uppercase">Total de Leads</p>
+                                </div>
+                                <div class="p-3 bg-blue-50 rounded-lg border border-blue-200 text-center">
+                                        <p class="text-2xl font-bold text-blue-600">${todayCount}</p>
+                                        <p class="text-[10px] text-blue-600 uppercase">Hoje</p>
+                                </div>
+                                <div class="p-3 bg-surface-container rounded-lg border border-outline-variant/30 text-center">
+                                        <p class="text-2xl font-bold text-secondary">${leads.filter(l => l.type === 'waitlist').length}</p>
+                                        <p class="text-[10px] text-on-surface-variant uppercase">Lista de Espera</p>
+                                </div>
+                        `;
+
+                        if (leads.length === 0) {
+                                listEl.innerHTML = '<p class="italic text-on-surface-variant text-sm py-4">Nenhum lead capturado ainda.</p>';
+                                return;
+                        }
+
+                        listEl.innerHTML = leads.sort((a, b) => new Date(b.submitted_at || b.date || 0) - new Date(a.submitted_at || a.date || 0)).map(l => `
+                                <div class="p-4 bg-surface-container rounded-lg border border-outline-variant/30">
+                                        <div class="flex justify-between items-start mb-2">
+                                                <div>
+                                                        <p class="font-bold text-sm text-on-surface">${l.name || l.nome || 'Sem nome'}</p>
+                                                        <p class="text-xs text-on-surface-variant">${l.email || ''} ${l.phone || l.whatsapp ? '• ' + (l.phone || l.whatsapp) : ''}</p>
+                                                </div>
+                                                <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-primary/10 text-primary">${l.type || 'lead'}</span>
+                                        </div>
+                                        <div class="flex flex-wrap gap-3 text-xs text-on-surface-variant">
+                                                <span class="flex items-center gap-1"><span class="material-symbols-outlined text-xs">calendar_today</span>${l.date || l.submitted_at?.split('T')[0] || 'Sem data'}</span>
+                                                ${l.age ? `<span class="flex items-center gap-1"><span class="material-symbols-outlined text-xs">person</span>${l.age} anos</span>` : ''}
+                                                ${l.location ? `<span class="flex items-center gap-1"><span class="material-symbols-outlined text-xs">location_on</span>${l.location}</span>` : ''}
+                                        </div>
+                                        ${l.message || l.mensagem ? `<p class="text-xs text-on-surface-variant mt-2 italic">"${l.message || l.mensagem}"</p>` : ''}
+                                </div>
+                        `).join('');
+                }
 
                 // Load live data on initialization
                 loadSiteData();

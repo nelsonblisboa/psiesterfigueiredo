@@ -2004,6 +2004,14 @@
                                                 <span class="material-symbols-outlined text-xs md:text-sm">description</span>
                                                 Páginas
                                         </button>
+                                        <button class="admin-tab-btn px-3 md:px-4 py-2.5 md:py-3 text-left font-bold text-[10px] md:text-xs text-on-surface-variant hover:bg-surface border-b-2 md:border-b-0 md:border-r-4 border-transparent flex items-center gap-1.5 md:gap-2 flex-shrink-0 md:flex-initial" data-tab="agendas">
+                                                <span class="material-symbols-outlined text-xs md:text-sm">calendar_month</span>
+                                                Agendas
+                                        </button>
+                                        <button class="admin-tab-btn px-3 md:px-4 py-2.5 md:py-3 text-left font-bold text-[10px] md:text-xs text-on-surface-variant hover:bg-surface border-b-2 md:border-b-0 md:border-r-4 border-transparent flex items-center gap-1.5 md:gap-2 flex-shrink-0 md:flex-initial" data-tab="leads">
+                                                <span class="material-symbols-outlined text-xs md:text-sm">people</span>
+                                                Leads
+                                        </button>
                                         <button class="admin-tab-btn px-3 md:px-4 py-2.5 md:py-3 text-left font-bold text-[10px] md:text-xs text-on-surface-variant hover:bg-surface border-b-2 md:border-b-0 md:border-r-4 border-transparent flex items-center gap-1.5 md:gap-2 flex-shrink-0 md:flex-initial" data-tab="globals">
                                                 <span class="material-symbols-outlined text-xs md:text-sm">tune</span>
                                                 Global
@@ -2271,7 +2279,25 @@
                                                 </button>
                                         </div>
 
-                                        <!-- TAB 5: Configurações Globais -->
+                                        <!-- TAB 5: Agendas (LINA) -->
+                                        <div id="admin-tab-agendas" class="admin-tab-content hidden space-y-6">
+                                                <h4 class="text-lg font-bold border-b border-primary/20 pb-2 text-primary flex items-center gap-2">
+                                                        <span class="material-symbols-outlined">calendar_month</span> Agendas da LINA
+                                                </h4>
+                                                <div id="admin-agendas-stats" class="grid grid-cols-2 md:grid-cols-4 gap-4"></div>
+                                                <div id="admin-agendas-list" class="space-y-3"></div>
+                                        </div>
+
+                                        <!-- TAB 6: Leads Capturados -->
+                                        <div id="admin-tab-leads" class="admin-tab-content hidden space-y-6">
+                                                <h4 class="text-lg font-bold border-b border-primary/20 pb-2 text-primary flex items-center gap-2">
+                                                        <span class="material-symbols-outlined">people</span> Base de Leads
+                                                </h4>
+                                                <div id="admin-leads-stats" class="grid grid-cols-2 md:grid-cols-3 gap-4"></div>
+                                                <div id="admin-leads-list" class="space-y-3"></div>
+                                        </div>
+
+                                        <!-- TAB 7: Configurações Globais -->
                                         <div id="admin-tab-globals" class="admin-tab-content hidden space-y-6">
                                                 <h4 class="text-lg font-bold border-b border-primary/20 pb-2 text-primary flex items-center gap-2">
                                                         <span class="material-symbols-outlined">tune</span> Configurações Globais
