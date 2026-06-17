@@ -2,7 +2,7 @@ from typing import Optional, List
 from datetime import datetime, date, timezone
 import uuid
 from sqlmodel import SQLModel, Field, Relationship, Column
-from sqlalchemy.dialects.postgresql import JSONB
+from sqlalchemy import JSON
 
 class SessionTable(SQLModel, table=True):
     __tablename__ = "sessions"
@@ -22,7 +22,7 @@ class ChatMessageTable(SQLModel, table=True):
     session_id: str = Field(foreign_key="sessions.id")
     role: str  # user, assistant, system
     content: str
-    metadata_json: Optional[dict] = Field(default=None, sa_column=Column(JSONB))
+    metadata_json: Optional[dict] = Field(default=None, sa_column=Column(JSON))
     created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
     
     session: SessionTable = Relationship(back_populates="messages")
